@@ -1,0 +1,136 @@
+ <div class="min-h-12 py-4 md:py-0 bg-black">
+    <div class="container px-4 m-auto flex justify-between flex-wrap gap-4">
+      <div class="md:h-12 flex items-center gap-5 flex-wrap">
+        <a href="mailto:{{contact.email}}" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+          <i class="fa-solid fa-envelope"></i>
+          <span>{{contact.email}}</span>
+        </a>
+        <a href="tel:{{contact.phone}}" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+          <i class="fa-solid fa-phone"></i>
+          <span>{{contact.phone}}</span>
+        </a>
+        <a href="#" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>{{contact.whatsApp}}</span>
+        </a>
+      </div>
+      <div class="lg:h-12 flex t items-center gap-4">
+        <a href="{{contact.fb}}" class="text-white text-sm flex items-center gap-2">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="{{contact.x}}" class="text-white text-sm flex items-center gap-2">
+          <i class="fa-solid fa-x"></i>
+        </a>
+        <a href="{{contact.linkedin}}" class="text-white text-sm flex items-center gap-2">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="{{contact.youtube}}" class="text-white text-sm flex items-center gap-2">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="{{contact.whatsAppLink}}" class="text-white text-sm flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <nav class="bg-white h-20 relative">
+    <div class="container m-auto flex justify-between">
+      <div class="h-20 flex items-center">
+        <a href="/"><img src="{{settings.logo.url}}" class="h-16" alt="Mumin International" /></a>
+      </div>
+      <div>
+        <ul class="h-20 gap-1 justify-between items-center hidden md:flex">
+          <li
+            class="text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+            <a href="#">HOME</a>
+          </li>
+          <li
+            class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+            <a href="#" class="">
+              <span>CURRENT JOBS</span>
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+              {% for country in countries %}
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a class="block" href=" {{country.id}}">{{country.name}}</a>
+              </li>
+              {% endfor %}
+
+            </ul>
+          </li>
+          <li
+            class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+            <a href="#" class="">
+              <span>SERVICES</span>
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+              {% for country in countries %}
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a class="block" href="#">{{country.name}}</a>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li
+            class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+            <a href="#">
+              <span>CONTACT US</span>
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a class="block" href="#">Employers</a>
+              </li>
+               <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a class="block" href="#">Jobseeker</a>
+              </li>
+               <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a class="block" href="#">Grievance Redressal</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="px-3 py-2 bg-[#d9534f] hover:bg-primary font-sans text-white rounded text-sm" href="  /jobseeker/">Quick
+              Register</a>
+          </li>
+          <li>
+            <a class="px-3 py-2 bg-[#d9534f] hover:bg-primary font-sans text-white rounded text-sm" href="/study">Work & Study
+              in Canada</a>
+          </li>
+        </ul>
+        <div class="flex h-20 items-center md:hidden">
+          <i id="menu-btn" class="fa-solid fa-bars px-5 py-2 pointer"></i>
+        </div>
+      </div>
+    </div>
+    <div id="topnav" class="z-10 hidden absolute w-full">
+      <ul class="justify-between  flex flex-col bg-slate-900">
+        <li
+          class="text-base border-b-[1px] font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300">
+          <a href="#">HOME</a>
+        </li>
+        <li
+          class="dropdown-wrap border-b-[1px] relative text-base font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300">
+          <a href="#" class="">
+            <span>CURRENT JOBS</span>
+            <i class="fa-solid fa-angle-down"></i>
+          </a>
+          <ul class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+           
+           {% for country in countries %}
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a class="block" href=" {{country.id}}">{{country.name}}</a>
+              </li>
+              {% endfor %}
+          
+          </ul>
+        </li>
+        <li
+          class="text-base border-b-[1px] font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300">
+          <a href="#">HOME</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
