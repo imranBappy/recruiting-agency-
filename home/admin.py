@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Slider, Award, Video, Service, CadidateRegistion, Contact, Setting
+from .models import Slider, Award, Video, CadidateRegistion, Contact, Setting, Serve,Service
 
 # Register your models here.
 
@@ -17,6 +17,10 @@ class VideoAdmin(admin.ModelAdmin):
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
+  pass
+
+@admin.register(Serve)
+class ServeAdmin(admin.ModelAdmin):
   pass
 
 @admin.register(CadidateRegistion)

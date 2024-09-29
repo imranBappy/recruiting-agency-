@@ -1,0 +1,142 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ settings.title }} 
+{% endblock %} 
+{% block content %}
+
+
+    <section class="mx-5">
+      <div class="container m-auto flex justify-center">
+        <div class="w-full max-w-4xl bg-white p-6 rounded shadow-md px-10 my-8">
+          <h1 class="text-2xl mt-3 mb-5 text-center font-serif font-bold">
+            CANDIDATE REGISTRATION FORM
+          </h1>
+          <form
+            method="POST"
+            enctype="multipart/form-data"
+            action="{% url 'employee_submit' %}"
+            class="flex flex-col gap-5"
+          >
+            {% csrf_token %} {{ form.as_p }}
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_name">Name:</label>
+              <input
+                type="text"
+                name="name"
+                maxlength="250"
+                required=""
+                id="id_name"
+                placeholder="Enter you name"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_phone">Phone:</label>
+              <input
+                type="text"
+                name="phone"
+                maxlength="15"
+                required=""
+                id="id_phone"
+                placeholder="Enter you phone"
+              />
+            </p>
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_email">Email:</label>
+              <input
+                type="email"
+                name="email"
+                required=""
+                id="id_email"
+                placeholder="Enter you email"
+              />
+            </p>
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="whatsApp"
+                >WhatsApp:</label
+              >
+              <input
+                type="text"
+                name="whatsApp"
+                maxlength="15"
+                required=""
+                id="whatsApp"
+                placeholder="Enter you whatsApp number"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="companyName"
+                >Company Name:</label
+              >
+              <input
+                type="text"
+                name="companyName"
+                maxlength="100"
+                required=""
+                id="companyName"
+                placeholder="Enter you company Name"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="whatsApp"
+                >Position:</label
+              >
+              <input
+                type="text"
+                name="position"
+                maxlength="15"
+                required=""
+                id="position"
+                placeholder="Enter you position "
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="requirement"
+                >Requirement:</label
+              >
+              <textarea
+                name="requirement"
+                cols="40"
+                rows="2"
+                maxlength="250"
+                required=""
+                id="requirement"
+                placeholder="Enter you requirement"
+              ></textarea>
+            </p>
+
+            <div class="flex justify-center">
+              <button
+                class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-5">
+      <div class="container m-auto my-10">
+        <h3 class="text-xl my-3 font-serif font-bold">Our Office</h3>
+
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d294.3840949801742!2d90.37921826417632!3d23.809922603040054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c72a05e72f27%3A0x253c8e0afb0d412!2sUmmul%20Qura%20Alia%20Madrasha!5e1!3m2!1sen!2sbd!4v1726599805259!5m2!1sen!2sbd"
+            height="450"
+            style="border: 0; width: 100%"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

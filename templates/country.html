@@ -1,0 +1,125 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ settings.title }} 
+{% endblock %} 
+{% block content %}
+
+   
+
+    <section class="h-96 w-full">
+      <img
+        class="h-full w-full"
+        src="https://www.ambeinter.com/images/innerpage-banners/qatar.jpg"
+        alt=""
+      />
+    </section>
+
+    <section class="mx-5">
+      <div class="container m-auto gap-6 py-14 flex flex-col md:flex-row justify-between">
+        <div class="md:w-3/4 w-full">
+          <h3 class="text-4xl font-semibold mt-5">Jobs In Qatar</h3>
+          <h6 class="text-xl font-semibold mt-5">
+            We Have Opening for Below Positions:
+          </h6>
+          <div class="mt-4 flex justify-between">
+            <div class="flex justify-center items-center gap-2">
+              <input type="checkbox" name="remote" id="remote" />
+              <label for="remote">Remote Job</label>
+            </div>
+            <form
+              method="GET"
+              action="{% url 'country_jobs' country.pk %}"
+              class="flex gap-1"
+            >
+              <input
+                class="h-7 rounded p-2"
+                type="search"
+                name="job_search"
+                id="job_search"
+                value="{{ request.GET.q }}"
+              />
+              <button
+                type="submit"
+                class="cursor-pointer text-sm font-serif flex items-center justify-center px-2 bg-[#e8e8e8]"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+          {% if jobs.exists %}
+
+          <table
+            class="w-full border-collapse border mt-4 border-slate-300 w-full"
+          >
+            <thead>
+              <tr class="h-11">
+                <th class="text-left px-2 min-w-44">Posting Title</th>
+                <th class="text-left px-2 min-w-32">Date Opened</th>
+                <th class="text-left px-2">Job Description</th>
+                <th class="text-left px-2 min-w-28">Experience</th>
+                <th class="text-left px-2 min-w-28">Job Type</th>
+                <th class="text-left px-2 min-w-28"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for job in jobs %}
+              <tr class="h-11">
+                <td class="border border-slate-300 px-2">
+                  <a href="/{{country.id}}/{{job.id}}" class="text-blue-600"
+                    >{{job.title}}</a
+                  >
+                </td>
+                <td class="border border-slate-300 px-2">{{job.posted}}</td>
+                <td
+                  class="border-t border-slate-300 line-clamp-2 px-2 text-wrap"
+                >
+                  {{job.description}}
+                </td>
+                <td class="border border-slate-300 px-2">{{job.experience}}</td>
+                <td class="border border-slate-300 px-2">{{job.job_type}}</td>
+                <td class="border border-slate-300 px-2">
+                  <a
+                    class="pointer text-sm font-serif py-[5px] px-2 bg-[#e8e8e8]"
+                    href="/apply-job/{{job.id}}"
+                    >Apply Now</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <div>
+            <h6 class="text-center my-10">Jobs Not Found!</h6>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="md:w-1/4 w-full">
+          <div class="w-full border-[1px]">
+            <h2 class="p-3 text-3xl font-serif font-bold bg-[#f9f9f9]">
+              Jobs in Countries
+            </h2>
+
+            <ul class="p-3 flex flex-col gap-2">
+              {% for country in countries %}
+              <li>
+                <i class="fa-solid fa-angle-right text-sm"></i>
+                <a
+                  class="hover:ml-2 transition-all duration-300 inline-block"
+                  href="/{{country.id}}"
+                  >Jobs in
+                  <span>{{country.name}}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+{% endblock %}

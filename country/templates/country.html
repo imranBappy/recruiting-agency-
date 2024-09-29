@@ -111,7 +111,7 @@
               >
                 {% for country in countries %}
                 <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
-                  <a class="block" href=" {{country.id}}">{{country.name}}</a>
+                  <a class="block" href="{{country.id}}">{{country.name}}</a>
                 </li>
                 {% endfor %}
               </ul>
@@ -223,9 +223,9 @@
       />
     </section>
 
-    <section>
-      <div class="container m-auto gap-6 py-14 flex justify-between">
-        <div class="w-3/4">
+    <section class="mx-5">
+      <div class="container m-auto gap-6 py-14 flex flex-col md:flex-row justify-between">
+        <div class="md:w-3/4 w-full">
           <h3 class="text-4xl font-semibold mt-5">Jobs In Qatar</h3>
           <h6 class="text-xl font-semibold mt-5">
             We Have Opening for Below Positions:
@@ -305,7 +305,7 @@
           {% endif %}
         </div>
 
-        <div class="w-1/4">
+        <div class="md:w-1/4 w-full">
           <div class="w-full border-[1px]">
             <h2 class="p-3 text-3xl font-serif font-bold bg-[#f9f9f9]">
               Jobs in Countries
@@ -404,8 +404,8 @@
           <p class="w-72 flex flex-wrap mt-5 items-center gap-2">
             <i class="fa-solid fa-house"></i>
             <span>
-              Ambe International 507, Shah and Nahar Industrial Estate, Dr E
-              Moses Road, Worli Naka, Mumbai - 400018, India</span
+              Mumin International 507, Shah and Nahar Industrial Estate, Dr E
+              Moses Road, Worli Naka, Mumbai - 400018, Bangladesh</span
             >
           </p>
         </div>

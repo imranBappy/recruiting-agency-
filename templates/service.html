@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ settings.title }} 
+{% endblock %} 
+{% block content %}
+    <section
+      class="h-[400px] flex items-center justify-center w-full bg-[url({{service.banner.url}})]"
+    >
+      <h1
+        style="text-shadow: 2px 2px #000"
+        class="md:text-5xl text-3xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold"
+      >
+        {{service.title}}
+      </h1>
+    </section>
+
+    <section class="my-10 mx-4">
+      <div class="container m-auto flex flex-col md:flex-row gap-10">
+        <p  class="md:w-3/4  mt-5 text-lg font-semibold">{{service.details}}</p>
+        <div class="md:w-2/4">
+          <img src="{{service.side_Img.url}}" class="w-full" alt="" />
+        </div>
+      </div>
+    </section>
+
+      <section class="my-8 px-4 ">
+    <div class="container m-auto">
+       
+        <div class="flex mt-16  gap-7 justify-center md:justify-start flex-wrap">
+          {% for service in services %}
+            <a href="/service/{{service.id}}" class="  w-56 flex flex-col items-center justify-center gap-4">
+            <i class="{{service.icon}} text-6xl text-primary hover:text-black"></i>
+            <h6 class="text-xl font-serif text-center font-semibold ">{{service.title}}</h6>
+          </a>
+          {% endfor %}
+          
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

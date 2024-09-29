@@ -1,9 +1,12 @@
 from django.db import models
+from django.db import migrations
+from utils.validator import  validate_file_size
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 
 class Slider(models.Model):
-    img = models.URLField(max_length=300)
+    img = models.FileField(upload_to='general/',   validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=100)
     link = models.URLField(max_length=300)
@@ -11,7 +14,7 @@ class Slider(models.Model):
         return self.title
 
 class Award(models.Model):
-    img = models.CharField(max_length=300)
+    img = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
     title = models.CharField(max_length=100)
     def __str__(self):
         return self.title
@@ -24,13 +27,27 @@ class Video(models.Model):
 
 
 
-class Service(models.Model):
-    img = models.URLField(max_length=300)
+
+class Serve(models.Model):
+    img = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'svg']), validate_file_size])
     title = models.CharField(max_length=100)
-    banner = models.URLField(max_length=300)
+    banner = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
     details_title = models.CharField(max_length=100)
     details = models.CharField(max_length=1000)
-    side_Img = models.URLField(max_length=300)
+    side_Img = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
+    def __str__(self):
+        return self.title
+
+
+
+class Service(models.Model):
+    icon = models.CharField(max_length=300)
+    title = models.CharField(max_length=100)
+    banner = models.FileField(upload_to='general/',
+     validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size]
+    )
+    details = models.CharField(max_length=1000)
+    side_Img = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
     def __str__(self):
         return self.title
 
@@ -58,7 +75,7 @@ class Contact(models.Model):
     youtube = models.URLField()
     whatsAppLink = models.URLField()
     location = models.TextField(max_length=250)
-    qr_code = models.FileField(upload_to= 'general/')
+    qr_code = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
     def __str__(self):
         return self.email
 
@@ -66,11 +83,9 @@ class Contact(models.Model):
 class Setting(models.Model):
     title = models.CharField(max_length=500)
     description = models.TextField(max_length=500)
-    logo = models.FileField(upload_to= 'general/')
+    logo = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
     def __str__(self):
         return self.title
-
-
 
 
 

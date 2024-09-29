@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ settings.title }} 
+{% endblock %} 
+{% block content %}
+
+    <section class="px-4">
+        <div class="container m-auto my-6">
+            <h2 class="text-4xl font-serif font-bold my-14">
+                <span>Find<span> <span class="text-primary">Job</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-10 ">
+                {% for country in countries %}
+                <a href="/{{country.id}}" class="border hover:shadow flex flex-col  gap-3 p-3">
+                    <img class="max-w-60" src="{{country.flag.url}}" alt="{{country.name}}">
+                    <h3 class="font-serif   font-semibold">{{country.name}}</h3>
+                </a>
+                {% endfor %}
+            </div>
+            <br><br>
+        </div>
+    </section>
+
+
+{% endblock %}

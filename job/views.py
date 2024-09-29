@@ -6,6 +6,7 @@ from .models import Job, ApplyJob,Candidate
 from django.forms.models import model_to_dict
 from .forms import ApplyJobForm,CandidateForm,EmployeeForm, StudyForm, GrievanceForm
 from django.views.decorators.http import require_http_methods
+from home.models import Contact, Setting, Service
 
 
 
@@ -16,10 +17,20 @@ def job_details(request, country_pk, job_pk):
     jobs = country.jobs.all()
     job_dist = model_to_dict(job)
     del job_dist['country']
+
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+  
     context= {
         'job': job_dist,
         "jobs":jobs,
-        "jobId" : job_dist['id']
+        "jobId" : job_dist['id'],
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
     }
 
     template = loader.get_template("job_details.html")
@@ -47,13 +58,34 @@ def apply_resume_summit(request, job_pk):
 
 
 def success(request):
-    return  render(request, 'success.html')
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    context = {
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+    }
+    return  render(request, 'success.html',context)
 
 
 @require_http_methods(['GET'])
 def candidate(request):
     form = CandidateForm()
-    return render(request,"jobseeker.html" , {"form":form})
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    context = {
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+        "form":form,
+    }
+    return render(request,"jobseeker.html" , context)
 
 
 @require_http_methods(['POST'])
@@ -68,7 +100,18 @@ def candidate_submit(request):
 
 @require_http_methods(['GET'])
 def employee(request):
-    return render(request,"employee.html" )
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    context = {
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+    }
+
+    return render(request,"employee.html",context )
 
 
 
@@ -85,7 +128,17 @@ def employee_submit(request):
 
 @require_http_methods(['GET'])
 def study(request):
-    return render(request,"study.html" )
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    context = {
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+    }
+    return render(request,"study.html",context )
 
 @require_http_methods(['POST'])
 def study_submit(request):
@@ -97,7 +150,17 @@ def study_submit(request):
 
 @require_http_methods(['GET'])
 def grievance(request):
-    return render(request,"grievance.html" )
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    context = {
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+    }
+    return render(request,"grievance.html",context )
 
 @require_http_methods(['POST'])
 def grievance_submit(request):

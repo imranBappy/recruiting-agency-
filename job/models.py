@@ -1,6 +1,7 @@
 from django.db import models
-
 from country.models import Country
+from utils.validator import  validate_file_size
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 
@@ -33,8 +34,10 @@ class ApplyJob(models.Model):
     age = models.CharField(max_length=15)
     skills = models.TextField(max_length=250)
     job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='apply_job')
-    resume = models.FileField(upload_to='resumes/') 
-    coverLetter = models.FileField(upload_to='coverLetters/')
+    resume = models.FileField(upload_to='resumes/',
+    validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size]
+    ) 
+    coverLetter = models.FileField(upload_to='coverLetters/',validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size])
     
     def __str__(self):
         return self.name
@@ -79,7 +82,9 @@ class Candidate(models.Model):
     }
     position = models.CharField(choices=JOB_POSITION, max_length=250)
     location = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='candition_location')
-    resume = models.FileField(upload_to='resumes/')
+    resume = models.FileField(upload_to='resumes/',
+    validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size]
+    )
     def __str__(self):
             return self.name
 

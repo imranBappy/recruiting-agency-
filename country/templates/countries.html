@@ -1,0 +1,302 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{settings.description}}" />
+
+    <title>{{settings.title}}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#991208",
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+
+</head>
+
+<body>
+    <div class="min-h-12 py-4 md:py-0 bg-black">
+        <div class="container px-4 m-auto flex justify-between flex-wrap gap-4">
+            <div class="md:h-12 flex items-center gap-5 flex-wrap">
+                <a href="mailto:{{contact.email}}" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>{{contact.email}}</span>
+                </a>
+                <a href="tel:{{contact.phone}}" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>{{contact.phone}}</span>
+                </a>
+                <a href="#" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>{{contact.whatsApp}}</span>
+                </a>
+            </div>
+            <div class="lg:h-12 flex t items-center gap-4">
+                <a href="{{contact.fb}}" class="text-white text-sm flex items-center gap-2">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="{{contact.x}}" class="text-white text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-x"></i>
+                </a>
+                <a href="{{contact.linkedin}}" class="text-white text-sm flex items-center gap-2">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="{{contact.youtube}}" class="text-white text-sm flex items-center gap-2">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="{{contact.whatsAppLink}}" class="text-white text-sm flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <nav class="bg-white h-20 relative">
+        <div class="container m-auto flex justify-between">
+            <div class="h-20 flex items-center">
+                <a href="/"><img src="{{settings.logo.url}}" class="h-16" alt="Mumin International" /></a>
+            </div>
+            <div>
+                <ul class="h-20 gap-1 justify-between items-center hidden md:flex">
+                    <li
+                        class="text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+                        <a href="#">HOME</a>
+                    </li>
+                    <li
+                        class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+                        <a href="#" class="">
+                            <span>CURRENT JOBS</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+                            {% for country in countries %}
+                            <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                                <a class="block" href="/country/{{country.id}}">{{country.name}}</a>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                    </li>
+                    <li
+                        class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+                        <a href="#" class="">
+                            <span>SERVICES</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+                            {% for service in services %}
+                            <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                                <a class="block" href="#">{{service.title}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li
+                        class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300">
+                        <a href="#">
+                            <span>CONTACT US</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+                            <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                                <a class="block" href="/employee">Employers</a>
+                            </li>
+                            <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                                <a class="block" href="/jobseeker">Jobseeker</a>
+                            </li>
+                            <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                                <a class="block" href="/grievance-redressal">Grievance Redressal</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="px-3 py-2 bg-[#d9534f] hover:bg-primary font-sans text-white rounded text-sm"
+                            href="/jobseeker/">Quick
+                            Register</a>
+                    </li>
+                    <li>
+                        <a class="px-3 py-2 bg-[#d9534f] hover:bg-primary font-sans text-white rounded text-sm"
+                            href="/study">Work &
+                            Study
+                            in Canada</a>
+                    </li>
+                </ul>
+                <div class="flex h-20 items-center md:hidden">
+                    <i id="menu-btn" class="fa-solid fa-bars px-5 py-2 pointer"></i>
+                </div>
+            </div>
+        </div>
+        <div id="topnav" class="z-10 hidden absolute w-full">
+            <ul class="justify-between  flex flex-col bg-slate-900">
+                <li
+                    class="dropdown-wrap border-b-[1px] relative text-base font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300">
+                    <a href="#" class="">
+                        <span>CURRENT JOBS</span>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                    <ul
+                        class="dropdown z-30 absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+                        {% for country in countries %}
+                        <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                            <a class="block" href="/{{country.id}}">{{country.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li
+                    class="dropdown-wrap border-b-[1px] relative text-base font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300">
+                    <a href="#" class="">
+                        <span>SERVICES</span>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                    <ul
+                        class="dropdown z-30 absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+                        {% for service in services %}
+                        <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                            <a class="block" href="/service/{{service.id}}">{{service.title}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li
+                    class="dropdown-wrap border-b-[1px] relative text-base font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300">
+                    <a href="#" class="">
+                        <span>CONTACT US</span>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                    <ul
+                        class="dropdown z-30 absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300">
+                        <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                            <a class="block" href="/employee">Employers</a>
+                        </li>
+                        <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                            <a class="block" href="/jobseeker">Jobseeker</a>
+                        </li>
+                        <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                            <a class="block" href="/grievance-redressal">Grievance Redressal</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="px-4">
+        <div class="container m-auto my-6">
+            <h2 class="text-4xl font-serif font-bold my-14">
+                <span>Find<span> <span class="text-primary">Job</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-10 ">
+                {% for country in countries %}
+                <a href="/{{country.id}}" class="border hover:shadow flex flex-col  gap-3 p-3">
+                    <img class="max-w-60" src="{{country.flag.url}}" alt="{{country.name}}">
+                    <h3 class="font-serif   font-semibold">{{country.name}}</h3>
+                </a>
+                {% endfor %}
+            </div>
+            <br><br>
+        </div>
+    </section>
+
+
+    <footer class="bg-black text-white ">
+        <div>
+            <div class="h-16 bg-primary"></div>
+            <img class="w-full" src="./assets/line-bg.png" alt="">
+        </div>
+        <div class="container m-auto">
+            <div class="  my-4 px-4  py-6 flex justify-between flex-wrap gap-7 ">
+                <div>
+                    <div>
+                        <a href="#"><img src="{% static 'assets/logo.png' %}" class="h-16"
+                                alt="Mumin International" /></a>
+                    </div>
+                    <div class="h-12 my-7 flex t items-center gap-4">
+                        <a href="mailto:mumininternational@gmail.com"
+                            class=" w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2">
+                            <i class="fa-brands fa-facebook  text-primary "></i>
+                        </a>
+                        <a href="mailto:mumininternational@gmail.com"
+                            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-x  text-primary"></i>
+                        </a>
+                        <a href="mailto:mumininternational@gmail.com"
+                            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2">
+                            <i class="fa-brands fa-linkedin  text-primary"></i>
+                        </a>
+                        <a href="mailto:mumininternational@gmail.com"
+                            class=" w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2">
+                            <i class="fa-brands fa-youtube  text-primary"></i>
+                        </a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp  text-primary"></i>
+                        </a>
+                    </div>
+                    <div class=" w-32 flex flex-col gap-4 items-center justify-center">
+                        <img class="w-32" src="{{contact.qr_code.url}}" alt="">
+                        <p>Scan QR Code</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-xl uppercase font-serif   font-bold ">Current Jobs</h2>
+                    <ul class=" flex flex-wrap  flex-col gap-7 h-56  mt-5">
+                        {% for country in countries %}
+                        <li class="">
+                            <a class="block" href=" {{country.id}}">{{country.name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xl uppercase font-serif   font-bold ">OFFICE LOCATION</h2>
+                    <p class="w-72 mt-5 ">
+                        <i class="fa-solid  fa-house"></i> {{contact.location}}
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-xl uppercase font-serif   font-bold ">CONTACT INFO</h2>
+                    <ul class=" flex flex-wrap  flex-col gap-6   mt-5">
+                        <a href="mailto:{{contact.email}}"
+                            class="text-white text-sm flex items-center gap-2 flex-nowrap">
+                            <i class="fa-solid fa-envelope "></i>
+                            <span>{{contact.email}}</span>
+                        </a>
+                        <a href="tel:{{contact.phone}}" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>{{contact.phone}}</span>
+                        </a>
+                        <a href="#" class="text-white text-sm flex items-center gap-2 flex-nowrap">
+                            <i class="fa-brands fa-whatsapp text-base	"></i>
+                            <span>{{contact.whatsApp}}</span>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="h-14  bg-primary flex items-center justify-center">
+            <p class="text-center mx-4">© Copyright Clare.AI. All rights Reserved. Site designed & Maintained by Mumin
+                International</p>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+
+</html>
