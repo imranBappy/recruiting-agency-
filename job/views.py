@@ -7,6 +7,7 @@ from django.forms.models import model_to_dict
 from .forms import ApplyJobForm,CandidateForm,EmployeeForm, StudyForm, GrievanceForm
 from django.views.decorators.http import require_http_methods
 from home.models import Contact, Setting, Service
+from django.db.models import Q
 
 
 
@@ -169,3 +170,33 @@ def grievance_submit(request):
         form.save()
         return redirect('success')
     return render(request,"grievance.html" )
+
+
+@require_http_methods(["GET"])
+def createJobList(request):
+    query = request.GET.get("job_search","")
+    query2 = request.GET.get("location")
+    job_type = request.GET.get("job_type", "")  
+
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    services = Service.objects.all()
+
+
+
+    filter_query = Q()
+    if query:
+        filter_query |= Q(title__icontains=query)
+    if query2:
+        filter_query |= Q(city__icontains=query2) | Q(country__name__icontains=query2)
+    if job_type:  # If a job type is selected, filter by job_type
+        filter_query &= Q(job_type=job_type)
+    jobs = Job.objects.filter(filter_query) if query or query2 or job_type else Job.objects.all()
+
+    context= {
+        'jobs':jobs,
+        'contact':contact,
+        'settings':settings,
+        'services':services,
+    }
+    return render(request, "careers.html", context)

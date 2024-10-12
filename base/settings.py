@@ -20,7 +20,20 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+# email setup 
 
+# settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mumininternational.com'
+EMAIL_PORT = 2091
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'admin@mumininternational.com'
+EMAIL_HOST_PASSWORD = 'Vj3Ndy@zZzv9n!C'
+
+AUTHENTICATION_BACKENDS =[
+    'user.backends.EmailBackend',  # Custom Email Backend
+    'django.contrib.auth.backends.ModelBackend',  # Default backend for username login
+]
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,7 +60,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "home",
     "country",
-    "job"
+    "job",
+    "user"
 ]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -19,7 +19,7 @@
           </p>
           <div class="w-full flex items-center justify-center">
             <a href="{{slide.link}}"
-            class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-1 text-white">APPLY NOW</a>
+              class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-1 text-white">APPLY NOW</a>
           </div>
         </div>
       </div>
@@ -27,8 +27,8 @@
     {% endfor %}
   </div>
   <div class="swiper-pagination"></div>
-  <div class="swiper-button-next hidden md:block"></div>
-  <div class="swiper-button-prev hidden md:block"></div>
+  <div class="swiper-button-next !flex "></div>
+  <div class="swiper-button-prev !flex  "></div>
 </div>
 
 
@@ -51,7 +51,7 @@
 </section>
 
 <div class="flex justify-center px-4">
-  <a href="/countries" class="px-3 py-2 bg-[#34495e] text-white text-xl font-semibold underline underline-offset-2">For
+  <a href="/countries" class="px-3 py-2 bg-[#34495e] text-white text-xl font-semibold  underline-offset-2">For
     Current
     Job Openings click here</a>
 </div>
@@ -69,7 +69,7 @@
 
 <section class="my-8 px-4">
   <div class="container m-auto">
-    <div class="flex gap-8 flex-col-reverse md:flex-row">
+    <div class="flex gap-8 flex-col md:flex-row">
       <div class="w-full md:w-3/4">
         <h2 class="text-4xl font-serif font-bold my-8">
           <span class="block">Mumin International:</span>
@@ -118,7 +118,8 @@
 
         <p>Mumin International is a Manpower Consultancy which holds the first recruitment license issued in Bangladesh
           in
-          2010 to any overseas recruitment company in Bangladesh. Mumin Internationalis Bangladesh's pioneering recruitment
+          2010 to any overseas recruitment company in Bangladesh. Mumin Internationalis Bangladesh's pioneering
+          recruitment
           organisation with
           having placed 350,000 candidates in over 25 countries worldwide. Over the years we have been serving as a
           catalyst in bringing together career seekers and employers from across the world. We have been instrumental
@@ -144,7 +145,8 @@
             <span class="text-primary">line</span>
       </h2>
       <p class="mb-3">Mumin International is a Manpower Consultancy which holds the first recruitment license issued in
-        Bangladesh in 1983 to any overseas recruitment company in Bangladesh. Mumin Internationalis Bangladesh's pioneering
+        Bangladesh in 1983 to any overseas recruitment company in Bangladesh. Mumin Internationalis Bangladesh's
+        pioneering
         recruitment
         organisation with having placed 350,000 candidates in over 25 countries worldwide. Over the years we have been
         serving as a catalyst in bringing together career seekers and employers from across the world. We have been
@@ -180,21 +182,28 @@
     </h2>
 
     <div class="pt-7">
-      <swiper-container id="swiper-container" class="mySwiper"  loop="true" init="true">
-        {% for serve in serves %}
-        <swiper-slide>
-          <a href="/serve/{{serve.id}}" class="mb-10 flex flex-col items-center w-full">
-            <div class="p-3 border w-40 h-40">
-              <img class="w-fll h-full" src="{{ serve.img.url }}" alt="">
-            </div>
-            <p class="py-3 text-sm font-semibold text-blue-700">{{serve.title}}</p>
-          </a>
-        </swiper-slide>
-        {% endfor %}
-      </swiper-container>
+      <!-- Swiper -->
+      <div class="swiper mySwiper2 !relative h-[230px]">
+        <div class="swiper-wrapper ">
+          {% for serve in serves %}
+          <div class="swiper-slide">
+            <a href="/serve/{{serve.id}}" class="mb-10 flex flex-col items-center w-full">
+              <div class="p-3 border w-40 h-40">
+                <img class="w-fll h-full" src="{{ serve.img.url }}" alt="">
+              </div>
+              <p class="py-3 text-sm font-semibold text-blue-700">{{serve.title}}</p>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next !flex"></div>
+        <div class="swiper-button-prev !flex"></div>
+      </div>
     </div>
   </div>
 </section>
+
 
 
 <section class="my-8 py-24 bg-[#f1f1f1] px-4">
@@ -211,12 +220,11 @@
   </div>
 </section>
 
-<section class="bg-white ">
+<section class="bg-white px-10">
   <div class="container m-auto">
     <h2 class="text-4xl font-serif text-center font-bold mb-10">
       Salary Survey Report
     </h2>
-
     <div class="flex items-center justify-center pb-5">
       <img class="" src="{% static 'assets/Banner-Salary-survey.jpg' %}" alt="">
     </div>

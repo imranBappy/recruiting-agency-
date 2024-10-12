@@ -11,9 +11,9 @@
       }
     });
 
-    const swiperEl = document.querySelector("#swiper-container");
+    const swiperEl = document.querySelector("#swiper-container2");
     Object.assign(swiperEl, {
-      slidesPerView: 1,
+      slidesPerView: 3,
       spaceBetween: 10,
       pagination: {
         clickable: true,
@@ -34,6 +34,26 @@
       },
     });
     swiperEl.initialize();
+
+   
   }
   document.addEventListener("DOMContentLoaded", main);
 })();
+
+
+  var swiper = new Swiper(".mySwiper2", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    autoHeight: false,
+    autoplay: {
+      delay: 5000,
+    },
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7289db",
+                        sub: "#50566d"
+                    },
+                },
+            },
+        };
+    </script>
+
+</head>
+
+<body>
+
+<section class="mx-5">
+    <div class="container m-auto flex justify-center">
+        <div class="w-full max-w-4xl bg-white p-6 rounded-xl border shadow-md px-10 my-8">
+            <h1 class="text-2xl mt-3 mb-5 text-center font-serif font-semibold ">
+                <span class="text-sub">Register with</span> Mumin International
+            </h1>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'register' %}" class="flex flex-col gap-5">
+                {% csrf_token %} {{ form.as_p }}
+                <div class="flex justify-center items-center gap-4">
+                    
+                    <a class="text-sub text-xl text-semibold" href="/careers">Cancel</a>
+                    <button class="bg-primary hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+                        type="submit">
+                        Register
+                    </button>
+                       
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <footer class="bg-black text-white mt-10">
+        <div class="h-14 bg-primary flex items-center justify-center">
+            <p class="text-center mx-4">
+                Copyright ©2024. All rights Reserved. Site designed & Maintained by Mumin
+                International
+            </p>
+        </div>
+    </footer>
+
+ 
+</body>
+
+</html>

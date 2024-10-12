@@ -1,3 +1,7 @@
+html, body{
+  overflow-x: hidden !important;
+}
+
 .dropdown {
   display: none;
 }
@@ -55,3 +59,26 @@ swiper-slide img {
     background-size: cover; /* Ensure background image covers the entire slide */
     background-position: center; /* Center the background image */
 }
+
+/* @media only screen and (max-width:750px) {
+  .swiper-button-prev,
+  .swiper-button-next{
+    top: 68% !important;
+  }
+}
+
+
+@media  only screen and (max-width:600px) {
+  .swiper-button-prev,
+  .swiper-button-next{
+    top: 60% !important;
+  }
+}
+
+@media only  screen and (max-width:500px) {
+  .swiper-button-prev,
+  .swiper-button-next{
+    top: 65% !important;
+  }
+} */
+

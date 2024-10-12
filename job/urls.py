@@ -15,4 +15,8 @@ urlpatterns = [
     path('study/submit', views.study_submit, name='study_submit'),
     path('grievance-redressal/', views.grievance, name='grievance'),
     path('grievance-redressal/submit', views.grievance_submit, name='grievance_submit'),
+
+    path('careers', views.createJobList, name='careers_job_list'),
+
+    
 ]
