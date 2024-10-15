@@ -2,6 +2,7 @@ from django.db import models
 from country.models import Country
 from utils.validator import  validate_file_size
 from django.core.validators import FileExtensionValidator
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -28,17 +29,24 @@ class Job(models.Model):
 
 class ApplyJob(models.Model):
     name = models.CharField(max_length=250)
-    designation = models.CharField(max_length=15)
+    designation = models.CharField(max_length=250)
     email = models.EmailField(max_length=100)
     phone = models.CharField(max_length=15)
     age = models.CharField(max_length=15)
-    skills = models.TextField(max_length=250)
+    skills = models.TextField(max_length=450)
     job = models.ForeignKey(Job, on_delete=models.CASCADE, related_name='apply_job')
     resume = models.FileField(upload_to='resumes/',
-    validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size]
+    validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size],
+    blank=True,  # Allow form submission without resume
+    null=True    # Store null in the database if no file is provide
     ) 
-    coverLetter = models.FileField(upload_to='coverLetters/',validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size])
-    
+    coverLetter = models.FileField(upload_to='coverLetters/',validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size],
+    blank=True,  # Allow form submission without resume
+    null=True    # Store null in the database if no file is provide
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='applications',blank=True ,  null=True  )
+
     def __str__(self):
         return self.name
 
@@ -120,3 +128,9 @@ class Grievance(models.Model):
     remarks  = models.TextField(max_length=250)   
     def __str__(self):
                 return self.name
+
+
+
+class Save(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='save_user')
+    job =  models.ForeignKey(Job, on_delete=models.CASCADE, related_name='save')

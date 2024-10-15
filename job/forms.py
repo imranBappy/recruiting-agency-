@@ -7,9 +7,7 @@ from .models import ApplyJob,Candidate,Employee,Study, Grievance
 class ApplyJobForm(forms.ModelForm):
 
     class Meta:
-
         model = ApplyJob
-
         fields = ["name", "designation", "email", "phone", "age", "skills", "resume", "coverLetter"]
         
 

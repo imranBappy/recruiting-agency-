@@ -2,12 +2,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
 from django.http import HttpResponse
 from country.models import Country
-from .models import Job, ApplyJob,Candidate
+from .models import Job, ApplyJob,Candidate, Save
 from django.forms.models import model_to_dict
 from .forms import ApplyJobForm,CandidateForm,EmployeeForm, StudyForm, GrievanceForm
 from django.views.decorators.http import require_http_methods
 from home.models import Contact, Setting, Service
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
+from user.models import UserProfile
 
 
 
@@ -40,9 +42,13 @@ def job_details(request, country_pk, job_pk):
 
 @require_http_methods(['GET'])
 def apply_resume(request, job_pk):
-    job  = get_object_or_404(Job, id=job_pk)
     form = ApplyJobForm()
-    return render(request, 'apply_job.html', {'job': job,})
+    job  = get_object_or_404(Job, id=job_pk)
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    countries = Country.objects.all()
+
+    return render(request, 'apply_job.html', {'job': job, 'countries':countries,    'contact':contact,'settings':settings,})
 
 
 
@@ -200,3 +206,119 @@ def createJobList(request):
         'services':services,
     }
     return render(request, "careers.html", context)
+
+
+
+@login_required(login_url='/login/')
+def job_detailsViewLoggedIn(request,  job_pk ):
+    job  = get_object_or_404(Job, id=job_pk)
+    country = get_object_or_404(Country, id=job.country.id)
+    user = request.user
+    existing_save = Save.objects.filter(user=request.user, job=job).first()
+
+    jobs = country.jobs.all()
+    job_dist = model_to_dict(job)
+    del job_dist['country']
+
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+  
+    context= {
+        'job': job_dist,
+        "jobs":jobs,
+        "jobId" : job_dist['id'],
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+        'is_saved': existing_save is not None 
+    }
+
+    
+    return render(request, "job_details2.html", context)
+
+
+@login_required(login_url='/login/')
+def apply_resumeViewLoggedIn(request, job_pk):
+    job  = get_object_or_404(Job, id=job_pk)
+
+    if(request.method== 'POST'):
+        form = ApplyJobForm(request.POST, request.FILES)
+        if form.is_valid():
+            job_apply  = form.save(commit=False)  
+            job_apply.user = request.user
+            job_apply.job = job
+            job_apply.save()
+            return redirect('/careers')
+    user = request.user
+    profile =  UserProfile.objects.get(user=user)
+    return render(request, 'apply_job2.html', {'job': job, 'profile':profile})
+
+
+
+@login_required(login_url='/login/')
+def save_job_view(request, job_pk):
+    job = get_object_or_404(Job, id=job_pk)
+    # Check if the job is already saved by the user
+    existing_save = Save.objects.filter(user=request.user, job=job).first()
+    if request.method == 'POST':
+        if existing_save:
+            existing_save.delete()
+            return redirect('job_detailsViewLoggedIn', job_pk)  # Redirect back to job detail page
+        else:
+            # Save the job for the user
+            save_entry = Save(user=request.user, job=job)
+            save_entry.save()
+            return redirect('job_detailsViewLoggedIn', job_pk)  # Redirect back to job detail page
+
+    return redirect('job_detailsViewLoggedIn', job_pk)
+
+
+
+    user = request.user
+    profile = UserProfile.objects.get(user=user)
+    
+    return render(request, 'application.html',
+    {'user': user, 'profile': profile}
+    )
+
+@login_required(login_url='/login/')
+def application(request):
+
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    services = Service.objects.all()
+    
+    jobs = ApplyJob.objects.filter(user = request.user)
+    profile = UserProfile.objects.get(user=request.user)
+
+    context= {
+        'profile':profile,
+        'jobs':jobs,
+        'contact':contact,
+        'settings':settings,
+        'services':services,
+    }
+    return render(request, "application.html", context)
+
+
+@login_required(login_url='/login/')
+def save(request):
+
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    services = Service.objects.all()
+    
+    jobs = Save.objects.filter(user = request.user)
+    profile = UserProfile.objects.get(user=request.user)
+
+    context= {
+        'profile':profile,
+        'jobs':jobs,
+        'contact':contact,
+        'settings':settings,
+        'services':services,
+    }
+    return render(request, "save.html", context)

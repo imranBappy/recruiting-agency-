@@ -15,8 +15,8 @@
 
           <form
             method="POST"
-            enctype="multipart/form-data"
             action="{% url 'apply_resume_submit' job.id %}"
+            enctype="multipart/form-data"
             class="flex flex-col gap-5"
           >
             {% csrf_token %} {{ form.as_p }}

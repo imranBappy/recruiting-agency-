@@ -30,10 +30,10 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'admin@mumininternational.com'
 EMAIL_HOST_PASSWORD = 'Vj3Ndy@zZzv9n!C'
 
-AUTHENTICATION_BACKENDS =[
-    'user.backends.EmailBackend',  # Custom Email Backend
-    'django.contrib.auth.backends.ModelBackend',  # Default backend for username login
-]
+# AUTHENTICATION_BACKENDS =[
+#     'user.backends.EmailBackend',  # Custom Email Backend
+#     'django.contrib.auth.backends.ModelBackend',  # Default backend for username login
+# ]
 
 
 # Quick-start development settings - unsuitable for production

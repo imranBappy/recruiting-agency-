@@ -7,6 +7,7 @@ urlpatterns = [
     path('login/', views.email_login_view, name='login'),
     path('profile/', views.profile, name='profile'),
 
+
     # For password reset and email verification, Django has built-in views
     path('password_reset/', 
          auth_views.PasswordResetView.as_view(), name='password_reset'),

@@ -15,8 +15,10 @@ urlpatterns = [
     path('study/submit', views.study_submit, name='study_submit'),
     path('grievance-redressal/', views.grievance, name='grievance'),
     path('grievance-redressal/submit', views.grievance_submit, name='grievance_submit'),
-
     path('careers', views.createJobList, name='careers_job_list'),
-
-    
+    path('careers/<int:job_pk>', views.job_detailsViewLoggedIn, name='job_detailsViewLoggedIn'),
+    path('careers/apply/<int:job_pk>', views.apply_resumeViewLoggedIn, name='apply_resumeViewLoggedIn'),
+    path('save/<int:job_pk>', views.save_job_view, name='save_job_view'),
+    path('application/', views.application, name='application'),
+    path('save/', views.save, name='save'),
 ]

@@ -30,19 +30,21 @@
 
 
     <section class="w-full md:h-[400px] h-[300px] relateive bg-no-repeat bg-top bg-center bg-cever"
-       style="background-image: url('{% static "assets/careers-bg.jpg" %}');"  >
+       style="background-image: url('{% static "assets/careers-bg.jpg" %}');"   
+        
+        >
         <div class="w-full md:h-[400px] h-[300px]   bg-[#fafafca3] ">
             <nav class="min-h-12  py-4 md:py-0 opacity-100">
                 <div class="container m-auto md:px-0 px-4">
                     <div class="pt-5 h-full flex justify-end items-center ">
                         <ul class="flex gap-4 items-center">
                             <li class=" flex items-center gap-2">
-                                <a class=" py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary "
+                                <a class="py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary"
                                     href="/careers">Jobs</a>
                             </li>
                             <li class=" flex items-center gap-2">
-                                <a href="/application" class=" cursor-pointer py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary "
-                                    >Applications</a>
+                                <a class="py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary  "
+                                    href="/application">Applications</a>
                             </li>
                             <li class=" flex items-center gap-2">
                                 <a class=" py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary "
@@ -64,21 +66,21 @@
     <section>
         <div class="max-w-[1200px] m-auto">
             <div class="flex gap-5 justify-between md:px-0 px-4">
-                <div class="w-[300px] h-fit md:mt-[150px] mt-[305px] border rounded-xl px-6 py-4 flex flex-col gap-3">
-                        <h6 class="ont-sans  font-semibold text flex items-center">
-                            <span class="bg-primary px-4 py-1 rounded-full text-white hover:bg-primary/20 px-4 py-1 rounded-full text-primary">
+                <div class="w-[300px] h-fit md:mt-[110px] mt-[305px] border rounded-xl px-6 py-4 flex flex-col gap-3">
+                        <a href="/profile" class="ont-sans  font-semibold text flex items-center">
+                            <span class="hover:bg-primary/20 px-4 py-1 rounded-full text-primary">
                                 Profile
                             </span>
-                        </h6>
+                        </a>
 
                         <a href="/application" class="ont-sans  font-semibold text flex items-center">
-                            <span class="hover:bg-primary/20 px-4 py-1 rounded-full text-primary  ">
+                            <span class="  hover:bg-primary/20 px-4 py-1 rounded-full text-primary">
                                 Applications
                             </span>
                         </a>
 
-                        <a href="/save" class="ont-sans  font-semibold text flex items-center">
-                            <span class="hover:bg-primary/20 px-4 py-1 rounded-full text-primary  ">
+                        <a   class="ont-sans  font-semibold text flex items-center">
+                            <span class=" bg-primary px-4 py-1 rounded-full text-white   ">
                                 Saved Jobs
                             </span>
                         </a>
@@ -103,60 +105,25 @@
 
                     </div>
                     <div class="w-full border rounded-xl px-6 py-4 mt-10">
-            <div class="flex gap-5 border-b pb-2">
-                                    <a href="#profile" class="ont-sans hover:border-b-2  border-primary text-primary font-semibold text-xl">Profile</a>
-                                    <a href="#skill" class="hover:border-b-2  border-primary ont-sans text-primary font-semibold text-xl">Skills</a>
-                                    <a href="{{profile.resume.url}}" target="_blank" class="hover:border-b-2  border-primary ont-sans text-primary font-semibold text-xl">Resume</a>
-
-            </div>
-                        
-
-                        <form id="profile" action="" class="flex gap-3 flex-col mt-5">
-                            <div class="flex flex-col gap-1">
-                                <label for="">Name</label>
-                                <input value="{{profile.name}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
-
-                            <div class="flex flex-col gap-1">
-                                <label for="">Email</label>
-                                <input value="{{user.email}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <label for="">Phone</label>
-                                <input value="{{profile.phone_number}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
+                            <div class="mt-5 ">
+                                {% for job in jobs %}
                             
-                            <div class="flex flex-col gap-1">
-                                <label for="">Title</label>
-                                <input value="{{profile.job_title}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
+                                <div class=" hover:bg-[#f5f6fa] py-3 px-5 flex gap-10 justify-between">
+                                    <div>
+                                        <a href="/careers/{{job.job.id}}"
+                                            class="text-primary hover:border-b-2  border-primary  font-semibold text-xl font-sans">{{job.job.title}}</a>
+                                        <p class=" text-sub  font-sans"> {{job.job.city}}, {{job.job.state}}, {{job.job.country}}</p>
+                                        <p class=" text-sub mt-3  font-sans line-clamp-2	">  
+                                            {{job.job.description}}
+                                        </p>
+                                    </div>
+                                    <div class="flex flex-col items-end">
+                                        <p class="text-sub font-semibold  font-sans uppercase ">{{job.job_type}}</p>
+                                        <p>01/22/2022</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
                             </div>
-                            <div class="flex flex-col gap-1">
-                                <label for="">Country</label>
-                                <input value="{{profile.country}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
-                            
-                            <div class="flex flex-col gap-1">
-                                <label for="">City</label>
-                                <input value="{{profile.city}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
-                            <div class="flex flex-col gap-1">
-                                <label for="">Zip Code</label>
-                                <input value="{{profile.zip_code}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
-                            
-                            <div id="skill" class="flex flex-col gap-1">
-                                <label for="">Expected Salary</label>
-                                <input value="{{profile.expected_salary}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
-                            <div id="skill" class="flex flex-col gap-1">
-                                <label for="">Skills</label>
-                                <input value="{{profile.skill}}" class="py-1 border w-fit" value="Imran Hossen" type="text" name="" id="">
-                            </div>
-                            <div>
-                                <button class="bg-primary  hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40">Save</button>
-                            </div>
-                        </form>
-
                     </div>
                 </div>
             </div>

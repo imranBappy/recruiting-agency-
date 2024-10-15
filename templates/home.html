@@ -4,17 +4,17 @@
 {{ settings.title }}
 {% endblock %}
 {% block content %}
-
-<div class="swiper-container mySwiper">
+<!-- h-[500px] md:h-full -->
+<div class="swiper-container mySwiper  h-[500px] md:h-[800px] ">
   <div class="swiper-wrapper ">
     {% for slide in sliders %}
-    <div class="swiper-slide">
-      <div class="slider flex items-center justify-center" style="background: url({{slide.img.url}})">
+    <div class="swiper-slide ">
+      <div class="slider flex items-center justify-center h-[500px] md:h-[800px]" style="background: url({{slide.img.url}})">
         <div class="max-w-[700px] md:max-h-[220px] mx-6 bg-[#00000080] px-5 py-6">
-          <h4 class="text-3xl font-serif text-center font-bold text-white">
+          <h4 class="text-2xl md:text-3xl  font-serif text-center font-bold text-white">
             {{slide.title}}
           </h4>
-          <p class="text-lg my-4 font-serif text-center font-bold text-white">
+          <p class="md:text-lg text-base my-4 font-serif text-center font-bold text-white">
             {{slide.subtitle}}
           </p>
           <div class="w-full flex items-center justify-center">
@@ -26,9 +26,9 @@
     </div>
     {% endfor %}
   </div>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-next !flex "></div>
-  <div class="swiper-button-prev !flex  "></div>
+  <div class="swiper-pagination hidden md:!block "></div>
+  <div class="swiper-button-next hidden md:!flex "></div>
+  <div class="swiper-button-prev hidden md:!flex  "></div>
 </div>
 
 
