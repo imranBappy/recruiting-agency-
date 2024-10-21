@@ -1,482 +1,77 @@
+{% extends 'base.html' %}
 {% load static %}
-
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Ambe International - India's No. 1 Overseas Recruitment Agency</title>
-  <meta name="Description"
-    Content="Ambe International is a leading international recruitment consultancy that has been providing jobs overseas for more than four decades. We are the best overseas employment agency as we have the knowledge and expertise to match your profile with an employer who is seeking jobs in MNC.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon" href="fav.html">
-  <!-- Place favicon.ico in the root directory -->
-  <!-- favicon-->
-  <!-- <link rel="shortcut icon" type="image/x-icon" href="images/fav.png"> -->
-  <link rel="shortcut icon" href="favicon.ico" />
-
-
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-  <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-
-  <!-- modernizr css -->
-  <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
-
-
-
-</head>
-
-<body>
-  <!-- Header Area Start Here -->
-  <header>
-    <div class="header-top-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="header-top-left">
-              <ul>
-                <li><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:contact@indianpersonnel.com">
-                    <font color="white">contact@indianpersonnel.com</font>
-                  </a></li>
-                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:+91-22-61431234">
-                    <font color="white">+91-22-61431234</font>
-                  </a></li>
-                <li><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/918291999288"
-                    target="_blank">
-                    <font color="white">+91-8291999288</font>
-                  </a></li>
-              </ul>
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+<section class="my-8 mx-5">
+  <div class="container m-auto">
+    <div class="flex justify-between md:flex-row flex-col  gap-6">
+      <div class="md:w-3/4 w-full">
+        <div class="border p-5">
+          <div class="flex justify-center items-center flex-col">
+            <h1 class="text-3xl text-center font-serif font-bold">
+              {{job.title}}
+            </h1>
+            <p class="text-center uppercase text-sm text-slate-500 font-semibold">
+              {{job.job_type}} | Mumin International | {{job.country.name}}
+            </p>
+            <p class="text-center uppercase text-sm text-slate-400 mt-5">
+              Posted On {{job.posted}}
+            </p>
+            <a href="/apply-job/{{jobId}}">
+              <button
+                class="mt-5 text-base bg-green-500 w-36 py-2 text-white uppercase text-center font-serif font-bold">
+                Apply Now
+              </button>
+            </a>
+          </div>
+          <div>
+            <h3 class="text-lg mt-5 mb-4 font-serif font-bold">
+              <span class="border-b-2 border-primary">
+                Job Information
+              </span>
+            </h3>
+            <div class="flex flex-col gap-3 mt-8">
+              {% for field, value in job.items %} {% if field != "id" %}
+              <div class="flex border-b-[1px] pb-3">
+                <h6 class="font-serif text-slate-500 w-48 capitalize">
+                  {{ field }}
+                </h6>
+                <p class="w-full">{{ value }}</p>
+              </div>
+              {% endif %} {% endfor %}
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="header-top-right">
-              <ul>
-                <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                <li><a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
-              </ul>
-            </div>
+          <div class="flex justify-center py-5">
+            <a href="/apply-job/{{jobId}}">
+              <button
+                class="mt-5 text-base bg-green-500 w-36 py-2 text-white uppercase text-center font-serif font-bold">
+                Apply Now
+              </button>
+            </a>
           </div>
         </div>
       </div>
-    </div>
-    <div class="main-header-area" id="sticky">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-2 col-sm-2 col-xs-12">
-            <div class="logo-area">
-              <a href="index-2.html">
-                <img src="{% static 'images/logo12.png' %}" alt="logo" class="img-responsive"
-                  style="margin-top: 10px; margin-left: 10px;">
+      <div class="md:w-1/4 w-full">
+        <div class="w-full border-[1px]">
+          <h2 class="p-3 text-3xl font-serif font-bold bg-[#f9f9f9]">
+            Available Jobs
+          </h2>
+          <ul class="p-3 flex flex-col gap-2">
+            {% for jb in jobs %}
+            <li>
+              <i class="fa-solid fa-angle-right text-sm"></i>
+              <a class="hover:ml-2 transition-all duration-300 inline-block" href="#">
+                {{jb.title}}
               </a>
-            </div>
-          </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
-            <div class="main-menu">
-              <nav>
-                <p style="margin-left:10px; margin-top: 20px;" class="btn btn-danger pull-right"
-                  style="margin-top: 20px;"><a href="#" target="_blank" style="color: #fff;">Work & Study in Canada</a>
-                </p>
-
-                <p class="btn btn-danger pull-right" style="margin-top: 20px;"><a href="#" target="_blank"
-                    style="color: #fff;">Quick
-                    Register</a></p>
-
-                <ul class="pull-right">
-                  <li class="active"><a href="index-2.html">HOME</a></li>
-                  <li><a href="#">CURRENT JOBS <i class="fa fa-angle-down"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="jobs-in-india.html">Jobs in India</a></li>
-                      <li><a href="#">Jobs In Middle East<i class="fa fa-angle-down pull-right"
-                            style="margin-top: 10px;"></i></a>
-                        <ul class="sub-menu">
-                          <li><a href="jobs-in-saudi-arabia.html">Jobs in Saudi Arabia</a>
-                          </li>
-                          <li><a href="jobs-in-qatar.html">Jobs in Qatar</a></li>
-                          <li><a href="jobs-in-oman.html">Jobs in Oman</a></li>
-                          <li><a href="jobs-in-kuwait.html">Jobs in Kuwait</a></li>
-                          <li><a href="jobs-in-bahrain.html">Jobs in Bahrain</a></li>
-                          <li><a href="jobs-in-uae.html">Jobs in UAE </a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Jobs In Europe<i class="fa fa-angle-down pull-right"
-                            style="margin-top: 10px;"></i></a>
-                        <ul class="sub-menu">
-                          <li><a href="jobs-in-romania.html">Jobs in Romania</a></li>
-                          <li><a href="jobs-in-germany.html">Jobs in Germany</a></li>
-                          <li><a href="jobs-in-bulgaria.html">Jobs in Bulgaria</a></li>
-                          <li><a href="jobs-in-croatia.html">Jobs in Croatia</a></li>
-                          <li><a href="jobs-in-france.html">Jobs in France</a></li>
-                          <li><a href="jobs-in-hungary.html">Jobs in Hungary</a></li>
-                          <li><a href="jobs-in-italy.html">Jobs in Italy</a></li>
-                          <li><a href="jobs-in-malta.html">Jobs in Malta</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </li>
-                  <li><a href="#">EMPLOYERS<i class="fa fa-angle-down"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="ambe-international-clients.html">Our Clients </a></li>
-                      <li><a href="#">Services <i class="fa fa-angle-down pull-right" style="margin-top: 10px;"></i></a>
-                        <ul class="sub-menu">
-                          <li><a href="bulk-recruitment.html">Bulk Recruitment</a></li>
-                          <li><a href="executive-search.html">Executive Search</a></li>
-                          <li><a href="turnkey-solutions.html">Turnkey Solutions</a></li>
-                          <li><a href="student-recruitment.html">Student recruitment</a></li>
-                          <li><a href="permanent-migration.html">Permanent Migration</a></li>
-                          <li><a href="assessment-and-testing-services.html">Assessment and
-                              Testing Services</a></li>
-                          <li><a href="payroll-and-contract-staffing-solutions.html">Payroll
-                              and Contract Staffing Solutions</a></li>
-                          <li><a href="training.html">Training</a></li>
-                          <li><a href="salary-survey.html">Salary Survey & Intelligence</a>
-                          </li>
-                        </ul>
-                      <li><a href="#">Industry Focus <i class="fa fa-angle-down pull-right"
-                            style="margin-top: 10px;"></i></a>
-                        <ul class="sub-menu">
-                          <li><a href="oil-and-gas.html">Oil & Gas</a></li>
-                          <li><a href="heavy-engineering-and-construction.html">Heavy
-                              Engineering & Construction</a></li>
-                          <li><a href="mining-and-resources.html">Mining & Resources</a></li>
-                          <li><a href="information-technology.html">Information Technology</a>
-                          </li>
-                          <li><a href="healthcare.html">Healthcare</a></li>
-                          <li><a href="hospitality.html">Hospitality</a></li>
-                          <li><a href="beauty-and-wellness.html">Beauty & Wellness</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="ambe-recruitment-agency-process.html">Our Recruitment
-                          Process</a></li>
-                      <li><a href="#">About Ambe <i class="fa fa-angle-down pull-right"
-                            style="margin-top: 10px;"></i></a>
-                        <ul class="sub-menu">
-                          <li><a href="about-ambe-recruitment-agency.html">Company Profile
-                            </a></li>
-                          <li><a href="ambe-international-recruitment-strengths.html">Our
-                              Strengths & Presence </a></li>
-                          <li><a href="ambe-recruitment-agency-corporate-structure.html">Corporate
-                              Structure </a></li>
-                          <!--<li><a href="#">Our Presence </a></li>-->
-                          <li><a href="management-team.html">Management Team </a></li>
-
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <!-- <li><a href="#"> CLIENTS <i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="ambe-international-clients.html">Our Clients </a></li>
-                                            <li><a href="#">Industry Focus <i class="fa fa-angle-down"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="oil-and-gas.html">Oil & Gas</a></li>
-                                                    <li><a href="heavy-engineering-and-construction.html">Heavy Engineering & Construction</a></li>
-                                                    <li><a href="mining-and-resources.html">Mining & Resources</a></li>
-                                                    <li><a href="information-technology.html">Information Technology</a></li>
-                                                    <li><a href="healthcare.html">Healthcare</a></li>
-                                                    <li><a href="hospitality.html">Hospitality</a></li>
-                                                    <li><a href="beauty-and-wellness.html">Beauty & Wellness</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="ambe-recruitment-agency-process.html">Our Recruitment Process</a></li>
-                                        </ul>
-                                    </li> -->
-                  <!-- <li><a href="#">ABOUT US <i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about-ambe-recruitment-agency.html">Company Profile </a></li>
-                                            <li><a href="ambe-international-recruitment-strengths.html">Our Strengths & Presence </a></li>
-                                            <li><a href="ambe-recruitment-agency-corporate-structure.html">Corporate Structure </a></li>
-                                            <li><a href="#">Our Presence </a></li>
-                                            <li><a href="management-team.html">Management Team </a></li>
-                                            <li><a href="ambe-international-clients.html">Clients</a></li>
-                                        </ul>
-                                    </li> -->
-                  <li><a href="#">CONTACT US <i class="fa fa-angle-down"></i></a>
-                    <ul class="sub-menu">
-                      <li><a href="clients.html">Employers</a></li>
-                      <li><a href="jobseeker.html">Jobseeker</a></li>
-                      <li><a href="grievance-redressal.html">Grievance Redressal</a></li>
-
-                    </ul>
-                  </li>
-                </ul>
-
-              </nav>
-            </div>
-          </div>
-
+            </li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
-    <!-- mobile-menu-area start -->
-    <div class="mobile-menu-area">
-      <div class="container acurate">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="mobile-menu">
-              <nav id="dropdown">
-                <ul>
-                  <!--<li class="active"><a href="index.php">Home </a></li>-->
-                  <li><a href="about.html">ABOUT US</a></li>
-                  <li><a href="#">CURRENT JOB</a>
-                    <ul class="sub-menu">
-                      <li><a href="Services.html">Jobs in UAE </a></li>
-                      <li><a href="Services2.html">Jobs in Romania</a></li>
-                      <li><a href="Services2.html">Jobs in Saudi Arabia</a></li>
-                      <li><a href="Services2.html">Jobs in Qatar</a></li>
-                      <li><a href="Services2.html">Jobs in Kazakhstan</a></li>
-                      <li><a href="Services2.html">Jobs in Oman</a></li>
-                      <li><a href="Services2.html">Jobs in Kuwait</a></li>
-                      <li><a href="Services2.html">Jobs in Bahrain</a></li>
-                      <li><a href="Services2.html">Jobs in India</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="Executive-Summary.html">OUR SERVICES</a></li>
-                  <li><a href="OUR-Uniqueness.html">OUR CLIENTS</a></li>
-                  <li><a href="OUR-Uniqueness.html">US EMIGRATION PROGRAM</a></li>
-                  <!--<li><a href="Our-Distribution.php">Our Distribution</a></li>-->
-                  <li><a href="#">CONTACT US</a>
-                    <ul class="sub-menu">
-                      <li><a href="#">Contact Us</a></li>
-                      <li><a href="#">Grievance Redressal Form</a></li>
+  </div>
+</section>
 
-                    </ul>
-                  </li>
-                  <li><a href="http://bit.ly/Ambei" target="_blank">Quick Register</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- mobile-menu-area end -->
-  </header>
-  <section class="my-8 mx-5">
-    <div class="container m-auto">
-      <div class="flex justify-between md:flex-row flex-col  gap-6">
-        <div class="md:w-3/4 w-full">
-          <div class="border p-5">
-            <div class="flex justify-center items-center flex-col">
-              <h1 class="text-3xl text-center font-serif font-bold">
-                {{job.title}}
-              </h1>
-              <p class="text-center uppercase text-sm text-slate-500 font-semibold">
-                {{job.job_type}} | Mumin International | {{job.country.name}}
-              </p>
-              <p class="text-center uppercase text-sm text-slate-400 mt-5">
-                Posted On {{job.posted}}
-              </p>
-              <a href="/apply-job/{{jobId}}">
-                <button
-                  class="mt-5 text-base bg-green-500 w-36 py-2 text-white uppercase text-center font-serif font-bold">
-                  Apply Now
-                </button>
-              </a>
-            </div>
-            <div>
-              <h3 class="text-lg mt-5 mb-4 font-serif font-bold">
-                <span class="border-b-2 border-primary">
-                  Job Information
-                </span>
-              </h3>
-              <div class="flex flex-col gap-3 mt-8">
-                {% for field, value in job.items %} {% if field != "id" %}
-                <div class="flex border-b-[1px] pb-3">
-                  <h6 class="font-serif text-slate-500 w-48 capitalize">
-                    {{ field }}
-                  </h6>
-                  <p class="w-full">{{ value }}</p>
-                </div>
-                {% endif %} {% endfor %}
-              </div>
-            </div>
-            <div class="flex justify-center py-5">
-              <a href="/apply-job/{{jobId}}">
-                <button
-                  class="mt-5 text-base bg-green-500 w-36 py-2 text-white uppercase text-center font-serif font-bold">
-                  Apply Now
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="md:w-1/4 w-full">
-          <div class="w-full border-[1px]">
-            <h2 class="p-3 text-3xl font-serif font-bold bg-[#f9f9f9]">
-              Available Jobs
-            </h2>
-            <ul class="p-3 flex flex-col gap-2">
-              {% for jb in jobs %}
-              <li>
-                <i class="fa-solid fa-angle-right text-sm"></i>
-                <a class="hover:ml-2 transition-all duration-300 inline-block" href="#">
-                  {{jb.title}}
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <footer>
-      <div id="footer" class="footer-top-area" style="margin-top:0px;">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="footer-heading">
-                <!--<h2>Privacy Policy</h2>-->
-                <a href="index-2.html"><img src="images/logo12.png" alt=""></a>
-                <div class="footer-social-icons">
-                  <ul>
-                    <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <!--<li><a href="#"><i class="fab fa-instagram"></i></a></li>-->
-                    <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                    <li><a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
-                  </ul>
-                  <br>
-                  <div class="col-md-8 mb20 text-center">
-                    <a href="#" target="blank"> <img src="images/qrcode.png" align="center" alt=""
-                        class="img-responsive" /> </a>
-                    <p>Scan QR Code</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="footer-heading">
-                <h2>Current Jobs</h2>
-                <div class="footer-two">
-                  <nav>
-                    <ul>
-                      <li><a href="jobs-in-romania.html">Jobs in Romania</a></li>
-                      <li><a href="jobs-in-saudi-arabia.html">Jobs in Saudi Arabia</a></li>
-                      <li><a href="jobs-in-qatar.html">Jobs in Qatar</a></li>
-                      <li><a href="jobs-in-germany.html">Jobs in Germany</a></li>
-                      <li><a href="jobs-in-oman.html">Jobs in Oman</a></li>
-                      <li><a href="jobs-in-kuwait.html">Jobs in Kuwait</a></li>
-                      <li><a href="jobs-in-bahrain.html">Jobs in Bahrain</a></li>
-                      <li><a href="jobs-in-india.html">Jobs in India</a></li>
-                      <li><a href="jobs-in-uae.html">Jobs in UAE </a></li>
-                      <li style="font-size: 13px;"><a href="terms-and-conditions.html">Terms and
-                          Conditions</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="footer-heading heading-margin">
-                <h2>OFFICE LOCATION</h2>
-                <p class="footer-border-bottom"><i class="fa fa-home" aria-hidden="true"></i> Ambe
-                  International<br>
-
-                  507, Shah and Nahar Industrial Estate,<br>
-                  Dr E Moses Road, Worli Naka,<br>
-                  Mumbai – 400018, India</p>
-
-
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-              <div class="footer-heading">
-                <h2>CONTACT INFO</h2>
-                <p class="footer-border-bottom">
-                  <i class="fa fa-phone-volume" aria-hidden="true"></i> Landline: <a href="tel:+91-22-61431234"
-                    style="color: #fff">+91-22-61431234</a><br><br>
-
-
-                  <i class="fa fa-envelope-square"></i><a href="mailto:#" style="color: #fff">test@test.com</a><br><br>
-                  <i class="fab fa-whatsapp" aria-hidden="true"></i><a href="#" target="_blank">
-                    <font color="white">+123213213213</font>
-                  </a>
-                </p>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom-area">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="footer-bottom-left">
-                <p>© Copyright and All rights Reserved. Site
-                  designed & Maintained by <a href="#">__</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
-    <!-- meanmenu js -->
-    <script src="{% static 'js/jquery.meanmenu.js' %}"></script>
-    <!-- main js -->
-    <script src="{% static 'js/main.js' %}"></script>
-
-
-    <script>
-      jQuery("#carousel").owlCarousel({
-        autoplay: true,
-        lazyLoad: true,
-        loop: true,
-        margin: 20,
-        /*
-animateOut: 'fadeOut',
-animateIn: 'fadeIn',
-*/
-        responsiveClass: true,
-        autoHeight: true,
-        autoplayTimeout: 7000,
-        smartSpeed: 800,
-        nav: true,
-        responsive: {
-          0: {
-            items: 1
-          },
-
-          600: {
-            items: 2
-          },
-
-          1024: {
-            items: 3
-          },
-
-          1366: {
-            items: 3
-          }
-        }
-      });
-    </script>
-
-  <script src="js/vendor/jquery-1.12.0.min.js"></script>
-  <script src="js/jquery.meanmenu.js"></script>
-  <script src="js/main.js"></script>
-</body>
-
-
-</html>
+{% endblock %}

@@ -82,3 +82,16 @@ def about(request):
     }
 
     return render(request, 'about.html', context )
+
+def survey(request):
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    countries = Country.objects.all()
+
+    context = {
+        'contact':contact,
+        'settings':settings,
+        'countries':countries,
+
+    }
+    return render(request, "survey.html",context)

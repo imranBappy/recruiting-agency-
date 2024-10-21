@@ -94,6 +94,22 @@ def candidate(request):
     }
     return render(request,"jobseeker.html" , context)
 
+@require_http_methods(['GET'])
+def clients(request):
+    form = CandidateForm()
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+    context = {
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+        "form":form,
+    }
+    return render(request,"client.html" , context)
+
 
 @require_http_methods(['POST'])
 def candidate_submit(request):
@@ -322,3 +338,6 @@ def save(request):
         'services':services,
     }
     return render(request, "save.html", context)
+
+
+

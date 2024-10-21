@@ -3,17 +3,14 @@
     const menuBtn = document.getElementById("menu-btn");
     const topnav = document.getElementById("topnav");
 
-    
-    
-
-
     menuBtn.addEventListener("click", () => {
       if (topnav.dataset.isopen === 'false') {
         topnav.classList.replace("-top-[1000px]","top-16")
-        menuBtn.classList.replace("fa-xmark", "fa-bars")
+        menuBtn.classList.replace("fa-bars", "fa-xmark")
+
         topnav.dataset.isopen = 'true'
       } else {
-        menuBtn.classList.replace("fa-bars", "fa-xmark")
+        menuBtn.classList.replace("fa-xmark", "fa-bars")
         topnav.dataset.isopen = 'false'
         topnav.classList.replace("top-16", "-top-[1000px]")
       }

@@ -180,7 +180,7 @@
 
                                     <li><a href="#">CONTACT US <i class="fa fa-angle-down"></i></a>
                                         <ul class="sub-menu">
-                                            <li><a href="/employee">Employers</a></li>
+                                            <li><a href="/clients">Employers</a></li>
                                             <li><a href="/jobseeker">Jobseeker</a></li>
                                             <li><a href="/grievance-redressal">Grievance Redressal</a></li>
                                         </ul>
@@ -289,7 +289,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="section-title text-center">
                         <div class="left">
-                            <a href="/jobseeker">
+                            <a href="/clients">
                                 <img src="{% static 'images/icon2.png' %}" alt="" title="#slider-direction-2" /><br><br>
                                 <h3><span>LOOKING FOR <br>EMPLOYEES?</span></h3>
                             </a>
@@ -299,7 +299,7 @@
                 </div>
                 <div style="margin-top: 20px; clear: both" class="mb20">
                     <div class="col-lg-12 text-center">
-                        <h3><a href="/employee" type="button"
+                        <h3><a href="/countries" type="button"
                                 style="background-color:#34495e;color:white;padding:10px;font-size:18px;">For Current
                                 Job Openings click here</a><br>
                             <br><br>
@@ -426,7 +426,7 @@
                                     <div class="col-md-3 col-xs-6 text-center mb20">
                                         <div class="servicesnw">
                                             <a href="/service/{{service.id}}">
-                                                <i class="fas fa-user-friends fa-5x"></i>
+                                                <i class="{{service.icon}} fa-5x"></i>
                                                 <h3>{{service.title}}</h3>
                                             </a>
                                         </div>
@@ -493,7 +493,7 @@
                 <div class="row"><br>
                     <div class="col-md-12">
                         <h2 class="text-center">Salary Survey Report</h2><br>
-                        <a href="/"><img src="{% static 'assets/Banner-Salary-survey.jpg' %}"
+                        <a href="/survey"><img src="{% static 'assets/Banner-Salary-survey.jpg' %}"
                                 class="img-responsive" /></a>
                     </div>
                 </div>

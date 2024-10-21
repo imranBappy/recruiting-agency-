@@ -29,8 +29,7 @@
 
 
     <section 
-        class="w-full h-[500px]  md:h-[600px]  relateive bg-no-repeat bg-top bg-center bg-cever"
-        style="background-image: url('{% static "assets/careers-bg.jpg" %}');"   
+        class="w-full h-[500px]  md:h-[600px]  relateive bg-no-repeat bg-top bg-center bg-cever bg-[url({% static 'assets/careers-bg.jpg'%})]"
     >
         <div class="w-full h-[500px]  md:h-[600px]  bg-[#fafafca3] ">
             <nav class="min-h-12 md:block hidden py-4 md:py-0 opacity-100">
@@ -92,7 +91,7 @@
                 <div class="flex items-center transition-all  justify-center py-5">
                         <a href="/"><img class="h-16 ml-2 pt-2 opacity-100" src="{{settings.logo.url}}" alt=""></a>
                 </div>
-                    <i id="menu-btn" data-open="false" class="fa-solid fa-bars absolute z-10 top-6 left-6 hover:bg-[#171b27] w-16 h-16 rounded-full flex items-center justify-center text-primary text-4xl"></i>
+                    <i id="menu-btn" data-open="false" class="fa-solid fa-bars absolute z-10 top-6 left-6 hover:bg-[#171b27] w-14 h-14 rounded-full flex items-center justify-center text-primary text-3xl"></i>
                 
                     {% if user.is_authenticated  %}
 
