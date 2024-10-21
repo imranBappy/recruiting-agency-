@@ -3,11 +3,19 @@
     const menuBtn = document.getElementById("menu-btn");
     const topnav = document.getElementById("topnav");
 
+    
+    
+
+
     menuBtn.addEventListener("click", () => {
-      if (topnav.style.display === "none") {
-        topnav.style.display = "block";
+      if (topnav.dataset.isopen === 'false') {
+        topnav.classList.replace("-top-[1000px]","top-16")
+        menuBtn.classList.replace("fa-xmark", "fa-bars")
+        topnav.dataset.isopen = 'true'
       } else {
-        topnav.style.display = "none";
+        menuBtn.classList.replace("fa-bars", "fa-xmark")
+        topnav.dataset.isopen = 'false'
+        topnav.classList.replace("top-16", "-top-[1000px]")
       }
     });
 
@@ -57,3 +65,22 @@
       clickable: true,
     },
   });
+
+
+
+
+function dropdownBtn(btnId, menuId) {
+
+  const ele = document.getElementById(btnId, menuId)
+  const dropdown = document.getElementById(menuId)
+
+  if (ele.dataset.isopen === 'false') {
+    ele.classList.replace("fa-plus", "fa-minus")
+    dropdown.classList.replace("hidden", "block")
+    ele.dataset.isopen = 'true'
+  } else {
+    ele.classList.replace("fa-minus", "fa-plus")
+    dropdown.classList.replace("block", "hidden")
+    ele.dataset.isopen = 'false'
+  }
+}

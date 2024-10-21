@@ -48,48 +48,39 @@
             </form>
           </div>
           {% if jobs.exists %}
-
-          <table
-            class="w-full border-collapse border mt-4 border-slate-300 w-full"
-          >
-            <thead>
-              <tr class="h-11">
-                <th class="text-left px-2 min-w-44">Posting Title</th>
-                <th class="text-left px-2 min-w-32">Date Opened</th>
-                <th class="text-left px-2">Job Description</th>
-                <th class="text-left px-2 min-w-28">Experience</th>
-                <th class="text-left px-2 min-w-28">Job Type</th>
-                <th class="text-left px-2 min-w-28"></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {% for job in jobs %}
-              <tr class="h-11">
-                <td class="border border-slate-300 px-2">
-                  <a href="/{{country.id}}/{{job.id}}" class="text-blue-600"
-                    >{{job.title}}</a
-                  >
-                </td>
-                <td class="border border-slate-300 px-2">{{job.posted}}</td>
-                <td
-                  class="border-t border-slate-300 line-clamp-2 px-2 text-wrap"
-                >
-                  {{job.description}}
-                </td>
-                <td class="border border-slate-300 px-2">{{job.experience}}</td>
-                <td class="border border-slate-300 px-2">{{job.job_type}}</td>
-                <td class="border border-slate-300 px-2">
-                  <a
-                    class="pointer text-sm font-serif py-[5px] px-2 bg-[#e8e8e8]"
-                    href="/apply-job/{{job.id}}"
-                    >Apply Now</a
-                  >
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+          <div class="w-full overflow-x-auto">
+            <table class=" border-collapse border mt-4 border-slate-300   ">
+              <thead>
+                <tr class="h-11">
+                  <th class="text-left  px-2 min-w-44">Posting Title</th>
+                  <th class="text-left  px-2 min-w-32">Date Opened</th>
+                  <th class="text-left  px-2">Job Description</th>
+                  <th class="text-left  px-2 min-w-28">Experience</th>
+                  <th class="text-left  px-2 min-w-28">Job Type</th>
+                  <th class="text-left  px-2 min-w-28"></th>
+                </tr>
+              </thead>
+            
+              <tbody>
+                {% for job in jobs %}
+                <tr class="h-11 ">
+                  <td class="border border-slate-300 px-2">
+                    <a href="/{{country.id}}/{{job.id}}" class="text-blue-600">{{job.title}}</a>
+                  </td>
+                  <td class="border border-slate-300 px-2">{{job.posted}}</td>
+                  <td class="border-t border-slate-300 line-clamp-2 px-2 text-wrap">
+                    {{job.description}}
+                  </td>
+                  <td class="border border-slate-300 px-2">{{job.experience}}</td>
+                  <td class="border border-slate-300 px-2">{{job.job_type}}</td>
+                  <td class="border border-slate-300 px-2">
+                    <a class="pointer text-sm font-serif py-[5px] px-2 bg-[#e8e8e8]" href="/apply-job/{{job.id}}">Apply Now</a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
           {% else %}
           <div>
             <h6 class="text-center my-10">Jobs Not Found!</h6>

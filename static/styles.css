@@ -1,6 +1,6 @@
-html, body{
+/* html, body{
   overflow-x: hidden !important;
-}
+} */
 
 .dropdown {
   display: none;
@@ -8,6 +8,14 @@ html, body{
 
 .dropdown-wrap:hover > ul.dropdown {
   display: block !important;
+}
+
+.dropdown-wrap2 > ul.dropdown > li:last-child{
+  border: none;
+}
+
+.dropdown:last-child{
+  border: none;
 }
 
 /* swiper-container {

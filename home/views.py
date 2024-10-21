@@ -26,7 +26,7 @@ def index(request):
         'serves':serves
     }
    
-    return render(request, 'home.html', context)
+    return render(request, 'home2.html', context)
 
 
 
