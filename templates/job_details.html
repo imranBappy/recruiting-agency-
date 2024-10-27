@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+<section class="my-8 mx-5">
+  <div class="container m-auto">
+    <div class="flex justify-between md:flex-row flex-col  gap-6">
+      <div class="md:w-3/4 w-full">
+        <div class="border p-5">
+          <div class="flex justify-center items-center flex-col">
+            <h1 class="text-3xl text-center font-serif font-bold">
+              {{job.title}}
+            </h1>
+            <p class="text-center uppercase text-sm text-slate-500 font-semibold">
+              {{job.job_type}} | Mumin International | {{job.country.name}}
+            </p>
+            <p class="text-center uppercase text-sm text-slate-400 mt-5">
+              Posted On {{job.posted}}
+            </p>
+            <a href="/apply-job/{{jobId}}">
+              <button
+                class="mt-5 text-base bg-green-500 w-36 py-2 text-white uppercase text-center font-serif font-bold">
+                Apply Now
+              </button>
+            </a>
+          </div>
+          <div>
+            <h3 class="text-lg mt-5 mb-4 font-serif font-bold">
+              <span class="border-b-2 border-primary">
+                Job Information
+              </span>
+            </h3>
+            <div class="flex flex-col gap-3 mt-8">
+              {% for field, value in job.items %} {% if field != "id" %}
+              <div class="flex border-b-[1px] pb-3">
+                <h6 class="font-serif text-slate-500 w-48 capitalize">
+                  {{ field }}
+                </h6>
+                <p class="w-full">{{ value|safe }}</p>
+              </div>
+              {% endif %} {% endfor %}
+            </div>
+          </div>
+          <div class="flex justify-center py-5">
+            <a href="/apply-job/{{jobId}}">
+              <button
+                class="mt-5 text-base bg-green-500 w-36 py-2 text-white uppercase text-center font-serif font-bold">
+                Apply Now
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/4 w-full">
+        <div class="w-full border-[1px]">
+          <h2 class="p-3 text-3xl font-serif font-bold bg-[#f9f9f9]">
+            Available Jobs
+          </h2>
+          <ul class="p-3 flex flex-col gap-2">
+            {% for jb in jobs %}
+            <li>
+              <i class="fa-solid fa-angle-right text-sm"></i>
+              <a class="hover:ml-2 transition-all duration-300 inline-block" href="#">
+                {{jb.title}}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

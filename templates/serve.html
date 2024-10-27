@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+<section class="md:h-[400px] h-[150px] flex items-center justify-center w-full bg-cover bg-[url({{serve.banner.url}})]">
+  <h1 style="text-shadow: 2px 2px #000"
+    class="md:text-5xl text-2xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+    {{serve.title}}
+  </h1>
+</section>
+
+<section class="my-10 mx-4">
+  <div class="container m-auto flex flex-col md:flex-row gap-10">
+    <div class="md:w-3/4 mt-5">
+      <h2  class="md:text-4xl text-3xl text-center mb-10  font-serif font-semibold">
+        {{serve.details_title}}
+      </h2>
+      <p class="text-lg ">{{serve.details|safe}}</p>
+      <div class="mt-10">
+        <a href="/clients" class="py-3 bg-[#34495e] px-5 font-serif text-white">Become a Client</a>
+      </div>
+    </div>
+    <div class="md:w-2/4">
+      <img src="{{serve.side_Img.url}}" class="w-full" alt="" />
+    </div>
+  </div>
+</section>
+
+<section class="my-10 mpx-4 bg-[#494951]">
+  <div class="container m-auto">
+    <h1 class="text-white font-serif font-bold text-3xl md:text-6xl text-center py-10">Disciplines We Cover</h1>
+    <div class="owl-carousel pb-10 md:px-0">
+      {% for item in serve.carousel %}
+            <div class="item w-[97%] md:mx-0 mx-2 md:w-52 flex items-center text-center justify-center hover:text-primary bg-[#d7d7d7] py-4 font-serif text-base  text-blue-400">
+              {{item}} </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<section class="my-10 mx-4">
+  <div class="container m-auto ">
+    <p class="text-lg mb-8">Typical Positions we hire for Information Technology</p>
+
+    <div class="ml-5  ">
+      <ul class="md:max-h-[280px] flex flex-col flex-wrap">
+        {% for item in serve.options %}
+          <li class="text-lg w-[220px]" style="list-style-type:square;">{{item}}</li>
+         {% endfor %}
+      </ul>
+    </div>
+  </div>
+  </section>
+
+{% endblock %}

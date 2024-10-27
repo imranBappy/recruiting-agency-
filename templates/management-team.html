@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+<section
+    class="md:h-[400px] h-[180px] flex items-center flex-col justify-center w-full bg-cover	bg-no-repeat bg-[url({% static 'images/innerpage-banners/management.jpg' %})]">
+    <h1 style="text-shadow: 2px 2px #000"
+        class="md:text-5xl mx-5 text-xl text-center [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+        Management Team
+
+
+    </h1>
+
+</section>
+
+<section class="my-8 px-4">
+    <div class="container m-auto">
+        <div class="flex gap-8 flex-col ">
+            {% for team in teams %}
+            <div class="p-[50px] rounded-3xl border-white shadow-xl border-2 odd:bg-[#eefde9] even:bg-[#fef5ee] flex gap-8 md:flex-row flex-col">
+                <div class="w-full">
+                    <h1 class="text-4xl font-semibold  ">{{team.name}}</h1>
+                    <h2 class="text-3xl py-5 font-semibold ">
+                    {{team.title}}
+                    </h2>
+                        <p>{{team.text}}
+                        </p>
+                        <p class="mt-10 mb-2">
+                        TELEPHONE: {{team.phone}}
+                    </p>
+                    <p>
+                        EMAIL: {{team.email}}
+                    </p>
+                </div>
+                <div class="w-full border rounded">
+                    <img class="w-full p-1 bg-white" src="{{team.photo.url}}" alt="">
+                </div>
+            </div>
+           {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

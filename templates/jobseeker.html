@@ -1,0 +1,256 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ settings.title }} 
+{% endblock %} 
+{% block content %}
+
+   
+  <section
+    class="md:h-[400px] h-[180px] flex items-center justify-center w-full bg-cover	bg-no-repeat bg-[url({% static 'assets/contactus.jpg'%})]">
+    <h1 style="text-shadow: 2px 2px #000"
+      class="md:text-5xl text-3xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+        Job Seeker
+    </h1>
+  </section>
+
+    <section class="mx-5">
+      <div class="container m-auto py-10 gap-10 flex flex-col md:flex-row justify-center">
+      <div class="w-full max-w-4xl bg-white py-6 rounded shadow-md px-5  md:px-10 my-8 border rounded-2xl">
+        <h1 class="text-2xl mt-3 mb-5 text-center font-serif font-bold text-primary">
+          CANDIDATE REGISTRATION FORM
+        </h1>
+        <p class="my-5 text-center text-lg font-bold text-red-500">To Register with Mumin International for thousands of
+          overseas jobs, please fill the below form.</p>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'jobseeker_submit' %}" class="flex flex-col gap-5">
+          {% csrf_token %}
+      
+      
+          <div class=" my-5">
+            <p class="text-sm font-bold mb-2">Terms & Conditions *</p>
+            <div class="border p-3 flex flex-col text-lg gap-2 text-[#444444]">
+              <p>Please click on the below link to save our Official WhatsApp Number to your contact list.</p>
+              <p class="text-blue-600"><a href="#">https://wa.me/918291999288</a></p>
+              <p>Once you add our WhatsApp Number to your contact list then please fill out the below form, so that we can
+                add
+                your Name
+                and Mobile number to our WhatsApp Broadcast list.</p>
+            </div>
+      
+            <div class="flex  gap-2 mt-2">
+              <input type="checkbox" class="mt-2 md:mt-0" name="agreed" id="agreed">
+              <label for="agreed">I confirm I have read and understood Terms and Conditions</label>
+            </div>
+          </div>
+      
+          <p>
+            <label for="id_whatsApp" class="font-serif font-bold">WhatsApp Mobile Number <span
+                class="text-lg font-bold text-red-600">*</span></label>
+            <input type="text" name="whatsApp"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              maxlength="250" required="" id="id_whatsApp">
+          </p>
+      
+          <p>
+            <label for="id_name" class="font-serif font-bold">Full Name <span
+                class="text-lg font-bold text-red-600">*</span></label>
+            <input type="text" name="name"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              maxlength="250" required="" id="id_name">
+          </p>
+      
+          <p>
+            <label for="id_category" class="font-serif font-bold">Category <span
+                class="text-lg font-bold text-red-600">*</span></label>
+            <select name="category"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              id="id_category">
+              <option value="OTHER" selected> - Select - </option>
+      
+              <option value="CIVIL">Civil</option>
+      
+              <option value="MECHANICAL">Mechanical</option>
+      
+              <option value="ELECTRIAL">Electrial</option>
+      
+              <option value="IT">It</option>
+      
+              <option value="INSTRUMENTATION">Instrumentation</option>
+      
+              <option value="ADMIN">Admin/HR</option>
+      
+              <option value="SAFETY">Safety</option>
+      
+              <option value="STAFF">Project/Planning/Staff</option>
+      
+              <option value="DESIGN">Design</option>
+      
+              <option value="HEALTHCARE">Healthcare</option>
+      
+              <option value="HOSPITALITY">Hospitality</option>
+      
+              <option value="SECURITY">Security</option>
+      
+              <option value="LOGISTICS">Logistics</option>
+      
+              <option value="OPERATORS">Operators/Drivers</option>
+      
+              <option value="OTHER">Other</option>
+      
+            </select>
+      
+      
+          </p>
+      
+          <p>
+            <label for="id_position" class="font-serif font-bold">Position <span
+                class="text-lg font-bold text-red-600">*</span></label>
+            <select name="position"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              required="" id="id_position">
+              <option value="" selected> - Select - </option>
+      
+      
+              <option value="SOFTWARE ENGINEER">Software Engineer</option>
+              <option value="DATA SCIENTIST">Data Scientist</option>
+              <option value="PRODUCT MANAGER">Product Manager</option>
+              <option value="DIGITAL MARKETING MANAGER">Digital Marketing Manager</option>
+              <option value="CLOUD ENGINEER">Cloud Engineer</option>
+              <option value="CYBERSECURITY ANALYST">Cybersecurity Analyst</option>
+              <option value="UX/UI DESIGNER">UX/UI Designer</option>
+              <option value="AI/ML ENGINEER">AI/ML Engineer</option>
+              <option value="DEVOPS ENGINEER">DevOps Engineer</option>
+              <option value="BUSINESS ANALYST">Business Analyst</option>
+            </select>
+          </p>
+          <p>
+            <label for="id_email" class="font-serif font-bold">Email </label>
+            <input type="email" name="email"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              maxlength="250" required="" id="id_email">
+          </p>
+          <p>
+            <label for="id_location" class="font-serif font-bold">Current Location <span
+                class="text-lg font-bold text-red-600">*</span></label>
+            <select name="location"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              required="" id="id_location">
+              <option value="" selected> - Select - </option>
+      
+      
+              <option value="1">Saudi Arabia</option>
+      
+              <option value="2">German</option>
+      
+              <option value="3">Italy</option>
+      
+              <option value="4">Romania</option>
+      
+              <option value="5">Moldova</option>
+      
+              <option value="6">Canada</option>
+      
+              <option value="7">Australia</option>
+      
+              <option value="8">Hungary</option>
+      
+            </select>
+      
+      
+          </p>
+      
+          <p>
+            <label for="exp" class="font-serif font-bold">Gulf Exp In Years </label>
+            <input type="text" name="exp"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              maxlength="250" id="exp">
+          <p class="-mt-5 text-sm text-[#444444]">
+            <i>Please put your experience in Years and for use 0.5 Six months, 0.25 for Quarter etc.</i>
+          </p>
+          </p>
+      
+          <p class="-mt-5">
+            <label for="exp2" class="font-serif font-bold">Saudi Exp in Years </label>
+            <input type="text" name="exp2"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              maxlength="250" id="exp2">
+          <p class="-mt-5 text-sm text-[#444444]">
+            <i>Please put your experience in Years and for use 0.5 Six months, 0.25 for Quarter etc.</i>
+          </p>
+      
+          </p>
+          <p class="-mt-5">
+            <label for="id_resume" class="font-serif font-bold">Resume:</label>
+            <input type="file" name="resume"
+              class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              id="id_resume">
+          <p class="-mt-2 text-sm text-[#444444]">
+            <i>Upload your latest PDF format resume for perusal.-Maximum size 5 MB
+            </i>
+          </p>
+          </p>
+      
+      
+      
+          <div class="flex justify-center">
+            <button class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+        <div class="w-full ">
+          
+         <p class="text-lg">
+            If you are a jobseeker and want to sign up with Mumin International or send us your resume – please get in touch with us
+            by filling in the form. Please note that all resumes automatically are entered into our database and due to high volume
+            of submissions we will not be able to reply individually to each candidate
+         </p>
+          <p class="mt-10 text-lg">
+            If you are a candidate already selected with Mumin International please whatsapp us at <a class="text-nowrap text-blue-600" href="tel+91-8291999288">+91-8291999288</a>
+
+          </p>
+
+          <a class="mt-10 inline-block bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white" href="">Current Job Opening</a>
+
+
+          <div class="mt-10">
+            <h6 class="text-2xl mb-10 font-semibold">Our Social Media Presence</h6>
+        
+            <div class="flex md:flex-row flex-wrap flex-col gap-30 gap-10 items-center ">
+              <a href="{{contact.fb}}" class="w-full md:w-[100px] border md:p-2 p-5 hover:shadow   md:h-[100px] flex items-center justify-center">
+                <img src="{% static 'assets/facebook.png' %}" class="h-[250px] md:h-auto" />
+              </a>
+              <a href="{{contact.youtube}}" class="w-full md:w-[100px] border md:p-2 p-5 hover:shadow   md:h-[100px] flex items-center justify-center">
+                <img src="{% static 'assets/youtube.jpg' %}" class="h-[250px] md:h-auto" />
+              </a>
+              <a href="{{contact.x}}" class="w-full md:w-[100px] border md:p-2 p-5 hover:shadow  md:h-[100px] flex items-center justify-center">
+                <img src="{% static 'assets/x.png' %}" class="h-[250px] md:h-auto" />
+              </a>
+              <a href="{{contact.linkedin}}" class="w-full md:w-[100px] border md:p-2 p-5 hover:shadow  md:h-[100px] flex items-center justify-center">
+                <img src="{% static 'assets/linkedin.png' %}" class=" h-[250px] md:h-auto" />
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-5">
+      <div class="container m-auto my-10">
+        <h3 class="text-xl my-3 font-serif font-bold">Our Office</h3>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d294.3840949801742!2d90.37921826417632!3d23.809922603040054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c72a05e72f27%3A0x253c8e0afb0d412!2sUmmul%20Qura%20Alia%20Madrasha!5e1!3m2!1sen!2sbd!4v1726599805259!5m2!1sen!2sbd"
+            height="450"
+            style="border: 0; width: 100%"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

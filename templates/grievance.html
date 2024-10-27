@@ -1,0 +1,138 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ settings.title }} 
+{% endblock %} 
+{% block content %}
+
+
+    <section class="mx-5">
+      <div class="container m-auto flex justify-center">
+        <div class="w-full max-w-4xl bg-white p-6 rounded shadow-md px-10 my-8">
+          <h1
+            class="md:text-3xl text-xl mt-3 mb-5 text-center font-serif font-bold"
+          >
+            Grievance Redressal Form
+          </h1>
+          <p class="my-4 text-red-500 font-semibold">
+            Have any issues in working with our Agency or our Clients? Please
+            use the form below to write to us explaining the details of the
+            grievance and we will promptly forward this to the relevant
+            authorities
+          </p>
+          <form
+            method="POST"
+            enctype="multipart/form-data"
+            action="{% url 'grievance_submit' %}"
+            class="flex flex-col gap-5"
+          >
+            {% csrf_token %} {{ form.as_p }}
+            <div class="flex flex-col">
+              <label for="id_name" class="font-serif font-bold">Name:</label>
+              <input
+                type="text"
+                name="name"
+                maxlength="250"
+                required
+                id="id_name"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <label for="id_phone" class="font-serif font-bold">Phone:</label>
+              <input
+                type="text"
+                name="phone"
+                maxlength="250"
+                required
+                id="id_phone"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_email" class="font-serif font-bold">Email:</label>
+              <input
+                type="email"
+                name="email"
+                maxlength="250"
+                required
+                id="id_email"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_title" class="font-serif font-bold">Title:</label>
+              <input
+                type="text"
+                name="title"
+                maxlength="100"
+                required
+                id="id_title"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_location" class="font-serif font-bold"
+                >Location:</label
+              >
+              <input
+                type="text"
+                name="location"
+                maxlength="250"
+                required
+                id="id_location"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_position" class="font-serif font-bold"
+                >Position:</label
+              >
+              <input
+                type="text"
+                name="position"
+                maxlength="250"
+                required
+                id="id_position"
+              />
+            </div>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="remarks">Remarks:</label>
+              <textarea
+                name="remarks"
+                cols="40"
+                rows="2"
+                maxlength="250"
+                required=""
+                id="remarks"
+                placeholder="Enter you remarks"
+              ></textarea>
+            </p>
+            <div class="flex justify-center">
+              <button
+                class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-5">
+      <div class="container m-auto my-10">
+        <h3 class="text-xl my-3 font-serif font-bold">Our Office</h3>
+
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d294.3840949801742!2d90.37921826417632!3d23.809922603040054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c72a05e72f27%3A0x253c8e0afb0d412!2sUmmul%20Qura%20Alia%20Madrasha!5e1!3m2!1sen!2sbd!4v1726599805259!5m2!1sen!2sbd"
+            height="450"
+            style="border: 0; width: 100%"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

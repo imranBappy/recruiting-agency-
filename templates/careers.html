@@ -1,0 +1,298 @@
+{% load static %}
+<!DOCTYPE html>
+<html  class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7289db",
+                        sub:"#50566d"
+                    },
+                },
+            },
+        };
+    </script>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+</head>
+
+<body>
+
+
+    <section 
+        class="w-full h-[500px]  md:h-[600px]  relateive bg-no-repeat bg-top bg-center bg-cever bg-[url({% static 'assets/careers-bg.jpg'%})]"
+    >
+        <div class="w-full h-[500px]  md:h-[600px]  bg-[#fafafca3] ">
+            <nav class="min-h-12 md:block hidden py-4 md:py-0 opacity-100">
+                <div class="container m-auto">
+                    <div class="pt-5 h-full flex justify-between items-center ">
+                        <div class="flex gap-14 items-center">
+                            <a href="/"><img class="h-12 ml-2 pt-2 opacity-100" src="{{settings.logo.url}}" alt=""></a>
+                            <ul class="flex gap-5">
+                                <li><a class="uppercase text-slate-700	 font-semibold hover:border-b-[3px] pb-1  border-[#7289db] "
+                                        href="/">Home</a></li>
+                                <li><a class="uppercase text-slate-700	 font-semibold hover:border-b-[3px] pb-1  border-[#7289db] "
+                                        href="/careers">Jobs</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="flex gap-2 items-center">
+                                <li>
+                                    <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                        href="#">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                        href="#">
+                                        <i class="fa-brands fa-x-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                        href="#">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    
+                                    {% if user.is_authenticated %}
+                                    <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                        href="/profile">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                    </a>
+                                    {% else %}
+                                    <div class="ml-5 flex items-center gap-2">
+                                        <a class="hover:border-b-[3px] pb-1  border-[#7289db]" href="/login">SIGN IN</a>
+                                        <span>/</span>
+                                        <a class="hover:border-b-[3px] pb-1  border-[#7289db]" href="/register">REGISTER</a>
+                                    </div>
+                                    {% endif %}
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="md:hidden relative">
+                <div class="flex items-center transition-all  justify-center py-5">
+                        <a href="/"><img class="h-12 ml-2 pt-2 opacity-100" src="{{settings.logo.url}}" alt=""></a>
+                </div>
+                    <i id="menu-btn" data-open="false" class="fa-solid fa-bars absolute z-10 top-6 left-6 hover:bg-[#171b27] w-14 h-14 rounded-full flex items-center justify-center text-primary text-3xl"></i>
+                
+                    {% if user.is_authenticated  %}
+
+                    <a class=" absolute top-6 right-6  border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                        href="/profile">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </a>
+                    {% endif %}
+                    <ul id="menu-wrap" class="bg-[#2e2d2d] w-full  transition-all text-white uppercase absolute -top-64">
+                    <li><a class="w-full block  text-center py-5" href="/">Home</a></li>
+                    <li><a class="w-full block  text-center py-5" href="/careers">Jobs</a></li>
+                    
+                    {% if user.is_authenticated == False %}
+                        <li><a class="w-full block  text-center py-5" href="/login">Sign in</a></li>
+                        <li><a class="w-full block  text-center py-5" href="/register">Register</a></li>
+                    {% endif %}
+                </ul>
+
+            </div>
+            
+            <div class="w-full h-full  md:flex items-center justify-center  ">
+                <div class=" mt-5 max-w-[1000px] flex flex-col md:gap-5 gap-2 items-center justify-center ">
+
+                    <ul class="flex md:hidden gap-2 items-center">
+                        <li>
+                            <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                href="#">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                href="#">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                href="#">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    
+                    </ul>
+
+                    <p class="font-sans font-semibold  text-center	">Find the career of your dreams</p>
+                    <h1 class="md:text-5xl text-2xl font-semibold font-sans text-center">We're more than just a workplace. We're a family.</h1>
+                    <p class=" font-sans text-center">We know that finding a meaningful and rewarding job can be a long journey. Our goal is to make that process as easy as
+                    possible for you, and to create a work environment that's satisfying - one where you'll look forward to coming to every
+                    day. Start your journey with us by browsing available jobs.</p>
+                    <a href="#jobs" class="py-3 rounded font-semibold font-sans  px-7 bg-primary text-white">
+                        View Openings
+                    </a>
+                 
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section  id="jobs" class="pt-16">
+        <div class="container m-auto">
+            <div class="flex gap-12 ">
+                <div class="w-[350px] hidden  md:block">
+                    <p class="text-[#191b22]">Filters</p>
+                    <div class="rounded-md mt-2  border px-8 py-5 ">
+                        <p class="text-[#191b22] mb-1">Job Type</p>
+                        <form class="flex items-center gap-2"
+                        method="GET"
+                        action="{% url 'careers_job_list'  %}"
+                        id="job-filter-form"
+                        >
+                            <input type="checkbox" name="job_type"
+                                   {% if job_type   %} checked{% endif %}
+
+                            value="full_time" id="full-time" onchange="submitForm()">
+                            <label for="full-time" onclick="submitForm()">Full Time</label>
+                        </form>
+                    </div>
+                </div>
+                <div class="w-[100%] mx-3">
+                    <div class="mb-5">
+                        <h2 class="text-3xl font-semibold font-sans">Join us</h2>
+                        <h3 class=" text-xl text-[#646d8c] font-semibold font-sans">Current Openings</h3>
+                    </div>
+
+                    <div class="w-[350px] md:hidden  block mb-2">
+                        <p class="text-[#191b22]">Filters</p>
+                        <div class="rounded-md mt-2  border px-8 py-5 ">
+                            <p class="text-[#191b22] mb-1">Job Type</p>
+                            <form class="flex items-center gap-2" method="GET" action="{% url 'careers_job_list'  %}" id="job-filter-form">
+                                <input type="checkbox" name="job_type" 
+                                       {% if job_type %}checked{% endif %}
+                                value="full_time"
+                                    id="full-time" onchange="submitForm()">
+                                <label for="full-time" onclick="submitForm()">Full Time</label>
+                            </form>
+                        </div>
+                    </div>
+
+                    <form   method="GET"
+              action="{% url 'careers_job_list'  %}"
+              
+              class="flex gap-5 items-end flex-wrap	">
+                        <div class="flex gap-2 flex-col">
+                            <label for="job_search">What</label>
+                            <input  class="rounded grow"  placeholder="Job title or skill" type="search" 
+                            name="job_search"
+                            id="job_search"
+                            value="{{ request.GET.q }}"
+                            >
+                        </div>
+                        <div class="flex gap-2 flex-col">
+                            <label for="location">Where</label>
+                            <input class="rounded grow" placeholder="City, state or country" type="text" name="location" id="location">
+                        </div>
+                        <div class="flex items-center">
+                            <button type="submit" href="#jobs" class="py-2 rounded font-semibold font-sans  px-7 bg-primary text-white">
+                                Search
+                            </button>
+                        </div>
+                    </form>
+                    <br>
+                    <hr>
+
+                    <div class="mt-5 ">
+                        {% for job in jobs %}
+
+                        <div class=" hover:bg-[#f5f6fa] py-3 px-5 flex gap-10 justify-between">
+                            <div>
+                                <a href="/careers/{{job.id}}" class="text-primary hover:border-b-2  border-primary  font-semibold text-xl font-sans">{{job.title}}</a>
+                                <p  class=" text-sub  font-sans"> {{job.city}}, {{job.state}}, {{job.country}}</p>
+                                <p  class=" text-sub mt-3  font-sans line-clamp-2	">
+                                    {{job.description}}
+                                </p>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <p class="text-sub font-semibold  font-sans uppercase ">{{job.job_type}}</p>
+                                <p>01/22/2022</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white mt-10">
+        <div class="h-14 bg-primary flex items-center justify-center">
+            <p class="text-center mx-4">
+                Copyright ©2024. All rights Reserved. Site designed & Maintained by Mumin
+                International
+            </p>
+        </div>
+    </footer>
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/671bd8874304e3196ad83e07/1ib2cbkuq';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<script>
+    function submitForm() {
+        const form = document.getElementById('job-filter-form');
+        if (form) {
+            form.submit(); // Submit the form when the checkbox is clicked
+        } else {
+            console.error('Form not found');
+        }
+    }
+
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu-wrap");
+
+    menuBtn.addEventListener('click', (e)=>{
+        if (menuBtn.dataset.open === 'true') {
+            menuBtn.dataset.open = 'false'
+            menuBtn.classList.replace("fa-xmark", "fa-bars")
+
+            menu.classList.replace("top-0", "-top-64")
+
+        }else{
+            menuBtn.dataset.open = 'true'
+            menuBtn.classList.replace("fa-bars", "fa-xmark")
+
+            menu.classList.replace("-top-64", "top-0")
+
+
+        }
+        console.log(menu);
+        
+
+    })
+
+  
+</script>
+</body>
+</html>

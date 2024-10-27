@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+
+<section
+  class="md:h-[400px] h-[180px] flex items-center justify-center w-full bg-cover	bg-no-repeat bg-[url({% static 'assets/contactus.jpg'%})]">
+  <h1 style="text-shadow: 2px 2px #000"
+    class="md:text-5xl text-3xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white text-center font-serif font-bold">
+    Salary Survey & Intelligence
+  </h1>
+</section>
+
+<section class="mx-5">
+  <div class="container m-auto ">
+    <h1 class="md:text-3xl text-xl  py-7 text-center  font-serif font-bold">
+      Mumin International Salary Survey Report 2023
+    </h1>
+
+    <div class="w-full py-10">
+      <img src="{% static 'assets/salary-survey.png' %}" alt="">
+    </div>
+
+    <p class="text-lg py-5">Mumin International's Annual Salary Report 2023 covers Salaries for Bangladeshn professionals
+      and trades in over 125+
+      positions across key sectors like Energy, Infrastructure, Construction and Manufacturing. The report is created by
+      taking Surveys and inputs from both employers and employees worldwide
+    </p>
+
+    <p class="text-lg py-5">The report is immensely beneficial for HR / Admin Manager this report can help you,
+    </p>
+    <ul class="text-lg py-5 list-decimal ml-5	">
+      <li>The report contains salary rates for more than 125 different roles with invaluable insights that will help
+        your hiring
+        strategies
+      </li>
+      <li>Benchmark salaries of your existing employees and appraisals
+
+      </li>
+      <li>Understand market trends around compensation
+      </li>
+      <li>
+        Use salary ranges for hiring talent from outside the organization, especially around your expat hiring from
+        Bangladesh
+
+      </li>
+    </ul>
+
+    <p class="text-lg py-5">
+      The report can be used by Procurement and Senior Management for,
+    </p>
+    <ul class="text-lg py-5 list-decimal ml-5	">
+      <li>Tendering and manpower Estimation for large Energy and Infrastructure Projects
+      </li>
+      <li>Commercial estimation of Manpower and Talent
+
+      </li>
+      <li> Benchmarking of salaries for existing employees
+      </li>
+
+    </ul>
+
+    <p class="text-lg py-5">
+      The report is a unique compilation of data which addresses the migration and compensation of select Bangladeshn Talent
+      in 4
+      regions. Best of all the Executive report is Free to Download - it covers key insights and trends from the Entire
+      Report
+      (48 pages) and a sample set of the salary survey results.
+    </p>
+
+    <p class="text-lg py-5">
+      The report is a unique compilation of data which addresses the migration and compensation of select Bangladeshn Talent
+      in 4
+      regions. Best of all the Executive report is Free to Download - it covers key insights and trends from the Entire
+      Report
+      (48 pages) and a sample set of the salary survey results.
+    </p>
+
+      <p class="text-lg py-5">
+      The entire report contains detailed data on 125 positions across 4 regions and is valued at at INR 32,000 (USD 399) and
+      downloadable here.
+
+      </p>
+
+      <p class="text-lg py-5">
+        If you represent a Energy or Infrastructure Contracting company and are willing to participate in the Annual Survey for
+        next year - we are happy to provide the entire report complimentary. Please choose the option to have our representative
+        contact you in this case for a consultation session.
+
+      </p>
+
+  </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

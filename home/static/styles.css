@@ -1,0 +1,121 @@
+/* html, body{
+  overflow-x: hidden !important;
+} */
+  .owl-prev, .owl-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #ccc;
+        cursor: pointer;
+        background: #d9534f !important;
+           width: 38px;
+        height: 38px
+      }
+      .owl-prev {
+        left: -50px;
+      }
+      .owl-next {
+        right: -50px;
+      }
+      .owl-next > span{
+        color:white;
+        font-size: 30px;
+      }
+      .owl-prev > span{
+        color:white;
+        font-size: 30px;
+      }
+
+  @media only screen and (max-width: 800px) {
+    .owl-prev, .owl-next  {
+    display: none;
+  }
+}
+.dropdown {
+  display: none;
+}
+
+.dropdown-wrap:hover > ul.dropdown {
+  display: block !important;
+}
+
+.dropdown-wrap2 > ul.dropdown > li:last-child{
+  border: none;
+}
+
+.dropdown:last-child{
+  border: none;
+}
+
+/* swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+}
+
+.slider {
+  width: 100%;
+  height: 800px;
+} */
+.swiper-container {
+    width: 100%; /* Make sure it uses the full width of its parent */
+    height: 800px; /* Set a fixed height that works for your content */
+    overflow-x: hidden ; /* Hide any content that overflows */
+}
+
+.swiper-slide {
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensure background image covers the entire slide */
+    background-position: center; /* Center the background image */
+}
+
+
+.slider{
+   height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensure background image covers the entire slide */
+    background-position: center; /* Center the background image */
+}
+
+/* @media only screen and (max-width:750px) {
+  .swiper-button-prev,
+  .swiper-button-next{
+    top: 68% !important;
+  }
+}
+
+
+@media  only screen and (max-width:600px) {
+  .swiper-button-prev,
+  .swiper-button-next{
+    top: 60% !important;
+  }
+}
+
+@media only  screen and (max-width:500px) {
+  .swiper-button-prev,
+  .swiper-button-next{
+    top: 65% !important;
+  }
+} */
+

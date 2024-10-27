@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+<section
+    class="md:h-[400px] h-[180px] flex items-center flex-col justify-center w-full bg-cover	bg-no-repeat bg-[url({% static 'images/innerpage-banners/our-recruitment-process.jpg' %})]">
+    <h1 style="text-shadow: 2px 2px #000"
+        class="md:text-5xl mx-5 text-xl text-center [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+        Recruitment Process at Mumin International
+    </h1>
+
+</section>
+
+<section class="my-8 px-4">
+    <div class="container m-auto">
+        <div class="flex gap-5 flex-col ">
+            <p class="text-lg">
+                At Mumin International , we understand that employees are a company’s most valuable investment as such
+                we strive to
+                follow a stringent procedure for recruiting employees to address talent requirements. Mumin has a
+                sophisticated selection
+                process for recruitment, each candidate recruited through Mumin goes through extensive intelligence and
+                psychometric
+                assessment to ensure quality and distinction to our clients.
+            </p>
+
+            <div class="text-lg">
+                <p><strong>
+                    <i class="fa-solid fa-arrow-right"></i>
+                    Step One
+                </strong>
+                : Comprehensive Assessment of Client Requirements
+                <br></p>
+                <p>
+                    Mumin takes pride in tailoring its selection process for each client. We undertake a detailed review of
+                    your
+                    organization,including your business activities, industry practices to ensure you get the right talent.
+                    At this stage,
+                    the client has to sign a Memorandum of Understanding (MoU) with Mumin International detailing the
+                    recruitment terms.
+                    Following this the client issues a Demand letter (containing positions and number of requirements),
+                    Power of Attorney
+                    and a Specimen Agreement. These documents are used by Mumin to procure necessary permissions for
+                    activating the
+                    recruitment process in Bangladesh.
+                </p>
+            </div>
+            <div class="text-lg text-primary">
+                <p><strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Step Two : 
+                    </strong>
+                    Advertising
+                </p>
+                <p>
+                The primary step involves building a detailed job description which will be the basis for the screening and short
+                listing. The vacancy is then published/ distributed in targeted and several media such as print, periodicals, internet,
+                mailing lists, SMS campaigns and referrals. We also scan our extensive database to short-list potential candidates.
+                </p>
+            </div>
+
+            <div class="text-lg">
+                <p><strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    Step Three: 
+
+                    </strong>
+                    Filtering Resumes
+                </p>
+                <p>
+                In this step Mumin provides a secure and efficient mechanism to receive the resumes in physical or electronic format. The
+                resumes are categorized and sorted according to priority, based on job requirements, Subject experts then approve/
+                reject resumes.
+                </p>
+            </div>
+
+            <div class="text-lg text-primary">
+                <p><strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Step Four
+            
+                    </strong>
+                    assessment
+                </p>
+                <p>
+                In this step Mumin would carry out various assessments (tech, trade, behavioural) and if needed conduct a physical
+                interview.
+                </p>
+            </div>
+
+            <div class="text-lg  ">
+                <p><strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+Step Five
+                    </strong>
+                    Shortlist Creation
+                </p>
+                <p>
+                All the filtered resumes from different categories are pooled together to create a short list of the desired candidates
+                along with the results of the assessments and interviews.
+                </p>
+            </div>
+
+
+            <div class="text-lg text-primary">
+                <p><strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+                Step Six:
+                    </strong>
+Presentation to the Employer / Client Selection                </p>
+                <p>
+                This step includes presenting a detailed list of shortlisted candidates to our client so they can select their choice of
+                candidates. Once the candidate has been interviewed and selected by the client, Mumin will negotiate the salary (if
+                Client authorizes this) and the employment contract is prepared and signed. At this point the process of collecting
+                various documents such as passports, certificates, photos is begun immediately.
+                </p>
+            </div>
+
+
+            <div class="text-lg ">
+                <p><strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Step Seven : 
+
+                    </strong>
+                Processing</p>
+                <p>
+                Processing of the candidates documents required for a job overseas include medical testing, visa processing, background
+                checks, police verification and ECNR stamping on the passport. We have specialized personnel delegated and
+                subcontractors identified to handle the above mentioned tasks in high volumes.
+
+                </p>
+            </div>
+
+            <div class="text-lg text-primary">
+                <p><strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+                   Step Eight : 
+
+            
+                    </strong>
+                    Candidate Mobilization</p>
+                <p>
+                Once all the documents are approved and cleared, the travel of the candidate has to be coordinated based upon
+                availability of tickets. Travel checklists are made for the candidates to travel in batches and notifications are sent
+                to the respective companies to arrange for a meet and greet at their end. If a pre-travel induction is required by the
+                company, this is executed just prior to departure/ The candidates’ arrival at the overseas destination and their first
+                on-site reporting is also coordinated by our experienced team.
+
+            
+                </p>
+            </div>
+        </div>
+        <div class="mt-10 flex md:flex-row flex-col ">
+        <img class="w-full md:w-[50%] " src="{% static 'images/pic-from-brochure/PROJECT-EXECUTION.png' %}" alt="">
+        <img class="w-full md:w-[50%] " src="{% static 'images/pic-from-brochure/RECRUITMENT%20PROCESS.png' %}" alt="">
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

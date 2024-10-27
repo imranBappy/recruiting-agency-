@@ -1,0 +1,453 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/b6b4c8d3e7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#991208",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+
+  <body>
+    <div class="min-h-12 py-4 md:py-0 bg-black">
+      <div class="container px-4 m-auto flex justify-between flex-wrap gap-4">
+        <div class="md:h-12 flex items-center gap-5 flex-wrap">
+          <a
+            href="mailto:mumininternational@gmail.com"
+            class="text-white text-sm flex items-center gap-2 flex-nowrap"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            <span>mumininternational@gmail.com</span>
+          </a>
+          <a
+            href="tel:+393297456819"
+            class="text-white text-sm flex items-center gap-2 flex-nowrap"
+          >
+            <i class="fa-solid fa-phone"></i>
+            <span>+39 329 745 6819</span>
+          </a>
+          <a
+            href="#"
+            class="text-white text-sm flex items-center gap-2 flex-nowrap"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>+39 329 745 6819</span>
+          </a>
+        </div>
+        <div class="lg:h-12 flex t items-center gap-4">
+          <a
+            href="mailto:mumininternational@gmail.com"
+            class="text-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a
+            href="mailto:mumininternational@gmail.com"
+            class="text-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-solid fa-x"></i>
+          </a>
+          <a
+            href="mailto:mumininternational@gmail.com"
+            class="text-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            href="mailto:mumininternational@gmail.com"
+            class="text-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+          <a href="#" class="text-white text-sm flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <nav class="bg-white h-20">
+      <div class="container m-auto flex justify-between">
+        <div class="h-20 flex items-center">
+          <a href="/"
+            ><img
+              src="{% static 'assets/logo.png' %}"
+              class="h-16"
+              alt="Mumin International"
+          /></a>
+        </div>
+        <div>
+          <ul class="h-20 gap-1 justify-between items-center hidden md:flex">
+            <li
+              class="text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300"
+            >
+              <a href="#">HOME</a>
+            </li>
+            <li
+              class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300"
+            >
+              <a href="#" class="">
+                <span>CURRENT JOBS</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </a>
+              <ul
+                class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300"
+              >
+                {% for country in countries %}
+                <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                  <a class="block" href="{{country.id}}">{{country.name}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li
+              class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300"
+            >
+              <a href="#" class="">
+                <span>EMPLOYERS</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </a>
+              <ul
+                class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300"
+              >
+                {% for country in countries %}
+                <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                  <a class="block" href="#">{{country.name}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li
+              class="dropdown-wrap z-10 relative text-base font-sans font-semibold py-6 px-3 hover:py-3 hover:bg-primary hover:text-white transtion-all duration-300"
+            >
+              <a href="#">
+                <span>CONTACT US</span>
+                <i class="fa-solid fa-angle-down"></i>
+              </a>
+              <ul
+                class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300"
+              >
+                {% for country in countries %}
+                <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                  <a class="block" href="#">{{country.name}}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+
+            <li>
+              <a
+                class="px-3 py-2 bg-[#d9534f] hover:bg-primary font-sans text-white rounded text-sm"
+                href=""
+                >Quick Register</a
+              >
+            </li>
+
+            <li>
+              <a
+                class="px-3 py-2 bg-[#d9534f] hover:bg-primary font-sans text-white rounded text-sm"
+                href=""
+                >Work & Study in Canada</a
+              >
+            </li>
+          </ul>
+          <div class="flex h-20 items-center md:hidden">
+            <i id="menu-btn" class="fa-solid fa-bars px-5 py-2 pointer"></i>
+          </div>
+        </div>
+      </div>
+      <div id="topnav">
+        <ul class="justify-between md:hidden flex flex-col bg-slate-900">
+          <li
+            class="text-base border-b-[1px] font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300"
+          >
+            <a href="#">HOME</a>
+          </li>
+          <li
+            class="dropdown-wrap border-b-[1px] relative text-base font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300"
+          >
+            <a href="#" class="">
+              <span>CURRENT JOBS</span>
+              <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <ul
+              class="dropdown absolute left-0 top-12 bg-black text-white w-56 transtion-all duration-300"
+            >
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a href="#">LINK 1</a>
+              </li>
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a href="#">LINK 2</a>
+              </li>
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a href="#">LINK 3</a>
+              </li>
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a href="#">LINK 4</a>
+              </li>
+              <li class="border-b-[1px] px-5 py-3 text-sm hover:bg-primary">
+                <a href="#">LINK 5</a>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="text-base border-b-[1px] font-sans font-semibold py-3 px-3 hover:py-3 hover:bg-primary text-white transtion-all duration-300"
+          >
+            <a href="#">HOME</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="h-96 w-full">
+      <img
+        class="h-full w-full"
+        src="https://www.Mumininter.com/images/innerpage-banners/qatar.jpg"
+        alt=""
+      />
+    </section>
+
+    <section class="mx-5">
+      <div class="container m-auto gap-6 py-14 flex flex-col md:flex-row justify-between">
+        <div class="md:w-3/4 w-full">
+          <h3 class="text-4xl font-semibold mt-5">Jobs In Qatar</h3>
+          <h6 class="text-xl font-semibold mt-5">
+            We Have Opening for Below Positions:
+          </h6>
+          <div class="mt-4 flex justify-between">
+            <div class="flex justify-center items-center gap-2">
+              <input type="checkbox" name="remote" id="remote" />
+              <label for="remote">Remote Job</label>
+            </div>
+            <form
+              method="GET"
+              action="{% url 'country_jobs' country.pk %}"
+              class="flex gap-1"
+            >
+              <input
+                class="h-7 rounded p-2"
+                type="search"
+                name="job_search"
+                id="job_search"
+                value="{{ request.GET.q }}"
+              />
+              <button
+                type="submit"
+                class="cursor-pointer text-sm font-serif flex items-center justify-center px-2 bg-[#e8e8e8]"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+          {% if jobs.exists %}
+
+          <table
+            class="w-full border-collapse border mt-4 border-slate-300 w-full"
+          >
+            <thead>
+              <tr class="h-11">
+                <th class="text-left px-2 min-w-44">Posting Title</th>
+                <th class="text-left px-2 min-w-32">Date Opened</th>
+                <th class="text-left px-2">Job Description</th>
+                <th class="text-left px-2 min-w-28">Experience</th>
+                <th class="text-left px-2 min-w-28">Job Type</th>
+                <th class="text-left px-2 min-w-28"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for job in jobs %}
+              <tr class="h-11">
+                <td class="border border-slate-300 px-2">
+                  <a href="/{{country.id}}/{{job.id}}" class="text-blue-600"
+                    >{{job.title}}</a
+                  >
+                </td>
+                <td class="border border-slate-300 px-2">{{job.posted}}</td>
+                <td
+                  class="border-t border-slate-300 line-clamp-2 px-2 text-wrap"
+                >
+                  {{job.description}}
+                </td>
+                <td class="border border-slate-300 px-2">{{job.experience}}</td>
+                <td class="border border-slate-300 px-2">{{job.job_type}}</td>
+                <td class="border border-slate-300 px-2">
+                  <a
+                    class="pointer text-sm font-serif py-[5px] px-2 bg-[#e8e8e8]"
+                    href="/apply-job/{{job.id}}"
+                    >Apply Now</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
+          <div>
+            <h6 class="text-center my-10">Jobs Not Found!</h6>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="md:w-1/4 w-full">
+          <div class="w-full border-[1px]">
+            <h2 class="p-3 text-3xl font-serif font-bold bg-[#f9f9f9]">
+              Jobs in Countries
+            </h2>
+
+            <ul class="p-3 flex flex-col gap-2">
+              {% for country in countries %}
+              <li>
+                <i class="fa-solid fa-angle-right text-sm"></i>
+                <a
+                  class="hover:ml-2 transition-all duration-300 inline-block"
+                  href="/{{country.id}}"
+                  >Jobs in
+                  <span>{{country.name}}</span>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-black text-white">
+      <div>
+        <div class="h-16 bg-primary"></div>
+        <img class="w-full" src="./assets/line-bg.png" alt="" />
+      </div>
+
+      <div
+        class="container my-4 m-auto py-6 flex justify-between flex-wrap gap-7"
+      >
+        <div>
+          <div>
+            <a href="#"
+              ><img
+                src="{% static 'assets/logo.png' %}"
+                class="h-16"
+                alt="Mumin International"
+            /></a>
+          </div>
+          <div class="h-12 my-7 flex t items-center gap-4">
+            <a
+              href="mailto:mumininternational@gmail.com"
+              class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+            >
+              <i class="fa-brands fa-facebook text-primary"></i>
+            </a>
+            <a
+              href="mailto:mumininternational@gmail.com"
+              class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+            >
+              <i class="fa-solid fa-x text-primary"></i>
+            </a>
+            <a
+              href="mailto:mumininternational@gmail.com"
+              class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+            >
+              <i class="fa-brands fa-linkedin text-primary"></i>
+            </a>
+            <a
+              href="mailto:mumininternational@gmail.com"
+              class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+            >
+              <i class="fa-brands fa-youtube text-primary"></i>
+            </a>
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+            >
+              <i class="fa-brands fa-whatsapp text-primary"></i>
+            </a>
+          </div>
+          <div class="w-40 flex flex-col gap-4 items-center justify-center">
+            <img class="w-40" src="./assets/qrcode.png" alt="" />
+            <p>Scan QR Code</p>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-xl uppercase font-serif font-bold">Current Jobs</h2>
+          <ul class="flex flex-wrap flex-col gap-7 h-56 mt-5">
+            <li class=" ">Jobs in Romania</li>
+            <li class="">Jobs in Saudi Arabia</li>
+            <li class=" ">Jobs in Romania</li>
+            <li class="">Jobs in Saudi Arabia</li>
+            <li class=" ">Jobs in Romania</li>
+            <li class="">Jobs in Saudi Arabia</li>
+            <li class=" ">Jobs in Romania</li>
+            <li class="">Jobs in Saudi Arabia</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-xl uppercase font-serif font-bold">
+            OFFICE LOCATION
+          </h2>
+          <p class="w-72 flex flex-wrap mt-5 items-center gap-2">
+            <i class="fa-solid fa-house"></i>
+            <span>
+              Mumin International 507, Shah and Nahar Industrial Estate, Dr E
+              Moses Road, Worli Naka, Mumbai - 400018, Bangladesh</span
+            >
+          </p>
+        </div>
+        <div>
+          <h2 class="text-xl uppercase font-serif font-bold">
+            OFFICE LOCATION
+          </h2>
+          <ul class="flex flex-wrap flex-col gap-6 mt-5">
+            <a
+              href="mailto:mumininternational@gmail.com"
+              class="text-white text-sm flex items-center gap-2 flex-nowrap"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              <span>mumininternational@gmail.com</span>
+            </a>
+            <a
+              href="tel:+393297456819"
+              class="text-white text-sm flex items-center gap-2 flex-nowrap"
+            >
+              <i class="fa-solid fa-phone"></i>
+              <span>+39 329 745 6819</span>
+            </a>
+            <a
+              href="#"
+              class="text-white text-sm flex items-center gap-2 flex-nowrap"
+            >
+              <i class="fa-brands fa-whatsapp text-base"></i>
+              <span>+39 329 745 6819</span>
+            </a>
+          </ul>
+        </div>
+      </div>
+
+      <div class="h-14 bg-primary flex items-center justify-center">
+        <p class="text-center">
+          © Copyright Clare.AI. All rights Reserved. Site designed & Maintained
+          by Mumin International
+        </p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    <script src="{% static 'script.js' %}"></script>
+  </body>
+</html>

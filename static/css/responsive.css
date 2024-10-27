@@ -1,0 +1,417 @@
+/* Extra Large Devices, Wide Screens */
+@media only screen and (max-width : 1600px) {
+
+	.slider-area .slider-2 p,
+	.slider-area .slider-2 p{padding: 0 17%;}
+	.slider-area .slider-2 div.slider-botton,
+	.slider-area .slider-2 div.slider-botton {margin-top: 30px;}
+
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+	.slider-area .slider-2 p,
+	.slider-area .slider-2 p{padding: 0 17%;font-size: 14px;}
+	.slider-area .slider-2 div.slider-botton,
+	.slider-area .slider-2 div.slider-botton {margin-top: 20px;}
+	.slider-area .slider-2 h1 {font-size: 42px;font-weight: 600;letter-spacing: 0;margin: 0;}
+	header .header-top-area .header-top-left ul li { margin: 0 1px;}
+	header .header-top-area .header-top-left ul li i,
+	header .header-top-area .header-top-right ul li a i {font-weight: 400;margin-right: 2px;}
+	header .main-header-area .main-menu ul li a {font-weight: 400;padding: 25px 18px;}
+	.recent-property-area .property-slider .content-property {padding: 35px;}
+	.bennar-area .bennar-text p {padding: 0 200px;}
+	.propery-area .show-property-area .single-property .property-details h3 a {font-size: 16px;font-weight: 400;}
+	.property-details-area .best-agent ul li .media .pull-left, .property-details-area .property-map ul li .media .pull-left {margin-right: 0;
+	  width: 77px;}
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+	.slider-area .slider-2 p,
+	.slider-area .slider-2 p{padding: 0 17%;font-size: 14px;}
+	.slider-area .slider-2 div.slider-botton,
+	.slider-area .slider-2 div.slider-botton {margin-top: 20px;}
+	.slider-area .slider-2 h1 {font-size: 42px;font-weight: 600;letter-spacing: 0;margin: 0;}
+	header .header-top-area .header-top-left ul li { font-size: 13px;margin: 0 3px;}
+	header .header-top-area .header-top-left ul li i,
+	header .header-top-area .header-top-right ul li a i {font-weight: 400;margin-right: 2px;}
+	header .main-header-area .main-menu ul li a {font-weight: 400;padding: 25px 4px;}
+	.recent-property-area .property-slider .content-property {padding: 3px;background: transparent;}
+	.recent-property-area .property-slider .content-property h3 { margin-bottom: 10px;}
+	.real-estate-agent-area .section-title {padding: 0 50px;}
+	.bennar-area .bennar-text p {padding: 0 40px;}
+	.propery-area .show-property-area .single-property .property-details h3 a {font-size: 16px;font-weight: 400;}
+	.property-details-area .best-agent ul li .media .pull-left, .property-details-area .property-map ul li .media .pull-left {margin-right: 0;
+	width: 77px;}
+	header .main-header-area .main-menu ul {text-align: center; }
+	.preview-2 .nivo-controlNav{
+	display: none;
+	}
+	.feature-property-area .property-menu ul li {margin: 0 8px;}
+	.testimonial-area .client-content blockquote p { padding: 30px 80px 0;}
+	.bx-wrapper{margin-bottom: 0;}
+	.subscribe-area .subscribe-text h3 {font-size: 20px; margin: 20px 0;}
+	.slider-area { margin-bottom: 0;}
+	.client-logo-area .owl-buttons .owl-prev {left: -25px;}
+	.client-logo-area .owl-buttons .owl-next {right: -25px;}
+	.header-two .main-menu.mean-menu1.show-menu {background: #000000;}
+	.header-two .bar-menu { margin: 0;}
+	header .main-header-area .main-menu ul li .mega-menu {right: -200px;}
+	.footer-social-icons ul li a {height: 27px;line-height: 27px;width: 27px;}
+	.footer-social-icons ul li {margin-right: 2px;}
+	.counter-up-area .ab-count .about-counter-list {margin: 15px 0;}
+	.tab-content {overflow: hidden;}
+	.propery-area .list-view-area .media .pull-left { float: inherit !important; margin-right: 0;	}
+	.property-details-area .pagin-slider {margin-bottom: 30px;}
+	.agent-details-area .property-filtering h2 {font-size: 17px;	}
+	.sidebar-area .widget h2 {font-size: 19px;	}
+	.sidebar-area .widget .property-filtering form .single-field p {font-size: 15px;}
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+	.main-header-area,
+	header .header-top-area{display: none;}
+	.mobile-menu-area{display: block;overflow: hidden;}	
+	.slider-area .slider-2 p,
+	.slider-area .slider-2 p{padding: 0 17%;font-size: 14px;display: none;}
+	.slider-area .slider-2 div.slider-botton,
+	.slider-area .slider-2 div.slider-botton {margin-top:10px;}
+	.slider-area .slider-2 h1 {font-size: 30px;font-weight: 600;letter-spacing: 0;margin: 0;}
+	header .header-top-area .header-top-left ul li { font-size: 13px;margin: 0 3px;}
+	.slider-area .slider-2 div.title2 {font-size: 18px;}
+	header .main-header-area .main-menu ul li a {font-weight: 400;padding: 25px 4px;}
+	.recent-property-area .property-slider .content-property {padding: 3px;background: transparent;margin: 15px 0;}
+	.recent-property-area .property-slider .content-property h3 { margin-bottom: 10px;}
+	.real-estate-agent-area .section-title {padding: 0 10px;}
+	.bennar-area .bennar-text p {padding: 0 40px;}
+	.propery-area .show-property-area .single-property .property-details h3 a {font-size: 16px;font-weight: 400;}
+	.property-details-area .best-agent ul li .media .pull-left, .property-details-area .property-map ul li .media .pull-left {margin-right: 0;
+	width: 77px;}
+	header .main-header-area .main-menu ul {text-align: center; }
+	.preview-2 .nivo-controlNav{display: none;}
+	.feature-property-area .property-menu ul li {margin: 5px;}
+	.testimonial-area .client-content blockquote p { padding: 30px 80px 0;}
+	.bx-wrapper{margin-bottom: 0;}
+	.subscribe-area .subscribe-text h3 {font-size: 20px; margin: 20px 0 0;text-align: center;}
+	.slider-area { margin-bottom: 0;}
+	.client-logo-area .owl-buttons .owl-prev {left: -25px;}
+	.client-logo-area .owl-buttons .owl-next {right: -25px;}
+	.header-two .main-menu.mean-menu1.show-menu {background: #000000;}
+	.header-two .bar-menu { margin: 0;}
+	header .main-header-area .main-menu ul li .mega-menu {right: -200px;}
+	.footer-social-icons ul li a {height: 27px;line-height: 27px;width: 27px;}
+	.footer-social-icons ul li {margin-right: 2px;}
+	.counter-up-area .ab-count .about-counter-list {margin: 15px 0;}
+	.tab-content {overflow: hidden;}
+	.propery-area .list-view-area .media .pull-left { float: inherit !important; margin-right: 0;	}
+	.property-details-area .pagin-slider {margin-bottom: 30px;}
+	.agent-details-area .property-filtering h2 {font-size: 17px;	}
+	.sidebar-area .widget h2 {font-size: 19px;	}
+	.sidebar-area .widget .property-filtering form .single-field p {font-size: 15px;}
+	a.button {font-size: 14px;height: 40px !important;letter-spacing: 0;line-height: 16px !important;width: 130px !important;}
+	.find-your-home-area .read-more { margin: 0 0 20px;	}
+	.recent-property-area {padding: 100px 20px;}
+	.recent-property-area .property-slider .owl-controls {top: -70px;}
+	.real-estate-agent-area .agent-slider .col-lg-3.col-md-3.col-sm-6.col-xs-12 .single-agent .images {height: 180px !important;margin:15px;
+	  width: 180px;}
+	  .real-estate-agent-area .agent-slider .col-lg-3.col-md-3.col-sm-6.col-xs-12 .single-agent { margin: auto;padding: 10px 0;}
+	  .subscribe-area,
+	  .subscribe-text {text-align: center; }
+	  .footer-heading{margin: 15px 0;}
+	  .bennar-area .bennar-text h2 {font-size: 20px; margin-bottom: 10px; }
+	  .home-page-recent-news-area .owl-controls .owl-buttons div,
+	  .client-logo-area .owl-controls .owl-buttons div{display: none;}
+	  .about-area .read-more {margin: 30px 0; }
+	  .page-header-area { padding: 100px 0 50px; }
+	  .propery-area .list-view-area .media .media-body .property-details .property-content .read-more a {padding: 10px 15px;}
+	  .propery-area .show-property-area {margin-right: 0;}
+	  .propery-area .list-view-area .media .pull-left {float: inherit !important;padding-right: 0 !important; }
+	  .property-page-area .property-details .single-property-details {margin: 40px 0;overflow: hidden; }
+	  .page-header-area h1 {font-size: 24px; margin-bottom: 10px; }
+	  .property-page-area .property-details .single-property-details .single-informations {margin-top: 10px;}
+	  .main-contact-form a.button {margin: 30px 0; }
+	  .agent-details-area .search-from fieldset .btn-send {margin-left: 0;}
+	  .error-page-area h3 {font-size: 20px;}
+	  .contact-page-area .contact-form,
+	  .contact-page-area .contact-info .single-contact {
+	    margin: 30px 0;
+	  }
+
+	  .recent-property-area,
+	  .real-estate-agent-area,
+	  .home-page-recent-news-area,
+	  .client-logo-area{
+	  	overflow: hidden;
+	  }
+	  .recent-property-area {
+	    margin: 15px;
+	  }
+	  .feature-property-area,
+	  .amazing-features-area,
+	  .recent-property-area,
+	  .real-estate-agent-area,
+	  .testimonial-area,
+	  .footer-top-area,
+	  .bennar-area,
+	  .home-page-recent-news-area,
+	  .client-logo-area{padding: 50px 0;}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	.find-your-home-area .info-form form{border: none;}
+	.find-your-home-area .info-form h2:after{display: none;}
+	.find-your-home-area .info-form {
+		position: relative;
+		margin: 15px 0;
+		width: 100%;
+	}
+	.find-your-home-area .info-form h2 {
+		width: 100%;
+		text-align: center;
+	}
+	
+	.main-header-area,
+	header .header-top-area{display: none;}
+	.mobile-menu-area{display: block;overflow: hidden;}	
+	.slider-area .slider-2 p,
+	.slider-area .slider-2 p{padding: 0 17%;font-size: 14px;display: none;}
+	.slider-area .slider-2 div.slider-botton,
+	.slider-area .slider-2 div.slider-botton {margin-top:10px;}
+	.slider-area .slider-2 h1 {font-size: 20px;font-weight: 600;letter-spacing: 0;margin: 0;}
+	header .header-top-area .header-top-left ul li { font-size: 13px;margin: 0 3px;}
+	.slider-area .slider-2 div.title2 {font-size: 16px;}
+	header .main-header-area .main-menu ul li a {font-weight: 400;padding: 25px 4px;}
+	.recent-property-area .property-slider .content-property {padding: 3px;background: transparent;margin: 15px 0;}
+	.recent-property-area .property-slider .content-property h3 { margin-bottom: 10px;}
+	.real-estate-agent-area .section-title {padding: 0 10px;}
+	.bennar-area .bennar-text p {padding: 0px;}
+	.propery-area .show-property-area .single-property .property-details h3 a {font-size: 16px;font-weight: 400;}
+	.property-details-area .best-agent ul li .media .pull-left, .property-details-area .property-map ul li .media .pull-left {margin-right: 0;
+	width: 77px;}
+	header .main-header-area .main-menu ul {text-align: center; }
+	.preview-2 .nivo-controlNav{display: none;}
+	.feature-property-area .property-menu ul li {margin: 5px;}
+	.testimonial-area .client-content blockquote p { padding: 30px 0;}
+	.bx-wrapper{margin-bottom: 0;}
+	.subscribe-area .subscribe-text h3 {font-size: 20px; margin: 20px 0 0;text-align: center;}
+	.slider-area { margin-bottom: 0;}
+	.client-logo-area .owl-buttons .owl-prev {left: -25px;}
+	.client-logo-area .owl-buttons .owl-next {right: -25px;}
+	.header-two .main-menu.mean-menu1.show-menu {background: #000000;}
+	.header-two .bar-menu { margin: 0;}
+	header .main-header-area .main-menu ul li .mega-menu {right: -200px;}
+	.footer-social-icons ul li a {height: 27px;line-height: 27px;width: 27px;}
+	.footer-social-icons ul li {margin-right: 2px;}
+	.counter-up-area .ab-count .about-counter-list {margin: 15px 0;}
+	.tab-content {overflow: hidden;}
+	.propery-area .list-view-area .media .pull-left { float: inherit !important; margin-right: 0;	}
+	.property-details-area .pagin-slider {margin-bottom: 30px;}
+	.agent-details-area .property-filtering h2 {font-size: 17px;	}
+	.sidebar-area .widget h2 {font-size: 19px;	}
+	.sidebar-area .widget .property-filtering form .single-field p {font-size: 15px;}
+	a.button {font-size: 14px;height: 40px !important;letter-spacing: 0;line-height: 16px !important;width: 130px !important;}
+	.find-your-home-area .read-more { margin: 0 0 20px;	}
+	.recent-property-area {padding: 100px 20px;}
+	.recent-property-area .property-slider .owl-controls {top: -57px;left: 0;}
+	.subscribe-area .newsletter input {width: 100%;height: 50px;}
+	.recent-property-area .property-slider .property-images {margin-bottom: 0;	}
+	.testimonial-area .section-title {margin-bottom: 0;	}
+	.testimonial-area .client-content blockquote p {padding: 0px 0;	}
+	.real-estate-agent-area .agent-slider .col-lg-3.col-md-3.col-sm-6.col-xs-12 .single-agent .images {margin: 20px auto;}
+	  .real-estate-agent-area .agent-slider .col-lg-3.col-md-3.col-sm-6.col-xs-12 .single-agent { margin: auto;padding: 10px 0;}
+	  .subscribe-area,
+	  .subscribe-text {text-align: center; }
+	  .footer-heading{margin: 15px 0;}
+	  .bennar-area .bennar-text h2 {font-size: 20px;line-height: 1.6;margin-bottom: 15px;}
+	  .home-page-recent-news-area .owl-controls .owl-buttons div,
+	  .client-logo-area .owl-controls .owl-buttons div{display: none;}
+	  .about-area .read-more {margin: 30px 0; }
+	  .page-header-area { padding: 100px 0 50px; }
+	  .propery-area .list-view-area .media .media-body .property-details .property-content .read-more a {padding: 10px 15px;}
+	  .propery-area .show-property-area {margin-right: 0;}
+	  .propery-area .list-view-area .media .pull-left {float: inherit !important;padding-right: 0 !important; }
+	  .property-page-area .property-details .single-property-details {margin: 40px 0;overflow: hidden; }
+	  .page-header-area h1 {font-size: 24px; margin-bottom: 10px; }
+	  .property-page-area .property-details .single-property-details .single-informations {margin-top: 10px;}
+	  .main-contact-form a.button {margin: 30px 0; }
+	  .agent-details-area .search-from fieldset .btn-send {margin-left: 0;}
+	  .error-page-area h3,
+	  .real-estate-agent-area .section-title h2 {font-size: 20px;}
+	  .contact-page-area .contact-form,
+	  .contact-page-area .contact-info .single-contact {
+	    margin: 30px 0;
+	  }
+
+	  .recent-property-area,
+	  .real-estate-agent-area,
+	  .home-page-recent-news-area,
+	  .client-logo-area{
+	  	overflow: hidden;
+	  }
+	  .recent-property-area {
+	    margin: 15px;
+	  }
+	  .feature-property-area,
+	  .amazing-features-area,
+	  .recent-property-area,
+	  .real-estate-agent-area,
+	  .testimonial-area,
+	  .footer-top-area,
+	  .bennar-area,
+	  .home-page-recent-news-area,
+	  .client-logo-area,
+	  .contact-page-area,
+	  .about-area,
+	  .services-area,
+	  .counter-up-area,
+	  .propery-area,
+	  .property-details-area,
+	  .property-page-area,
+	  .our-agent-area,
+	  .agent-details-area,
+	  .blog-page-area{padding: 50px 0;}
+	  .subscribe-area .newsletter label{display: none;}
+	  .subscribe-area .newsletter button { position: absolute;  right: 0;  top: 3px;	  }
+	  .subscribe-area .newsletter {margin-top: 10px;overflow: hidden; position: relative;}
+	  .section-title h2 { font-size: 24px;}
+	  .testimonial-area .bx-wrapper .bx-prev {position: absolute;top: 44%; left: -35px;}
+	  .testimonial-area .bx-wrapper .bx-next {position: absolute;top: 50%; right: -35px;}
+	  .testimonial-area .client-img a img {height: 50px; width: 50px; }
+	  .testimonial-area .client-img a.active img{height: 50px; width: 50px;}
+	  .testimonial-area .client-img a {width: 85px;}
+	  .testimonial-area .client-img a.active h4, .testimonial-area .client-img a.active p,
+	  .counter-up-area .ab-count .about-counter-list p {font-size: 14px; }
+	  .recent-property-area {  margin:0px 15px;	  }
+	  .bennar-area a.button {font-size: 14px; height: 40px !important;line-height: 14px !important;padding: 10px;text-align:center;width:114px !important;
+	  }
+	  .propery-area .property-content-area .property-topbar .show-result p,
+	  .propery-area .property-content-area .property-topbar ul.nav-tabs{text-align: center;}
+	  .blog-page-area .single-blog-area .comments-area .single-comments-box.second-comments {  margin-left: 0; }
+
+
+
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+
+	.main-header-area,
+	header .header-top-area{display: none;}
+	.mobile-menu-area{display: block;overflow: hidden;}	
+	.slider-area .slider-2 p,
+	.slider-area .slider-2 p{padding: 0 17%;font-size: 14px;display: none;}
+	.slider-area .slider-2 div.slider-botton,
+	.slider-area .slider-2 div.slider-botton {margin-top:10px;}
+	.slider-area .slider-2 h1 {font-size: 20px;font-weight: 600;letter-spacing: 0;margin: 0;}
+	header .header-top-area .header-top-left ul li { font-size: 13px;margin: 0 3px;}
+	.slider-area .slider-2 div.title2 {font-size: 16px;}
+	header .main-header-area .main-menu ul li a {font-weight: 400;padding: 25px 4px;}
+	.recent-property-area .property-slider .content-property {padding: 3px;background: transparent;margin: 15px 0;}
+	.recent-property-area .property-slider .content-property h3 { margin-bottom: 10px;}
+	.real-estate-agent-area .section-title {padding: 0 10px;}
+	.bennar-area .bennar-text p {padding: 0px;}
+	.propery-area .show-property-area .single-property .property-details h3 a {font-size: 16px;font-weight: 400;}
+	.property-details-area .best-agent ul li .media .pull-left, .property-details-area .property-map ul li .media .pull-left {margin-right: 0;
+	width: 77px;}
+	header .main-header-area .main-menu ul {text-align: center; }
+	.preview-2 .nivo-controlNav{display: none;}
+	.feature-property-area .property-menu ul li {margin: 5px;}
+	.testimonial-area .client-content blockquote p { padding: 30px 0;}
+	.bx-wrapper{margin-bottom: 0;}
+	.subscribe-area .subscribe-text h3 {font-size: 20px; margin: 20px 0 0;text-align: center;}
+	.slider-area { margin-bottom: 0;}
+	.client-logo-area .owl-buttons .owl-prev {left: -25px;}
+	.client-logo-area .owl-buttons .owl-next {right: -25px;}
+	.header-two .main-menu.mean-menu1.show-menu {background: #000000;}
+	.header-two .bar-menu { margin: 0;}
+	header .main-header-area .main-menu ul li .mega-menu {right: -200px;}
+	.footer-social-icons ul li a {height: 27px;line-height: 27px;width: 27px;}
+	.footer-social-icons ul li {margin-right: 2px;}
+	.counter-up-area .ab-count .about-counter-list {margin: 15px 0;}
+	.tab-content {overflow: hidden;}
+	.propery-area .list-view-area .media .pull-left { float: inherit !important; margin-right: 0;	}
+	.property-details-area .pagin-slider {margin-bottom: 30px;}
+	.agent-details-area .property-filtering h2 {font-size: 17px;	}
+	.sidebar-area .widget h2 {font-size: 19px;	}
+	.sidebar-area .widget .property-filtering form .single-field p {font-size: 15px;}
+	a.button {font-size: 14px;height: 40px !important;letter-spacing: 0;line-height: 16px !important;width: 130px !important;}
+	.find-your-home-area .read-more { margin: 0 0 20px;	}
+	.recent-property-area {padding: 100px 20px;}
+	.recent-property-area .property-slider .owl-controls {top: -58px;}
+	.real-estate-agent-area .agent-slider .col-lg-3.col-md-3.col-sm-6.col-xs-12 .single-agent .images {margin: 20px auto;}
+	  .real-estate-agent-area .agent-slider .col-lg-3.col-md-3.col-sm-6.col-xs-12 .single-agent { margin: auto;padding: 10px 0;}
+	  .subscribe-area,
+	  .subscribe-text {text-align: center; }
+	  .footer-heading{margin: 15px 0;}
+	  .bennar-area .bennar-text h2 {font-size: 20px;line-height: 1.6;margin-bottom: 15px;}
+	  .home-page-recent-news-area .owl-controls .owl-buttons div,
+	  .client-logo-area .owl-controls .owl-buttons div{display: none;}
+	  .about-area .read-more {margin: 30px 0; }
+	  .page-header-area { padding: 100px 0 50px; }
+	  .propery-area .list-view-area .media .media-body .property-details .property-content .read-more a {padding: 10px 15px;}
+	  .propery-area .show-property-area {margin-right: 0;}
+	  .propery-area .list-view-area .media .pull-left {float: inherit !important;padding-right: 0 !important; }
+	  .property-page-area .property-details .single-property-details {margin: 40px 0;overflow: hidden; }
+	  .page-header-area h1 {font-size: 24px; margin-bottom: 10px; }
+	  .property-page-area .property-details .single-property-details .single-informations {margin-top: 10px;}
+	  .main-contact-form a.button {margin: 30px 0; }
+	  .agent-details-area .search-from fieldset .btn-send {margin-left: 0;}
+	  .error-page-area h3,
+	  .real-estate-agent-area .section-title h2 {font-size: 20px;}
+	  .contact-page-area .contact-form,
+	  .contact-page-area .contact-info .single-contact {
+	    margin: 30px 0;
+	  }
+
+	  .recent-property-area,
+	  .real-estate-agent-area,
+	  .home-page-recent-news-area,
+	  .client-logo-area{
+	  	overflow: hidden;
+	  }
+	  .recent-property-area {
+	    margin: 15px;
+	  }
+	  .feature-property-area,
+	  .amazing-features-area,
+	  .recent-property-area,
+	  .real-estate-agent-area,
+	  .testimonial-area,
+	  .footer-top-area,
+	  .bennar-area,
+	  .home-page-recent-news-area,
+	  .client-logo-area,
+	  .contact-page-area,
+	  .about-area,
+	  .services-area,
+	  .counter-up-area,
+	  .propery-area,
+	  .property-details-area,
+	  .property-page-area,
+	  .our-agent-area,
+	  .agent-details-area,
+	  .blog-page-area{padding: 50px 0;}
+	  .subscribe-area .newsletter label{display: none;}
+	  .subscribe-area .newsletter button { position: absolute;  right: 0;  top: 3px;	  }
+	  .subscribe-area .newsletter {margin-top: 10px;overflow: hidden; position: relative;}
+	  .section-title h2 { font-size: 24px;}
+	  .testimonial-area .bx-wrapper .bx-prev {position: absolute;top: 44%; left: -35px;}
+	  .testimonial-area .bx-wrapper .bx-next {position: absolute;top: 50%; right: -35px;}
+	  .testimonial-area .client-img a img {height: 50px; width: 50px; }
+	  .testimonial-area .client-img a.active img{height: 50px; width: 50px;}
+	  .testimonial-area .client-img a {width: 85px;}
+	  .testimonial-area .client-img a.active h4, .testimonial-area .client-img a.active p,
+	  .counter-up-area .ab-count .about-counter-list p {font-size: 14px; }
+	  .recent-property-area {  margin:0px 15px;	  }
+	  .bennar-area a.button {font-size: 14px; height: 40px !important;line-height: 14px !important;padding: 10px;text-align:center;width:114px !important;
+	  }
+	  .propery-area .property-content-area .property-topbar .show-result p,
+	  .propery-area .property-content-area .property-topbar ul.nav-tabs{text-align: center;}
+	  .blog-page-area .single-blog-area .comments-area .single-comments-box.second-comments {  margin-left: 0; }
+}

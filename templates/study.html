@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+<section
+  class="md:h-[400px] h-[180px] flex items-center justify-center w-full bg-cover	bg-no-repeat bg-[url({% static 'assets/study-in-abroad.jpg'%})]">
+  <h1 style="text-shadow: 2px 2px #000"
+    class="md:text-5xl text-3xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+    Work and Study in Abroad
+  </h1>
+</section>
+<section class="mx-5">
+  <div class="container m-auto flex md:flex-row flex-col justify-between md:gap-10 gap-1 ">
+    <div class="w-full my-10">
+      <p class="text-xl mx-4 text-primary font-semibold">Register to find out how to work and study for Canada at highly
+        discounted fees during COVID so that you can earn by
+        back your fees within 1 year and the course becomes free</p>
+      <p class="my-10 text-lg mx-4  font-semibold">Special discount due to Covid!!! and earning potential up to C$20,000
+        while you study
+      </p>
+      <div class="w-full max-w-4xl bg-white p-6 rounded shadow-md px-10 my-8">
+
+        <form method="POST" enctype="multipart/form-data" action="{% url 'study_submit' %}" class="flex flex-col gap-5">
+          {% csrf_token %} {{ form.as_p }}
+          <p class="font-serif -mb-5 font-bold">
+
+         Name <span class="text-lg font-bold text-red-600">*</span>
+
+          </p>
+          <div class="flex gap-2">
+            <div class="flex flex-col w-full">
+              <input type="text" class="w-full" name="firstName" maxlength="250" required id="firstName" />
+              <label for="firstName" class="font-serif text-sm">First Name:</label>
+
+            </div>
+              <div class="flex flex-col w-full">
+                <input type="text" name="lastName"  class="w-full" maxlength="250" required id="lastName" />
+                <label for="lastName" class="font-serif text-sm">Last Name:</label>
+
+              </div>
+          </div>
+
+          <div class="flex flex-col">
+            <label for="id_phone" class="font-serif font-bold">Phone <span class="text-lg font-bold text-red-600">*</span></label>
+            <input type="text" name="phone" maxlength="250" required id="id_phone" />
+          </div>
+          <div class="flex flex-col">
+            <label for="id_email" class="font-serif font-bold">Email <span class="text-lg font-bold text-red-600">*</span></label>
+            <input type="email" name="email" maxlength="250" required id="id_email" />
+          </div>
+          <div class="flex flex-col">
+            <label for="id_age" class="font-serif font-bold">Your Age <span class="text-lg font-bold text-red-600">*</span></label>
+            <input type="text" name="age" maxlength="100" required id="id_age" />
+          </div>
+          <div class="flex flex-col">
+            <label for="id_location" class="font-serif font-bold">Your current location  <span class="text-lg font-bold text-red-600">*</span></label>
+            <input type="text" name="location" maxlength="250" required id="id_location" />
+          </div>
+          <div class="flex flex-col">
+            <label for="id_position" class="font-serif font-bold">Current Position  <span class="text-lg font-bold text-red-600">*</span></label>
+            <input type="text" name="position" maxlength="250" required id="id_position" />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="id_ielts" class="font-serif font-bold">Have you taken your academic IELTS (Yes/No)  <span class="text-lg font-bold text-red-600">*</span></label>
+            <select  name="ielts" id="ielts">
+              <option value="NO"> -Select- </option>
+              <option value="YES">  Yes </option>
+              <option value="NO"> No </option>
+            </select>
+          </div>
+          <div class="flex justify-center">
+            <button class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+              type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="w-full  ">
+      <p class="text-4xl my-10 mx-4 text-primary font-semibold">Register to find out how to work and study for Canada at
+        highly
+        discounted fees during COVID so that you can earn by
+        back your fees within 1 year and the course becomes free</p>
+
+      <ul class="list-disc	ml-10 flex flex-col gap-2">
+        <li>Enroll in a 1 year long Work and Study Diploma program in Canada </li>
+
+        <li>Admissions open for intakes during COVID - one of the only colleges approved as of October 20 to do so!</li>
+
+
+        <li> <strong>Unbelievably low tuition for the entire year</strong> </li>
+        <li>Earning potential of up to C$ 20,000 while you study, with an average of C$ 15 wage per hour</li>
+        <li>Close to 100% Campus Placements for previous batches</li>
+        <li>If you are based in Bangladesh IELTS 6.0 (in each band) needed, else IELTS not needed</li>
+        <li>After completing diploma – apply and transfer to Public College programs (which allow PGWP) or get LMIA sponsored
+        employment</li>
+
+      </ul>
+      <p class="my-10 text-primary">This is a once in a lifetime opportunity to work and study in Canada at very attractive prices!</p>
+   
+      <p class="text-2xl font-semibold my-10">This offer is only due to COVID and it ends on November 30, or as soon as the batch fills up. Apply now to lock in these
+      tuition rates and start the process!</p>
+
+      <div>
+        <p><strong>CONTACT INFO</strong></p>
+        <p class="footer-border-bottom mt-2 text-blue-800">
+          <i class="fa fa-mobile" aria-hidden="true"></i>&nbsp;&nbsp;<a href="tel:{{contact.phone}}">{{contact.phone}}</a><br>
+          <i class="fa fa-envelope-square"></i>&nbsp;&nbsp;<a
+            href="mailto:{{contact.email}}">{{contact.email}}</a><br>
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{contact.whatsAppLink}}"
+            target="_blank">{{contact.whatsApp}}</a> 
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mx-5">
+  <div class="container m-auto my-10">
+    <div class="flex flex-wrap gap-5 justify-center">
+      <div class="p-1 border rounded">
+        <img class="w-full md:max-w-[300px]" src="{% static 'assets/study1.jpg' %}" alt="">
+      </div>
+      <div class="p-1 border rounded">
+        <img class="w-full md:max-w-[300px]" src="{% static 'assets/study2.jpg' %}" alt="">
+      </div>
+      <div class="p-1 border rounded">
+        <img class="w-full md:max-w-[300px]" src="{% static 'assets/study3.jpg' %}" alt="">
+      </div>
+        <div class="p-1 border rounded">
+          <img class="w-full md:max-w-[300px]" src="{% static 'assets/study4.jpg' %}" alt="">
+        </div>
+    </div>
+  </div>
+</section>
+<section class="mx-5">
+  <div class="container m-auto my-10">
+    <h3 class="text-xl my-3 font-serif font-bold">Our Office</h3>
+
+    <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d294.3840949801742!2d90.37921826417632!3d23.809922603040054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c72a05e72f27%3A0x253c8e0afb0d412!2sUmmul%20Qura%20Alia%20Madrasha!5e1!3m2!1sen!2sbd!4v1726599805259!5m2!1sen!2sbd"
+        height="450" style="border: 0; width: 100%" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+
+<section
+  class="md:h-[400px] h-[180px] flex items-center justify-center w-full bg-cover	bg-no-repeat bg-[url({% static 'assets/contactus.jpg'%})]">
+  <h1 style="text-shadow: 2px 2px #000"
+    class="md:text-5xl text-3xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+    Clients
+  </h1>
+</section>
+
+<section class="mx-5">
+  <div class="container m-auto flex md:gap-0 gap-10 justify-between flex-col md:flex-row flex-wrap  py-10">
+    <div class="md:w-1/2 w-full pr-10">
+      <p class="mb-3 ">Mumin International is a Manpower Consultancy which holds the first recruitment license issued
+        in Bangladesh in 1984 to any
+        overseas recruitment company in Bangladesh. Mumin has made over 50,000 placements in 25+ countries. If you have a
+        need to
+        recruit talent or manpower for your organization – please get in touch with us by filling in the form below or
+        email us
+        at <a href="mail:mumininternational@gmail.com" class="text-blue-500">mumininternational@gmail.com</a></p>
+      <p class="mt-5">
+        You can read more about Our Company and Our Clients <a href="/our-clients" class="text-blue-500 italic">Click
+          here</a>
+      </p>
+      <h2 class="text-4xl mt-10 font-serif text-center font-bold my-3">
+        <span>Time<span>
+            <span class="text-primary">line</span>
+      </h2>
+
+      <img src="{% static 'assets/timeline.png' %}" class="">
+    </div>
+    <div class="md:w-1/2 w-full md:pl-10 max-w-4xl bg-white ">
+
+      <h1 class="w-full  text-2xl  mb-5  font-serif font-bold">
+        Client Contact Form
+      </h1>
+
+      <div class="  p-8 my-8 bg-[url({% static 'assets/bg-pattern.png'%})]">
+        <div class="  bg-white">
+          <h1 class="w-full px-5 py-2  text-4xl mt-3 mb-5 bg-red-700 text-white font-serif font-bold">
+            Contact Us
+          </h1>
+          <form method="POST" enctype="multipart/form-data" action="{% url 'clients_submit' %}"
+            class="w-full flex flex-col gap-5 px-5 pb-2">
+            {% csrf_token %}
+
+            <p class="font-serif -mb-5 font-bold">
+              Name <span class="text-lg font-bold text-red-600">*</span>
+            </p>
+            <div class="flex gap-2">
+              <div class="flex flex-col w-full">
+                <input type="text" class="w-full" name="first" maxlength="250" required id="first" />
+                <label for="first" class="font-serif text-sm">First </label>
+
+              </div>
+              <div class="flex flex-col w-full">
+                <input type="text" name="last" class="w-full" maxlength="250" required id="last" />
+                <label for="last" class="font-serif text-sm">Last </label>
+
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <label for="id_phone" class="font-serif font-bold">Mobile <span
+                  class="text-lg font-bold text-red-600">*</span></label>
+              <input type="text" name="phone" maxlength="250" required id="id_phone" />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_email" class="font-serif font-bold">Email <span
+                  class="text-lg font-bold text-red-600">*</span></label>
+              <input type="email" name="email" maxlength="250" required id="id_email" />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_companyName" class="font-serif font-bold">Company Name <span
+                  class="text-lg font-bold text-red-600">*</span></label>
+              <input type="text" name="companyName" maxlength="100" required id="id_companyName" />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_position" class="font-serif font-bold">Position <span
+                  class="text-lg font-bold text-red-600">*</span></label>
+              <input type="text" name="position" maxlength="100" required id="id_position" />
+            </div>
+            <div class="flex flex-col">
+              <label for="id_comment" class="font-serif font-bold">Please let us Known your Requirement <span
+                  class="text-lg font-bold text-red-600">*</span></label>
+              <textarea type="text" name="comment" maxlength="100" required id="id_comment"></textarea>
+            </div>
+
+
+            <div class="flex justify-center">
+              <button class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+                type="submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<section class="mx-5">
+  <div class="container m-auto my-10">
+    <h3 class="text-xl my-3 font-serif font-bold">Our Office</h3>
+
+    <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d294.3840949801742!2d90.37921826417632!3d23.809922603040054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c72a05e72f27%3A0x253c8e0afb0d412!2sUmmul%20Qura%20Alia%20Madrasha!5e1!3m2!1sen!2sbd!4v1726599805259!5m2!1sen!2sbd"
+        height="450" style="border: 0; width: 100%" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

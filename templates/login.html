@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7289db",
+                        sub: "#50566d"
+                    },
+                },
+            },
+        };
+    </script>
+
+</head>
+
+<body>
+
+    <section class="mx-5 min-h-screen flex justify-center items-center">
+        <div class="container m-auto flex flex-col justify-center items-center">
+
+            <div>
+                <p class=" text-center text-2xl text-sub">Welcome to the</p>
+                <p class="text-center font-semibold text-2xl text-sub">Candidate Portal</p>
+            </div>
+
+
+            <div class="w-full max-w-xl bg-white p-6 rounded-xl border shadow-md px-10 my-8">
+                <a class="my-6 block" href="/"><img class="h-12 ml-2 pt-2 opacity-100" src="{{settings.logo.url}}" alt=""></a>
+                <h1 class="text-2xl mt-3 mb-2  font-serif font-semibold ">
+                    Sign In
+                </h1>
+                <form method="POST" 
+                    class="flex flex-col gap-5">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">Email</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                        <small class="text-red-500">{{ form.email.errors.0 }}</small>
+                        {% endif %}
+                    </div>
+                        <div class="mb-4">
+                            <label for="password" class="block text-gray-700">Password</label>
+                            {{ form.password }}
+                            {% if form.password.errors %}
+                            <small class="text-red-500">{{ form.password.errors.0 }}</small>
+                            {% endif %}
+                        </div>
+                    <div class="flex justify-center items-center gap-4">
+                        <button class="bg-primary w-full hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+                            type="submit">
+                            Login
+                        </button>
+                    </div>
+
+                    <p class="pb-5 px-1">
+
+                        Don't have an account? <a class="text-blue-500" href="/register">Sign up</a>
+
+                    </p>
+
+                    {% if messages %}
+                    <div class="mt-4">
+                        {% for message in messages %}
+                        <p class="text-red-500 text-center">{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer class="bg-black text-white mt-10">
+        <div class="h-14 bg-primary flex items-center justify-center">
+            <p class="text-center mx-4">
+                Copyright ©2024. All rights Reserved. Site designed & Maintained by Mumin
+                International
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

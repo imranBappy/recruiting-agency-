@@ -1,0 +1,139 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} 
+{{ settings.title }} 
+{% endblock %} 
+{% block content %}
+
+
+    <section class="mx-5">
+      <div class="container m-auto flex justify-center">
+        <div class="w-full max-w-4xl bg-white p-6 rounded shadow-md px-10 my-8">
+          <h1 class="text-2xl mt-3 mb-5 text-center font-serif font-bold">
+            Apply for Job
+          </h1>
+
+          <form
+            method="POST"
+            action="{% url 'apply_resume_submit' job.id %}"
+            enctype="multipart/form-data"
+            class="flex flex-col gap-5"
+          >
+            {% csrf_token %} {{ form.as_p }}
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_name">Name:</label>
+              <input
+                type="text"
+                name="name"
+                maxlength="250"
+                required=""
+                id="id_name"
+                placeholder="Enter you name"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_designation"
+                >Designation:</label
+              >
+              <input
+                type="text"
+                name="designation"
+                maxlength="15"
+                required=""
+                id="id_designation"
+                placeholder="Enter you designation"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_email">Email:</label>
+              <input
+                type="email"
+                name="email"
+                maxlength="100"
+                required=""
+                id="id_email"
+                placeholder="Enter you email"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_phone">Phone:</label>
+              <input
+                type="text"
+                name="phone"
+                maxlength="15"
+                required=""
+                id="id_phone"
+                placeholder="Enter you phone"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_age">Age:</label>
+              <input
+                type="text"
+                name="age"
+                maxlength="15"
+                required=""
+                id="id_age"
+                placeholder="Enter you age"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold" for="id_skills"
+                >Skills:</label
+              >
+              <textarea
+                name="skills"
+                cols="40"
+                rows="2"
+                maxlength="250"
+                required=""
+                id="id_skills"
+                placeholder="Enter you skills"
+              ></textarea>
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif mb-1 font-bold" for="id_resume"
+                >Resume:</label
+              >
+              <input
+                type="file"
+                name="resume"
+                required=""
+                id="id_resume"
+                class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              />
+            </p>
+
+            <p class="flex flex-col">
+              <label class="font-serif font-bold mb-1" for="id_coverLetter"
+                >CoverLetter:</label
+              >
+              <input
+                type="file"
+                name="coverLetter"
+                required=""
+                id="id_coverLetter"
+                class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+              />
+            </p>
+            <div class="flex justify-center">
+              <button
+                class="bg-[#d9534f] hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7289db",
+                        sub: "#50566d"
+                    },
+                },
+            },
+        };
+    </script>
+
+</head>
+
+<body>
+
+<section class="mx-5">
+    <div class="container m-auto flex justify-center">
+        <div class="w-full max-w-4xl bg-white p-6 rounded-xl border shadow-md px-10 my-8">
+            <h1 class="text-2xl mt-3 mb-5 text-center font-serif font-semibold ">
+                <span class="text-re">Register with</span> Mumin International
+            </h1>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'register' %}" class="flex flex-col gap-5">
+                {% csrf_token %} 
+
+                <div class="text-red-500">
+                    {{ form.non_field_errors }}
+                </div>
+                <div>
+                    {{ form.name.label }}<br>
+                    {{ form.name }}<br>
+                    {% for error in form.name.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.email.label }}<br>
+                    {{ form.email }}<br>
+                    {% for error in form.email.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.password.label }}<br>
+                    {{ form.password }}<br>
+                    {% for error in form.password.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.confirm_password.label }}<br>
+                    {{ form.confirm_password }}<br>
+                    {% for error in form.confirm_password.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.phone_number.label }}<br>
+                    {{ form.phone_number }}<br>
+                    {% for error in form.phone_number.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.country.label }}<br>
+                    {{ form.country }}<br>
+                    {% for error in form.country.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.city.label }}<br>
+                    {{ form.city }}<br>
+                    {% for error in form.city.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.zip_code.label }}<br>
+                    {{ form.zip_code }}<br>
+                    {% for error in form.zip_code.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.job_title.label }}<br>
+                    {{ form.job_title }}<br>
+                    {% for error in form.job_title.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.skill.label }}<br>
+                    {{ form.skill }}<br>
+                    {% for error in form.skill.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.expected_salary.label }}<br>
+                    {{ form.expected_salary }}<br>
+                    {% for error in form.expected_salary.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div>
+                    {{ form.resume.label }}<br>
+                    {{ form.resume }}<br>
+                    {% for error in form.resume.errors %}
+                    <span class="text-red-500">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                <div class="flex justify-center items-center gap-4">
+                    
+                    <a class="text-sub text-xl text-semibold" href="/careers">Cancel</a>
+                    <button class="bg-primary hover:bg-primary rounded font-sans text-sm px-3 py-2 text-white w-40"
+                        type="submit">
+                        Register
+                    </button>
+                       
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <footer class="bg-black text-white mt-10">
+        <div class="h-14 bg-primary flex items-center justify-center">
+            <p class="text-center mx-4">
+                Copyright ©2024. All rights Reserved. Site designed & Maintained by Mumin
+                International
+            </p>
+        </div>
+    </footer>
+
+ 
+</body>
+
+</html>

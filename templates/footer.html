@@ -1,0 +1,106 @@
+<footer class="bg-black text-white">
+  <div>
+    <div class="h-16 bg-primary"></div>
+    <img class="w-full" src="./assets/line-bg.png" alt="" />
+  </div>
+  <div class="container m-auto">
+    <div class="my-4 px-4 py-6 flex justify-between flex-wrap gap-7">
+      <div>
+        <div>
+          <a href="/"
+            ><img
+              src="{{settings.logo.url}}"
+              class="h-16"
+              alt="Mumin International"
+          /></a>
+        </div>
+        <div class="h-12 my-7 flex t items-center gap-4">
+          <a
+            href="{{contact.fb}}"
+            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-brands fa-facebook text-primary"></i>
+          </a>
+          <a
+            href="{{contact.x}}"
+            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-solid fa-x text-primary"></i>
+          </a>
+          <a
+            href="{{contact.linkedin}}"
+            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-brands fa-linkedin text-primary"></i>
+          </a>
+          <a
+            href="{{contact.youtube}}"
+            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-brands fa-youtube text-primary"></i>
+          </a>
+          <a
+            href="{{contact.whatsAppLink}}"
+            class="w-8 h-8 rounded-full border border-primary flex items-center justify-center bg-white text-sm flex items-center gap-2"
+          >
+            <i class="fa-brands fa-whatsapp text-primary"></i>
+          </a>
+        </div>
+        <div class="w-32 flex flex-col gap-4 items-center justify-center">
+          <img class="w-32" src="{{contact.qr_code.url}}" alt="" />
+          <p>Scan QR Code</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-xl uppercase font-serif font-bold">Current Jobs</h2>
+        <ul class="flex flex-wrap flex-col gap-7 h-56 mt-5">
+          {% for country in countries %}
+          <li class="">
+            <a class="block" href="{{country.id}}">{{country.name}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-xl uppercase font-serif font-bold">OFFICE LOCATION</h2>
+        <p class="w-72 mt-5">
+          <i class="fa-solid fa-house"></i> {{contact.location|safe}}
+        </p>
+      </div>
+      <div>
+        <h2 class="text-xl uppercase font-serif font-bold">CONTACT INFO</h2>
+        <ul class="flex flex-wrap flex-col gap-6 mt-5">
+          <a
+            href="mailto:{{contact.email}}"
+            class="text-white text-sm flex items-center gap-2 flex-nowrap"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            <span>{{contact.email}}</span>
+          </a>
+          <a
+            href="tel:{{contact.phone}}"
+            class="text-white text-sm flex items-center gap-2 flex-nowrap"
+          >
+            <i class="fa-solid fa-phone"></i>
+            <span>{{contact.phone}}</span>
+          </a>
+          <a
+            href="#"
+            class="text-white text-sm flex items-center gap-2 flex-nowrap"
+          >
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>{{contact.whatsApp}}</span>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="h-14 bg-primary flex items-center justify-center">
+    <p class="text-center mx-4">
+      Copyright ©2024. All rights Reserved. Site designed & Maintained by Mumin
+      International
+    </p>
+  </div>
+</footer>

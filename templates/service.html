@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+<section
+  class="md:h-[400px] h-[130px] flex items-center justify-center w-full bg-cover bg-[url({{service.banner.url}})]">
+  <h1 style="text-shadow: 2px 2px #000"
+    class="md:text-5xl text-3xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+    {{service.title}}
+  </h1>
+</section>
+
+<section class="my-10 mx-4">
+  <div class="container m-auto flex flex-col md:flex-row gap-10">
+    <div class="md:w-2/4">
+      <img src="{{service.side_Img.url}}" class="w-full" alt="" />
+    </div>
+    <div class="md:w-3/4  mt-1 text-lg leading-7">
+      {{service.details|safe}}</div>
+  </div>
+</section>
+
+<div class="bg-primary my-10  ">
+  <h1 style="text-shadow: 2px 2px #000"
+    class="md:text-5xl py-8 m-auto max-w-[1100px] text-wrap text-center text-xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+    Delivered to you in the most time and cost-effective way
+  </h1>
+</div>
+
+{% if service.title == 'Training Services' %}
+<section class="my-10 mx-4">
+  <div class="container m-auto ">
+    <div class="flex md:flex-row flex-col  md:flex-row gap-10">
+      <div>
+        <div class="p-1 border rounded">
+          <img class="nax-w-full" src="{% static 'images/trainingOne.png' %}" alt="">
+        </div>
+        <p class="text-2xl font-semibold my-5 text-center text-wrap">PowerTrain is a RTD (Recruit-Train-Deploy) focused
+          organization</p>
+      </div>
+      <div>
+        <div class="p-1 border rounded">
+          <img class="nax-w-full" src="{% static 'images/trainingTwo.png' %}" alt="">
+        </div>
+        <p class="text-2xl font-semibold my-5 text-center">PowerTrain recruits and trains 1,000-1,200 candidates out of
+          Bangladesh annually</p>
+      </div>
+      <div>
+        <div class="p-1 border rounded">
+          <img class="nax-w-full" src="{% static 'images/trainingThree.png' %}" alt="">
+        </div>
+        <p class="text-2xl font-semibold my-5 text-center text-wrap">PowerTrain is an ISO 9001:2015 certified
+          organisation
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h5 class="md:text-3xl my-10 m-auto max-w-[1100px] text-wrap text-center text-xl  font-serif font-semibold">
+        OUR ASSOCIATIONS & ACCREDITATIONS
+      </h5>
+
+      <div class="flex flex-wrap gap-10">
+        <div class="flex flex-wrap md:flex-nowrap gap-5">
+          <div class="md:w-[50%] w-full flex flex-col gap-4 ">
+            <img class="max-w-[110px] " src="{% static 'images/bsdm.png' %}" alt="">
+            <h5 class="text-xl font-semibold font-sans">Bihar Skill Development Mission</h5>
+            <p>BSDM has been constittuted by he Govt. of Bihar to empower the youth by providing them with requisite
+              skills to
+              fuel the
+              growth of the state of Bihar.</p>
+          </div>
+          <div class="md:w-[50%] w-full  flex flex-col gap-4  ">
+            <img class="max-w-[110px] " src="{% static 'images/mssds.png' %}" alt="">
+            <h5 class="text-xl font-semibold font-sans">Maharashtra State Skill Development Society
+            </h5>
+            <p>MSSDS is nodal agency for planning, coordintaion, execution & monitoring of skill development initiative
+              of govt. of
+              Maharashtra.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap md:flex-nowrap gap-5">
+          <div class="md:w-[50%] w-full  flex flex-col gap-4 ">
+            <img class="max-w-[110px]  " src="{% static 'images/nsdc.jpg' %}" alt="">
+            <h5 class="text-xl font-semibold font-sans">National Skill Development Corportion</h5>
+            <p>NSDC acts as a catalyst in skill development by creation of large & quality vocational institutions such
+              as POT.</p>
+          </div>
+          <div class="md:w-[50%] w-full  flex flex-col gap-4  ">
+            <img class="max-w-[110px] " src="{% static 'images/si.jpg' %}" alt="">
+            <h5 class="text-xl font-semibold font-sans">Skill Bangladesh
+            </h5>
+            <p>Skill Bangladesh: an initiaive by NSDC, aims to catalyze skilling initiatives that can potentially have a
+              multiplier effect
+              in the economy, while strivving to involve the indusry in all aspects of skilling.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="my-10 mx-4">
+  <div class="container m-auto flex flex-col md:flex-row gap-10">
+    <div class="md:w-3/4  mt-1 text-lg leading-7">
+      {{service.details2|safe}}
+    </div>
+    <div class="md:w-2/4">
+      <img src="{{service.side_Img2.url}}" class="w-full" alt="" />
+    </div>
+  </div>
+</section>
+{% endif %}
+
+
+<div class="bg-primary my-10  ">
+  <h1 class="md:text-4xl py-8 m-auto max-w-[1100px] text-wrap text-center text-xl  text-white font-serif font-bold">
+    <a href="/clients">To Recruit Employees through Mumin Contact Us</a>
+  </h1>
+</div>
+
+<section class="my-8 px-4 ">
+  <div class="container m-auto">
+    <p class="my-10 text-center text-lg text-wrap">Mumin International is one of the oldest recruitment companies in
+      Bangladesh holding the first overseas
+      recruitment license
+      issues by the Government of Bangladesh in 1983. It provides a wide spectrum of services which includes:</p>
+    <div class="flex mt-16  gap-7 justify-center md:justify-start flex-wrap">
+      {% for service in services %}
+      <a href="/service/{{service.id}}" class="  w-56 flex flex-col items-center justify-center gap-4">
+        <i class="{{service.icon}} text-6xl text-primary hover:text-black"></i>
+        <h6 class="text-xl font-serif text-center font-semibold ">{{service.title}}</h6>
+      </a>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% if service.image %}
+
+<section class="my-8 px-4 my-10">
+  <div class="container m-auto flex justify-center items-center">
+    <img src={{service.image.url}} class="max-w-full h-auto block" alt="">
+  </div>
+</section>
+{% endif %}
+
+<div class="container m-auto">
+  <p class=" mx-4  text-wrap md:mx-auto   text-lg my-10 ">
+    Start Your Job Search Now with Mumin International
+    <a href="/jobseeker" class="text-blue-600  text-wrap ">Get Started</a>
+  </p>
+
+</div>
+
+
+{% endblock %}

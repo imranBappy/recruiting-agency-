@@ -1,0 +1,765 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="{{settings.description}}" />
+    <link rel="icon" href="{% static 'assets/favicon.ico' %}" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'assets/android-chrome-192x192.png' %}" />
+    <link rel="icon" type="image/png" sizes="512x512" href="{% static 'assets/android-chrome-512x512.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/favicon-16x16.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/favicon-32x32.png' %}" />
+    <link rel="manifest" href="{% static 'assets/site.webmanifest' %}" />
+
+    <title>{{settings.title}}</title>
+    <!-- all css here -->
+    <!-- bootstrap v3.3.6 css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- animate css -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+
+
+    <!-- jquery-ui.min css -->
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+
+
+
+    <!-- Nivo slider CSS -->
+    <link rel="stylesheet" href="{% static 'inc/custom-slider/css/nivo-slider.css' %}" type="text/css" />
+
+
+    <link rel="stylesheet" href="{% static 'inc/custom-slider/css/preview.css' %}" type="text/css" media="screen" />
+
+    <!-- slick CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+
+    <!-- jquery.fancybox.pack js -->
+    <link rel="stylesheet" href="{% static 'inc/fancybox/jquery.fancybox.css' %}">
+
+    <!-- bxslider CSS -->
+    <link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <!-- responsive css -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <!-- modernizr css -->
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+
+    <!--  testing -->
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
+
+    <style>
+        .left {
+            /* float: left; */
+            /* text-align: right; */
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .right {
+            float: left;
+            text-align: left;
+            width: 50%;
+        }
+
+        .mb15 {
+            margin-bottom: 15px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <!-- Header Area Start Here -->
+    <header>
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="header-top-left">
+                            <ul>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i> <a
+                                        href="mailto:{{contact.email}}">
+                                        <font color="white">{{contact.email}}</font>
+                                    </a></li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="tel:{{contact.phone}}">
+                                        <font color="white">{{contact.phone}}</font>
+                                    </a></li>
+                                <li><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="{{contact.whatsAppLink}}"
+                                        target="_blank">
+                                        <font color="white">{{contact.whatsApp}}</font>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="header-top-right">
+                            <ul>
+                                <li><a href="{{contact.fb}}" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                                <li>
+                                    <a href="{{contact.x}}" target="_blank">
+                                        <i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li><a href="{{contact.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                </li>
+                                <li><a href="{{contact.youtube}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                                </li>
+                                <li><a href="{{contact.whatsAppLink}}" target="_blank"><i
+                                            class="fab fa-whatsapp"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-header-area" id="sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-2 col-sm-2 col-xs-12">
+                        <div class="logo-area">
+                            <a href="/">
+                                <img src="{{settings.logo.url}}" alt="logo" class="img-responsive"
+                                    style="margin-top: 10px; margin-left: 10px;">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 pull-right">
+                        <div class="main-menu">
+                            <nav>
+                                <p style="margin-left:10px; margin-top: 20px;" class="btn btn-danger pull-right"
+                                    style="margin-top: 20px;"><a href="/study" target="_blank" style="color: #fff;">
+                                        Study in Abroad</a></p>
+
+                                <p class="btn btn-danger pull-right" style="margin-top: 20px;"><a href="/quick-register"
+                                        target="_blank" style="color: #fff;">Quick
+                                        Register</a></p>
+
+                                <ul class="pull-right">
+                                    <li class="active"><a href="/">HOME</a></li>
+                                    <li>
+                                        <a href="#">CURRENT JOBS <i class="fa fa-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            {% for country in countries %}
+                                                {% if country.continent  == 'continent' %}
+                                                    <li><a href="/{{country.id}}">Jobs in {{country.name}}</a></li>
+                                                {% endif %}
+                                            {% endfor %}
+
+
+                                            <li><a href="#">Jobs In Middle East<i class="fa fa-angle-down pull-right" style="margin-top: 10px;"></i></a>
+                                                <ul class="sub-menu">
+                                                    {% for country in countries %}
+                                                    {% if country.continent == 'middle_east' %}
+                                                    <li><a href="/{{country.id}}">Jobs in {{country.name}}</a></li>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Jobs In Europe<i class="fa fa-angle-down pull-right" style="margin-top: 10px;"></i></a>
+                                                <ul class="sub-menu">
+                                                        {% for country in countries %}
+                                                        {% if country.continent == 'europe' %}
+                                                        <li><a href="/{{country.id}}">Jobs in {{country.name}}</a></li>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+
+
+                                    </li>
+                                    <li><a href="#">EMPLOYERS<i class="fa fa-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="/our-clients">Our Clients </a></li>
+                                          
+                                            <li><a href="#">Services<i class="fa fa-angle-down pull-right" style="margin-top: 10px;"></i></a>
+                                                <ul class="sub-menu">
+                                                    {% for service in services %}
+                                                    <li><a href="/service/{{service.id}}">{{service.title}} </a></li>
+                                                    {% endfor %}
+                                                    <li><a href="/survey">Salary Survey & Intelligence</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="#">Industry Focus<i class="fa fa-angle-down pull-right" style="margin-top: 10px;"></i></a>
+                                                <ul class="sub-menu">
+                                                    {% for serve in serves %}
+                                                    <li><a href="/serve/{{serve.id}}">{{serve.title}} </a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="/recruitment-process">Our Recruitment Process</a></li>
+
+                                            <li><a href="#">About Mumin <i class="fa fa-angle-down pull-right" style="margin-top: 10px;"></i></a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="/about">Company Profile </a></li>
+                                                    <li><a href="/our-strength">Our Strengths & Presence </a></li>
+                                                    <li><a href="/corporate-structure">Corporate Structure </a></li>
+                                                    <li><a href="/management-team">Management Team </a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#">CONTACT US <i class="fa fa-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="/clients">Employers</a></li>
+                                            <li><a href="/jobseeker">Jobseeker</a></li>
+                                            <li><a href="/grievance-redressal">Grievance Redressal</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- mobile-menu-area start -->
+        <div class="mobile-menu-area">
+            <div class="container acurate">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li><a href="/about">ABOUT US</a></li>
+                                    <li><a href="#">CURRENT JOB</a>
+                                        <ul class="sub-menu">
+                                                {% for country in countries %}
+                                                    <li><a href="/{{country.id}}">Jobs in {{country.name}}</a></li>
+                                                {% endfor %}
+                                           
+                                        </ul>
+                                    </li>
+                                    <!-- <li><a href="Executive-Summary.html">OUR SERVICES</a></li>
+                                    <li><a href="OUR-Uniqueness.html">OUR CLIENTS</a></li> -->
+                                    <!-- <li><a href="OUR-Uniqueness.html">US EMIGRATION PROGRAM</a></li> -->
+                                    <li><a href="#">CONTACT US</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="/grievance-redressal/">Grievance Redressal Form</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/quick-register" target="_blank">Quick Register</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile-menu-area end -->
+    </header>
+    <!-- Header Area End Here -->
+    <!-- Slider Area-->
+    <div class="slider-area">
+        <div class="bend niceties preview-2">
+            <div id="ensign-nivoslider" class="slides">
+                {% for slide in sliders %}
+                <img src="{{slide.img.url}}" alt="" title="#slider-direction-{{slide.id}}" />
+                {% endfor %}
+            </div>
+            <!-- direction 2 -->
+            <div id="slider-direction-1" class="slider-direction">
+                <div class="slider-content t-cn s-tb slider-2">
+                    <div class="title-container s-tb-c">
+                        <div class="title2"></div>
+                        <div class="container">
+                            <!-- <div class="col-md-3 col-xs-4 col-md-offset-2">
+                                <input type="text" class="form-control" placeholder="Enter Job Title" />
+                            </div>
+                            <div class="col-md-3 col-xs-4">
+                                <input type="text" class="form-control" placeholder="Enter City Name" />
+                            </div>
+                            <div class="col-md-2 col-xs-2"><a class="button btn btn-danger btn-lg" href="browse-jobs.html"> Jobseeker</a></div> -->
+
+                            <div class="col-md-8 col-md-offset-2 text-center">
+                                <div class="banner-strip">
+                                    <H2>Mumin International - Recruitment and Manpower Solutions</H2>
+                                    <H4>ARE YOU LOOKING FOR OVERSEAS JOBS?</H4>
+
+                                    <H3><a href="/careers" target="blank" class="btn btn-danger"
+                                            style="width: auto">APPLY NOW</a></H3>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Slider End-->
+
+
+
+    <div class="services-are" style="padding-top:25px;background-color: #fff; clear: both">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="section-title text-center">
+                        <div class="left">
+                            <a href="/jobseeker">
+                                <img src="{% static 'images/icon1.png' %}" alt="" title="#slider-direction-2" /><br><br>
+                                <h3><span>LOOKING FOR <br> JOB?</span></h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="section-title text-center">
+                        <div class="left">
+                            <a href="/clients">
+                                <img src="{% static 'images/icon2.png' %}" alt="" title="#slider-direction-2" /><br><br>
+                                <h3><span>LOOKING FOR <br>EMPLOYEES?</span></h3>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div style="margin-top: 20px; clear: both" class="mb20">
+                    <div class="col-lg-12 text-center">
+                        <h3><a href="/countries" type="button"
+                                style="background-color:#34495e;color:white;padding:10px;font-size:18px;">For Current
+                                Job Openings click here</a><br>
+                            <br><br>
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div style="margin-top:40px;">
+                    <div class="container">
+                        <div class="row">
+                            {% for award in awards %}
+                            <div class="col-md-2 col-xs-6 mb20 text-center">
+                                <img src="{{award.img.url}}" alt="" class="img-responsive" />
+                                <p>{{award.title}}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin:30px auto;">
+            <div class="col-lg-9 col-md-9 col-xs-12">
+                <div class="section-title">
+                    <h2>Mumin International:<br><span>Manpower Consultancy & Employment Agency </span></h2>
+                </div>
+                <div style="font-size:18px;">Mumin International is a Manpower Consultancy which holds the first
+                    recruitment license issued in Bangladesh in 2021 to any overseas recruitment company in Bangladesh. Mumin has
+                    made over 50,000 placements in 10+ countries. Over the years we have been serving as a catalyst in
+                    bringing together career seekers and employers from across the world. We have been instrumental in
+                    placing unskilled, semi skilled, skilled and highly skilled personnel in the various sectors
+                    globally with an aim to achieve more in the future.</div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-xs-12">
+                <div class="countries-box">
+                    <h2>Jobs in Countries</h2>
+                    <ul>
+                        {% for country in countries %}
+                        <li><i class="fa fa-angle-right"></i><a href="/{{country.id}}">Jobs in {{country.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Area Start Here -->
+        <div class="about-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7 col-xs-12">
+                        <div class="about-use-area-content">
+                            <h2>WHO <span>WE ARE ?</span> </h2>
+                            <p style="font-size:18px;">Mumin International is a Manpower Consultancy which holds the
+                                first recruitment license issued in Bangladesh in 1983 to any overseas recruitment company in
+                                Bangladesh. Mumin is Bangladesh's pioneering recruitment organisation with having placed 350,000
+                                candidates in over 25 countries worldwide. Over the years we have been serving as a
+                                catalyst in bringing together career seekers and employers from across the world. We
+                                have been instrumental in placing unskilled, semi skilled, skilled and highly skilled
+                                personnel in the Oil & Gas, Construction, Maintenance, Trading and various other sectors
+                                globally.</p>
+                            <div class="read-more">
+                                <a class="button btn btn-danger btn-lg" href="/about">Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-md-5 col-xs-12">
+                        <img src="images/pic-from-brochure/PYRAMID.png" class="img-responsive" alt="" />
+                    </div>
+
+
+                    <div class="clearfix mb20" style="margin-bottom: 30px"></div>
+
+
+
+                    <div class="col-lg-12 col-xs-12 text-center">
+                        <div class="about-use-area-content">
+                            <h2>Time<span>line</span> </h2>
+                            <p style="font-size:18px;">We are one of Bangladesh’s leading HR solutions company with over 40
+                                years of experience. Over the years our clients have vouched for our expertise,
+                                creativity and integrity. With an industry-acclaimed management and a team of skilled
+                                experts we deliver effective solutions in no time. We constantly push ourselves and
+                                build authentic and transparent relationships with all our clients and associates.</p>
+                            <br>
+
+                            <img src="{% static 'images/timeline.png' %}" class="img-responsive" />
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- About Us Area End Here -->
+
+        <!-- Recent News Section Start Here -->
+        <div class="home-page-recent-news-area">
+            <div class="home-page-team-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="section-title text-center">
+                                <h2 class="mb20">Our <span>Services</span></h2> <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                                    {% for service in services %}
+                                    <div class="col-md-3 col-xs-6 text-center mb20">
+                                        <div class="servicesnw">
+                                            <a href="/service/{{service.id}}">
+                                                <i class="{{service.icon}} fa-5x"></i>
+                                                <h3>{{service.title}}</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Recent News Section End Here -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-center">
+                        <h2><span>Industries</span> We Serve</h2>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="client-logo-area">
+                {% for serve in serves %}
+                <div class="single-logo">
+                    <a href="/serve/{{serve.id}}">
+                        <img src="{{ serve.img.url }}" alt="" class="img-respinsive">
+                        <h3>{{serve.title}}</h3>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+
+
+        <div class="services-area" id="servicearea">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="row">
+
+                        {% for video in videos %}
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb15">
+                            <h4 style="margin-bottom: 15px;">{{video.title}}</h4>
+                            <iframe width="230" height="130" src={{video.url}} frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb15">
+                            <h4 style="margin-bottom: 15px;">Like Our Facebook Page</h4>
+                            <a href="{{contact.fb}}" target="_blank" style="margin-bottom:10px;">
+                                <img src="{% static 'images/like-our-fb-page.jpg' %}" alt="" class="img-responsive img-thumbnail"
+                                    style="margin-bottom:10px;" />
+                            </a>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb15">
+                            <h4 style="margin-bottom: 15px;">Join Mumin Facebook Group</h4>
+                            <a href="{{contact.fb_group}}" target="_blank"
+                                style="margin-bottom:10px;">
+                                <img src="{% static 'images/fb-gp-icon.jpg' %}" alt="" class="img-responsive img-thumbnail" style="margin-bottom:10px;" />
+                            </a>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb15">
+                            <h4 style="margin-bottom: 15px;">Follow Us on LinkedIn</h4>
+                            <a href="{{contact.linkedin}}" target="_blank" style="margin-bottom:10px;">
+                                <img src="{%  static 'images/linkedin-icon.jpg' %}" alt="" class="img-responsive img-thumbnail" style="margin-bottom:10px;" />
+                            </a>
+                        </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="">
+            <div class="container">
+                <div class="row"><br>
+                    <div class="col-md-12">
+                        <h2 class="text-center">Salary Survey Report</h2><br>
+                        <a href="/survey"><img src="{% static 'assets/Banner-Salary-survey.jpg' %}"
+                                class="img-responsive" /></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+
+        <!-- Client Logo Area Section End here -->
+        <!-- Subscribe Area Start Here -->
+        <div class="subscribe-area">
+
+        </div>
+        <!-- Subscribe Area End Here -->
+        <!-- Footer top area start -->
+        <footer>
+            <div id="footer" class="footer-top-area" style="margin-top:0px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-heading">
+                                <!--<h2>Privacy Policy</h2>-->
+                                <a href="/"><img src="{{settings.logo.url}}" alt=""></a>
+                                <div class="footer-social-icons">
+                                    <ul>
+                                        <li><a href="{{contact.fb}}" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                                        <li><a href="{{contact.x}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                        <!--<li><a href="#"><i class="fab fa-instagram"></i></a></li>-->
+                                        <li><a href="{{contact.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                        <li><a href="{{contact.youtube}}" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                                        <li><a href="{{contact.whatsAppLink}}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                    </ul>
+                                    <br>
+                                    <div class="col-md-8 mb20 text-center">
+                                        <a href="#" target="blank"> <img src="{{contact.qr_code.url}}" align="center" alt=""
+                                                class="img-responsive" /> </a>
+                                        <p>Scan QR Code</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-heading">
+                                <h2>Current Jobs</h2>
+                                <div class="footer-two">
+                                    <nav>
+                                        <ul>
+                                            {% for country in countries %}
+                                          
+                                            <li><a href="/{{country.id}}">Jobs in {{country.name}}</a></li>
+                                            {% endfor %}
+                                           
+                                            <li style="font-size: 13px;"><a href="#">Terms and
+                                                    Conditions</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-heading heading-margin">
+                                <h2>OFFICE LOCATION</h2>
+                                <p class="footer-border-bottom"><i class="fa fa-home" aria-hidden="true"></i>
+                                {{contact.location|safe}}
+                                </p>
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="footer-heading">
+                                <h2>CONTACT INFO</h2>
+                                <p class="footer-border-bottom">
+                                    <i class="fa fa-phone-volume" aria-hidden="true"></i><a
+                                        href="tel:{{contact.phone}}" style="color: #fff">{{contact.phone}}</a><br><br>
+
+
+                                    <i class="fa fa-envelope-square"></i><a href="mailto:#"
+                                        style="color: #fff">{{contact.email}}</a><br><br>
+                                    <i class="fab fa-whatsapp" aria-hidden="true"></i><a href="#" target="_blank">
+                                        <font color="white">{{contact.whatsApp}}</font>
+                                    </a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="footer-bottom-left">
+                                <p>© Copyright and All rights Reserved. Site
+                                    designed & Maintained by <a href="/"> Mumin International</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End Here -->
+        <!-- all js here -->
+        <!-- jquery latest version -->
+
+        <script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
+
+        <!-- bootstrap js -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+        <!-- owl.carousel js -->
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+        <!-- meanmenu js -->
+        <script src="{% static 'js/jquery.meanmenu.js' %}"></script>
+
+        <!-- jquery-ui js -->
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+
+        <!-- wow js -->
+        <script src="{% static 'js/wow.min.js' %}"></script>
+
+        <!-- plugins js -->
+        <script src="{% static 'js/plugins.js' %}"></script>
+
+        <!-- Nivo slider js-->
+        <script src="{% static 'inc/custom-slider/js/jquery.nivo.slider.js' %}" type="text/javascript"></script>
+
+        <script src="{% static 'inc/custom-slider/home.js' %}" type="text/javascript"></script>
+
+        <!-- jquery.fancybox.pack js -->
+        <script src="{% static 'inc/fancybox/jquery.fancybox.pack.js' %}"></script>
+
+        <!-- bxslider JS -->
+        <script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+        <!--  Nice Select js -->
+        <script src="{% static 'js/jquery.nice-select.min.js' %}" type="text/javascript"></script>
+
+        <!-- slick JS -->
+        <script src="{% static 'js/slick.min.js' %}"></script>
+
+        <!--  jquery isotope -->
+        <script src="{% static 'js/isotope.pkgd.min.js' %}" type="text/javascript"></script>
+
+        <script src="{% static 'js/isotope.pkgd.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/imagesloaded.pkgd.min.js' %}" type="text/javascript"></script>
+
+        <!-- jquery.counterup js -->
+        <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+
+        <script src="{% static 'js/waypoints.min.js' %}"></script>
+
+
+        <script src="{% static 'js/gmaps.js' %}"></script>
+
+        <!-- main js -->
+        <script src="{% static 'js/main.js' %}"></script>
+
+
+        <script>
+            jQuery("#carousel").owlCarousel({
+                autoplay: true,
+                lazyLoad: true,
+                loop: true,
+                margin: 20,
+                responsiveClass: true,
+                autoHeight: true,
+                autoplayTimeout: 7000,
+                smartSpeed: 800,
+                nav: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+
+                    1024: {
+                        items: 3
+                    },
+
+                    1366: {
+                        items: 3
+                    }
+                }
+            });
+        </script>
+
+
+</body>
+
+
+</html>

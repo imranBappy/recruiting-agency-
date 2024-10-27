@@ -1,0 +1,175 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b6b4c8d3e7.js" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7289db",
+                        sub: "#50566d"
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+
+
+    <section class="w-full md:h-[400px] h-[300px] relateive bg-no-repeat bg-top bg-center bg-cever bg-[url({% static 'assets/careers-bg.jpg'%})]" >
+        <div class="w-full md:h-[400px] h-[300px]   bg-[#fafafca3] ">
+            <nav class="min-h-12  py-4 md:py-0 opacity-100">
+                <div class="container m-auto md:px-0 px-4">
+                    <div class="pt-5 h-full flex justify-end items-center ">
+                        <ul class="flex gap-4 items-center">
+                            <li class=" flex items-center gap-2">
+                                <a class="py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary"
+                                    href="/careers">Jobs</a>
+                            </li>
+                            <li class=" flex items-center gap-2">
+                                <a class="py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary  "
+                                    href="/application">Applications</a>
+                            </li>
+                            <li class=" flex items-center gap-2">
+                                <a class=" py-1 font-sans font-semibold rounded-full flex items-center px-5 text-white   bg-primary "
+                                    href="/save">Saved Jobs</a>
+                            </li>
+                            <li>
+                                <a class=" border-[1px] w-10 h-10 flex items-center justify-center rounded-full border-black hover:text-[#7289db]  hover:border-[#7289db] "
+                                    href="#">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section>
+        <div class="max-w-[1200px] m-auto">
+            <div class="">
+                
+                <div class="w-full ">
+                    <div class="flex justify-between gap-1  flex-col md:flex-row items-center">
+                        <div class="flex  md:flex-row flex-col items-center  w-full gap-5 ">
+                            <div
+                                class="w-32 h-32 cursor-pointer -mt-16 m-0 md:-ml-16 bg-white border p-2 rounded-full relative flex items-center justify-center">
+                                <form id="profilePictureForm" method="post" enctype="multipart/form-data"
+                                    action="{% url 'update_profile_picture' %}">
+                                    {% csrf_token %}
+                                    <label for="profilePic"><i
+                                            class="fa-solid fa-camera  absolute top-1 p-1 text-primary  border rounded-full right-2"></i></label>
+                                    <input onchange="submitForm()" class="hidden" type="file" name="profile_pic" id="profilePic" accept="image/*">
+                                </form>
+                                {% if profile.img %}
+                                <div class="w-full h-full rounded-full">
+                                    <img src="{{profile.img.url}}" class="w-full h-full rounded-full ">
+                                </div>
+                                {% else %}
+                                <i class="fa-solid fa-user-tie text-5xl text-primary "></i>
+                                {% endif %}
+                            </div>
+                            <div class="mt-6 flex flex-col gap-1">
+                                <h3 class="font-sans md:text-left text-center font-semibold text-xl "> {{ profile.name }} </h3>
+                                <p class="font-sans md:text-left text-center text-sub ">{{ user.email }}</p>
+                                <p class="font-sans md:text-left text-center text-sub ">{{profile.phone_number}}</p>
+                            </div>
+                        </div>
+
+                            <a target="_blank"  href="{{profile.resume.url}}" class="py-2 flex items-center justify-center w-40 h-12 font-sans font-semibold rounded mt-5 px-4 text-white   bg-primary ">View Resume</a>
+
+                    </div>
+                    <div class="flex gap-5 justify-between md:px-0 px-4 mt-10"><div class="w-[300px] h-fit  border rounded-xl px-6 py-4 flex flex-col gap-3">
+                        <a href="/profile" class="ont-sans  font-semibold text flex items-center">
+                            <span class="hover:bg-primary/20 px-4 py-1 rounded-full text-primary">
+                                Profile
+                            </span>
+                        </a>
+                    
+                        <a href="/application" class="ont-sans  font-semibold text flex items-center">
+                            <span class="  hover:bg-primary/20 px-4 py-1 rounded-full text-primary">
+                                Applications
+                            </span>
+                        </a>
+                    
+                        <a class="ont-sans  font-semibold text flex items-center">
+                            <span class=" bg-primary px-4 py-1 rounded-full text-white   ">
+                                Saved Jobs
+                            </span>
+                        </a>
+                    
+                    </div>
+                    <div class="w-full border rounded-xl px-6 py-4 ">
+                        <div class="mt-5 ">
+                            {% for job in jobs %}
+                    
+                            <div class=" hover:bg-[#f5f6fa] py-3 px-5 flex gap-10 justify-between">
+                                <div>
+                                    <a href="/careers/{{job.job.id}}"
+                                        class="text-primary hover:border-b-2  border-primary  font-semibold text-xl font-sans">{{job.job.title}}</a>
+                                    <p class=" text-sub  font-sans"> {{job.job.city}}, {{job.job.state}}, {{job.job.country}}</p>
+                                    <p class=" text-sub mt-3  font-sans line-clamp-2	">
+                                        {{job.job.description}}
+                                    </p>
+                                </div>
+                                <div class="flex flex-col items-end">
+                                    <p class="text-sub font-semibold  font-sans uppercase ">{{job.job_type}}</p>
+                                    <p>01/22/2022</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div></div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<footer class="bg-black text-white mt-10">
+    <div class="h-14 bg-primary flex items-center justify-center">
+        <p class="text-center mx-4">
+            Copyright ©2024. All rights Reserved. Site designed & Maintained by Mumin
+            International
+        </p>
+    </div>
+</footer>
+
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/671bd8874304e3196ad83e07/1ib2cbkuq';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<script>
+    function submitForm() {
+        const form = document.getElementById('profilePictureForm');
+        if (form) {
+            form.submit(); // Submit the form when the checkbox is clicked
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+<section
+  class="md:h-[400px] h-[180px] flex items-center justify-center w-full bg-cover	bg-no-repeat bg-[url({{country.banner.url}})]">
+  <h1 style="text-shadow: 2px 2px #000"
+    class="md:text-5xl text-3xl [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+  </h1>
+</section>
+
+<section class="mx-5">
+  <div class="container m-auto gap-6 py-14 flex flex-col md:flex-row justify-between">
+    <div class="md:w-3/4 w-full">
+      <h3 class="text-4xl font-semibold mt-5">Jobs In {{country.name}}</h3>
+
+      {% if jobs.exists %}
+      <h6 class="text-xl font-semibold mt-5">
+        We Have Opening for Below Positions:
+      </h6>
+      <div class="mt-4 flex justify-between md:flex-row gap-3 flex-col">
+        <div class="flex md:justify-center items-center gap-2">
+          <input type="checkbox" name="remote" id="remote" />
+          <label for="remote">Remote Job</label>
+        </div>
+        <form method="GET" action="{% url 'country_jobs' country.pk %}" class="flex gap-1">
+          <input class="h-7 rounded p-2 w-full" type="search" name="job_search" id="job_search" value="{{ request.GET.q }}" />
+          <button type="submit"
+            class="cursor-pointer text-sm font-serif flex items-center justify-center px-2 bg-[#e8e8e8]">
+            Search
+          </button>
+        </form>
+      </div>
+      <div class="w-full overflow-x-auto">
+        <table class=" border-collapse border mt-4 border-slate-300   ">
+          <thead>
+            <tr class="h-11">
+              <th class="text-left  px-2 min-w-44">Posting Title</th>
+              <th class="text-left  px-2 min-w-32">Date Opened</th>
+              <th class="text-left  px-2 min-w-48">Job Description</th>
+              <th class="text-left  px-2 min-w-28">Experience</th>
+              <th class="text-left  px-2 min-w-28">Job Type</th>
+              <th class="text-left  px-2 min-w-28"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for job in jobs %}
+            <tr class="h-11 ">
+              <td class="border-t border-slate-300 px-2">
+                <a href="/{{country.id}}/{{job.id}}" class="text-blue-600 text-lg">{{job.title}}</a>
+              </td>
+              <td class="border-t border-slate-300 px-2 text-lg">{{job.posted|date:"d/m/Y"}}</td>
+              <td class="border-t border-slate-300 line-clamp-6 px-2 text-wrap">
+                {{job.description|safe}}
+              </td>
+              <td class="border-t border-slate-300 px-2 text-lg">{{job.experience}}</td>
+              <td class="border-t border-slate-300 px-2 capitalize text-lg">
+                {{ job.split_job_type }}
+              </td>
+              <td class="border-t border-slate-300 px-2 text-lg">
+                <a class="pointer text-sm font-serif py-[5px] px-2 bg-[#e8e8e8]" href="/apply-job/{{job.id}}">Apply
+                  Now</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      {% if country.name != 'Romania' %}
+      <div>
+        <h6 class=" my-10">Thank you for your interest, but there are no Job Openings available at this time. Please
+          check back at another time
+        </h6>
+      </div>
+      {% endif %}
+
+      {% endif %}
+    </div>
+
+    <div class="md:w-1/4 w-full">
+      <div class="w-full border-[1px]">
+        <h2 class="p-3 text-3xl font-serif font-bold bg-[#f9f9f9]">
+          Jobs in Countries
+        </h2>
+
+        <ul class="p-3 flex flex-col gap-2">
+          {% for country in countries %}
+          <li>
+            <i class="fa-solid fa-angle-right text-sm"></i>
+            <a class="hover:ml-2 transition-all duration-300 inline-block" href="/{{country.id}}">Jobs in
+              <span>{{country.name}}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if country.name == 'Romania' %}
+
+<section class="mx-5">
+  <div class="container m-auto  ">
+    <h6 class="font-serif font-bold  text-2xl my-5">SKILL SHORTAGE</h6>
+    <p class="my-5">România este o țară din sud-estul Europei, cu una dintre economiile cu cea mai rapidă creștere din
+      Uniunea Europeană. Cu
+      toate acestea, această creștere economică este influențată de un deficit mare de forță de muncă. Peste 9,7
+      milioane de
+      români trăiesc în prezent în străinătate, ceea ce duce la o scurgere majoră a creierului. Aceasta este agravată și
+      mai
+      mult de o îmbătrânire a populației. Sectorul construcțiilor, IT, agricultură și asistență medicală sunt cele mai
+      afectate industrii. Doar sectorul construcțiilor se confruntă cu un deficit de peste 600.000</p>
+
+
+    <h6 class="font-serif font-bold  text-2xl my-6">
+      ABOUT US
+    </h6>
+    <p class="my-6">Mumin Europe este o firmă de recrutare specializată în recrutarea lucrătorilor asiatici din Uniunea
+      Europeană.
+      Capacitățile noastre de aprovizionare ne permit să oferim clienților noștri, lucrători profesioniști și calificați
+      din
+      Bangladesh, Nepal, Sri Lanka, Vietnam, Filipine, Bangladesh și Thailanda. Amestecul unic al infrastructurii noastre
+      robuste
+      IT și a bazei de date interne de 2 milioane de lucrători și prezența locală europeană ne permit să oferim servicii
+      distincte
+    </p>
+
+
+    <h6 class="font-serif font-bold  text-2xl my-6">
+      INDUSTRIES WE SERVE
+    </h6>
+    <ul class="my-6   flex flex-col justify-center gap-1">
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Constructie</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Sănătate</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>ACEASTA</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Ospitalitate</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Petrol și gaze</span>
+        </li>
+    </ul>
+
+
+      <h6 class="font-serif font-bold  text-2xl my-6">
+        OUR SERVICES
+
+      </h6>
+      <ul class="my-6   flex flex-col justify-center gap-1">
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Servicii de testare și evaluare
+</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Recrutare în vrac
+</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Soluții la cheie pentru personal</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Soluții contractuale și salarizare</span>
+        </li>
+        <li class="flex items-center gap-1">
+          <i class="fa text-xs font-bold fa-angle-right"></i><span>Documentația privind imigrația</span>
+        </li>
+      </ul>
+
+        <h6 class="font-serif font-bold  text-2xl my-6">
+          OUR OFFICES
+        </h6>
+        <ul class="my-6   flex flex-col justify-center gap-1">
+          <li class="flex items-center gap-1">
+            <i class="fa text-xs font-bold fa-angle-right"></i><span>Brasov, Romania
+</span>
+          </li>
+          <li class="flex items-center gap-1">
+            <i class="fa text-xs font-bold fa-angle-right"></i><span>București, România
+</span>
+          </li>
+          <li class="flex items-center gap-1">
+            <i class="fa text-xs font-bold fa-angle-right"></i><span>Mumbai, Bangladesh
+</span>
+          </li>
+          <li class="flex items-center gap-1">
+            <i class="fa text-xs font-bold fa-angle-right"></i><span>Muscat, Oman
+</span>
+          </li>
+          <li class="flex items-center gap-1">
+            <i class="fa text-xs font-bold fa-angle-right"></i><span>Dubai, Emiratele Arabe Unite
+</span>
+          </li>
+        </ul>
+  </div>
+</section>
+
+{% endif %}
+
+
+
+{% endblock %}

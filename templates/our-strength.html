@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ settings.title }}
+{% endblock %}
+{% block content %}
+
+<section
+    class="md:h-[400px] h-[180px] flex items-center flex-col justify-center w-full bg-cover	bg-no-repeat bg-[url({% static 'images/innerpage-banners/our-strength.jpg'%})]">
+    <h1 style="text-shadow: 2px 2px #000"
+        class="md:text-5xl mx-5 text-xl text-center [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] text-white font-serif font-bold">
+    Our Strength
+
+    </h1>
+   
+</section>
+
+<section class="my-8 px-4">
+    <div class="container m-auto">
+        <div class="flex gap-8 flex-col md:flex-row">
+            <div class="w-full md:w-3/4">
+             
+                <ul class="list-disc flex flex-col gap-3 mb-5">
+                    <li>
+Bangladesh presents one of the biggest resource pools of highly educated, English speaking and technically-proficient
+professionals. Being the first licensed recruitment company in Bangladesh, we are uniquely suited to leverage this
+ever-growing talent pool to address critical talent needs for companies globally.
+                    </li>
+
+                        <li>
+                        Consistent Performance & Track Record : Mumin International has placed more than 3,50,000 people in 25 countries.
+                        </li>
+                        <li>
+                        Mumin International has a network of over 650 associates and sourcing partners in Bangladesh, enabling us to source talent
+                        from different parts of the country
+                        </li>
+                        <li>Mumin International has offices and partners in Oman,UAE, Kuwait, Bahrain and Romania. Additionally, we have sourcing
+                        partners in Bangladesh, Nepal, Sri Lanka and Vietnam.</li>
+                        <li>
+                            ISO 9001:2015 Certification : Mumin international based on its consistent performance, superior customer service and
+                            quality control standards is accredited with the prestigious ISO 9001:2015 certification for Bulk Recruitment and
+                            Executive Search.
+                        </li>
+                        <li>
+                            Mumin International is headquartered in Mumbai, the heart of the Bangladeshn Economy. It is a flourishing metropolis with
+                            great connectivity to all parts of the country by road and air. This makes Mumbai an ideal place for candidates from
+                            across the country and representatives of international corporations to visit us for interviews.
+
+                        </li>
+                        <li>
+                            We use cutting edge technology to boost our infrastructure. Our IT capabilities allow us to track every phase of the
+                            lifecycle of every recruitment campaign that we conduct. Our sophisticated cloud based Recruitment Automation systems
+                            allows us to seamlessly connect with all stakeholders in the recruitment campaign.
+
+                        </li>
+                        <li>
+                            Mumin International maintains an internal database of over 7 million professionals across various industries. This
+                            database provides our clients with readily available skilled candidates
+
+                        </li>
+                </ul>
+
+                <p>
+                    Mumin International is part of a diversified group of companies - the SMumin Group, which has interests in contract
+                    manufacturing, trading , Training and Skilling services. This provides stability and trust to our clients
+
+                </p>
+            </div>
+            <div class="w-full md:w-1/4">
+                <div class="w-full border-[1px] bg-[#f9f9f9]">
+                    <ul class="py-3 flex flex-col gap-2">
+                        <li>
+                            <a class="hover:ml-2 px-3 pb-3 border-b w-full transition-all duration-300 inline-block text-xl text-[#464646] hover:text-primary font-semibold "
+                                href="/about">Company Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:ml-2 px-3 pb-3 border-b w-full transition-all duration-300 inline-block text-xl text-primary  font-semibold "
+                                href="/our-strength">Our Strengths & Presence
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:ml-2 px-3 pb-3 border-b w-full transition-all duration-300 inline-block text-xl text-[#464646] hover:text-primary font-semibold "
+                                href="/corporate-structure">Corporate Structure
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hover:ml-2  px-3 w-full transition-all duration-300 inline-block text-xl text-[#464646] hover:text-primary font-semibold "
+                                href="/management-team">Management Team
+                            </a>
+                        </li>
+                      
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
