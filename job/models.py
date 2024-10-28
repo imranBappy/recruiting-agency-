@@ -3,7 +3,7 @@ from country.models import Country
 from utils.validator import  validate_file_size
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
-
+from job.position import positions
  
 
 class Job(models.Model):
@@ -94,18 +94,8 @@ class Candidate(models.Model):
     }
     
     category = models.CharField( choices=CATEGORY, default='OTHER', max_length=250)
-    JOB_POSITION = {
-        'SOFTWARE ENGINEER': 'Software Engineer',
-        'DATA SCIENTIST': 'Data Scientist',
-        'PRODUCT MANAGER': 'Product Manager',
-        'DIGITAL MARKETING MANAGER': 'Digital Marketing Manager',
-        'CLOUD ENGINEER': 'Cloud Engineer',
-        'CYBERSECURITY ANALYST': 'Cybersecurity Analyst',
-        'UX/UI DESIGNER': 'UX/UI Designer',
-        'AI/ML ENGINEER': 'AI/ML Engineer',
-        'DEVOPS ENGINEER': 'DevOps Engineer',
-        'BUSINESS ANALYST': 'Business Analyst'
-    }
+    JOB_POSITION = positions
+   
     position = models.CharField(choices=JOB_POSITION, max_length=250)
     location = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='candition_location')
     resume = models.FileField(upload_to='resumes/',
