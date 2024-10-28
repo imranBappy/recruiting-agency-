@@ -103,7 +103,7 @@ class Setting(models.Model):
 class Team(models.Model):
     name = models.CharField(max_length=500)
     title = models.CharField(max_length=500)
-    text = models.TextField(max_length=500)
+    text = models.TextField(max_length=1000)
     photo = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
     phone = models.CharField(max_length=250, null=True, blank=True)
     email = models.CharField(max_length=250)
