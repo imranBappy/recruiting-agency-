@@ -28,12 +28,14 @@
                     </h2>
                         <p>{{team.text}}
                         </p>
-                        <p class="mt-10 mb-2">
-                        TELEPHONE: {{team.phone}}
-                    </p>
-                    <p>
+                       
+                    <p class="mt-10 mb-2">
                         EMAIL: {{team.email}}
                     </p>
+
+                    {% if team.phone %}
+                    <p class=""> TELEPHONE: {{team.phone}} </p>
+                    {% endif %}
                 </div>
                 <div class="w-full border rounded">
                     <img class="w-full p-1 bg-white" src="{{team.photo.url}}" alt="">
