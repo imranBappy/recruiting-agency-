@@ -54,12 +54,13 @@
 
       <div>
         <h2 class="text-xl uppercase font-serif font-bold">Current Jobs</h2>
-        <ul class="flex flex-wrap flex-col gap-7 h-56 mt-5">
+        <ul class="flex flex-wrap flex-col gap-5 h-56 mt-5">
           {% for country in countries %}
           <li class="">
-            <a class="block" href="{{country.id}}">{{country.name}}</a>
+            <a class="block" href="{{country.id}}">Jobs in {{country.name}}</a>
           </li>
           {% endfor %}
+            <a class="block" href="/terms">Terms and Conditions</a>
         </ul>
       </div>
       <div>

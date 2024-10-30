@@ -751,30 +751,14 @@
           <p>
             <label for="id_location" class="font-serif font-bold">Current Location <span
                 class="text-lg font-bold text-red-600">*</span></label>
-            <select name="location"
+            <select name="currentLocation"
               class="block w-full text-sm text-gray-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
               required="" id="id_location">
               <option value="" selected> - Select - </option>
-        
-        
-              <option value="1">Saudi Arabia</option>
-        
-              <option value="2">German</option>
-        
-              <option value="3">Italy</option>
-        
-              <option value="4">Romania</option>
-        
-              <option value="5">Moldova</option>
-        
-              <option value="6">Canada</option>
-        
-              <option value="7">Australia</option>
-        
-              <option value="8">Hungary</option>
-        
+              {% for location in currentLocation %}
+                <option value="{{location.id}}">{{location.location}}</option>
+              {% endfor %}
             </select>
-        
         
           </p>
         

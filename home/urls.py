@@ -13,7 +13,7 @@ urlpatterns = [
     path('management-team/', views.team_management),
     path('recruitment-process/', views.recruitment_process),
     path('quick-register/', views.quick_register),
-
+    path('terms/', views.quick_register),
 
 ]
 

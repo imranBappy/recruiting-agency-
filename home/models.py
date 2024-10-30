@@ -95,6 +95,7 @@ class Setting(models.Model):
     title = models.CharField(max_length=500)
     description = models.TextField(max_length=500)
     logo = models.FileField(upload_to='general/',validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png']), validate_file_size])
+    termsAndCondition = models.TextField(max_length=500000)
     def __str__(self):
         return self.title
 

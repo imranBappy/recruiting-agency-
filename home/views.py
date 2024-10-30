@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .models import Slider, Award, Video, Serve, Contact, Setting, Service,Team
 from country.models import Country
 from job.forms import CandidateForm
+from job.models import CurrentLocation
+
 
 
 # Create your views here.
@@ -188,11 +190,30 @@ def quick_register(request):
     countries = Country.objects.all()
     contact = Contact.objects.get(id=1)
     settings = Setting.objects.get(id=1)
+    currentLocation = CurrentLocation.objects.all()
+
     context = {
         'services':services,
         'countries':countries,
         'contact':contact,
         'settings':settings,
         "form":form,
+        'currentLocation':currentLocation
+
     }
     return render(request,"quick-register.html" , context)
+
+
+def quick_register(request):
+    services = Service.objects.all()
+    countries = Country.objects.all()
+    contact = Contact.objects.get(id=1)
+    settings = Setting.objects.get(id=1)
+
+    context = {
+        'services':services,
+        'countries':countries,
+        'contact':contact,
+        'settings':settings,
+    }
+    return render(request,"terms.html" , context)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Job, ApplyJob, Candidate, Study, Employee,Grievance
+from .models import Job, ApplyJob, Candidate, Study, Employee,Grievance, CurrentLocation
 # Register your models here.
 
 
@@ -27,5 +27,9 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 
 @admin.register(Grievance)
+class GrievanceAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(CurrentLocation)
 class GrievanceAdmin(admin.ModelAdmin):
     pass

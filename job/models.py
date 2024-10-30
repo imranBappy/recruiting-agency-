@@ -63,7 +63,10 @@ class Client(models.Model):
     comment = models.TextField(max_length=5000,blank=True, null=True)
 
 
-
+class CurrentLocation(models.Model):
+    location = models.CharField(max_length=250)
+    def __str__(self):
+        return f"{self.id} - {self.location}"
 
 class Candidate(models.Model):
     agreed = models.CharField(max_length=250, null=True, blank=True)
@@ -93,11 +96,12 @@ class Candidate(models.Model):
         'OTHER':"Other",
     }
     
-    category = models.CharField( choices=CATEGORY, default='OTHER', max_length=250)
+    category = models.CharField( choices=CATEGORY, default='OTHER', max_length=250,  blank=True, null=True)
     JOB_POSITION = positions
    
     position = models.CharField(choices=JOB_POSITION, max_length=250)
-    location = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='candition_location')
+    location = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='candition_location',  blank=True, null=True)
+    currentLocation =  models.ForeignKey(CurrentLocation, on_delete=models.CASCADE, related_name='candition_CurrentLocation',  blank=True, null=True)
     resume = models.FileField(upload_to='resumes/',
     validators=[FileExtensionValidator(allowed_extensions=['pdf']), validate_file_size],
     blank=True, null=True 

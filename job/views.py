@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
 from django.http import HttpResponse
 from country.models import Country
-from .models import Job, ApplyJob,Candidate, Save,Client
+from .models import Job, ApplyJob,Candidate, Save,Client, CurrentLocation
 from django.forms.models import model_to_dict
 from .forms import ApplyJobForm,CandidateForm,EmployeeForm, StudyForm, GrievanceForm, ClientForm
 from django.views.decorators.http import require_http_methods
@@ -83,12 +83,16 @@ def candidate(request):
     countries = Country.objects.all()
     contact = Contact.objects.get(id=1)
     settings = Setting.objects.get(id=1)
+    currentLocation = CurrentLocation.objects.all()
+
+
     context = {
         'services':services,
         'countries':countries,
         'contact':contact,
         'settings':settings,
         "form":form,
+        'currentLocation':currentLocation
     }
     return render(request,"jobseeker.html" , context)
 
@@ -124,7 +128,7 @@ def candidate_submit(request):
     email = request.POST.get('email')
     category = request.POST.get('category')
     position = request.POST.get('position')
-    location_id = request.POST.get('location')
+    currentLocation_id = request.POST.get('currentLocation')
     agreed = request.POST.get('agreed') == 'on'  # Checkbox is 'on' if checked, otherwise absent
 
     # File handling for 'resume'
@@ -140,7 +144,7 @@ def candidate_submit(request):
             email=email,
             category=category,
             position=position,
-            location_id=location_id,
+            currentLocation_id=currentLocation_id,
             agreed=agreed  
         )
         if resume_file:
